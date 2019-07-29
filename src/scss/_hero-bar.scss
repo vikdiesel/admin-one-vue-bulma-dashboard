@@ -2,10 +2,6 @@ section.hero.is-hero-bar {
   background-color: $hero-bar-background;
   border-bottom: $light-border;
 
-  /*&.is-main-hero {
-    @include main-hero-background;
-  }*/
-
   .hero-body {
     padding: $default-padding;
 
