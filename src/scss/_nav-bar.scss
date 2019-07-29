@@ -1,0 +1,41 @@
+nav.navbar {
+  padding-right: 1.5rem;
+}
+
+@include touch {
+  nav.navbar {
+    display: flex;
+    padding-right: 0;
+
+    .navbar-brand {
+      flex: 1;
+
+      &.is-right {
+        flex: none;
+      }
+    }
+
+    .navbar-menu {
+      position: absolute;
+      width: 100vw;
+      padding-top: 0;
+      top: $navbar-height;
+      left: 0;
+
+      .navbar-item {
+        .icon:first-child {
+          margin-right: $default-padding * .5;
+        }
+
+        &.has-dropdown {
+          >.navbar-link {
+            background-color: $white-ter;
+            .icon:last-child {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
