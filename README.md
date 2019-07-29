@@ -18,7 +18,7 @@ JustBoil.me is happy to share this dashboard with you. Feel free to give your fe
 
 ## Table of Contents
 
-* [Description & Demo](#description-demo)
+* [Description & Demo](#description--demo)
 * [Quick Start](#quick-start)
 * [Browser Support](#browser-support)
 * [Reporting Issues](#reporting-issues)
