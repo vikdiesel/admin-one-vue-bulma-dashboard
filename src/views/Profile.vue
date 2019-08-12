@@ -7,28 +7,23 @@
         Dashboard
       </router-link>
     </hero-bar>
-    <section class="section">
-      <div class="columns">
-        <div class="column">
-          <profile-update-form/>
-        </div>
-        <div class="column is-two-fifths">
-          <card-component title="Profile" icon="account">
-            <div class="image is-user-avatar">
-              <img :src="userAvatar" :alt="userName" class="is-rounded"/>
-            </div>
-            <hr>
-            <b-field label="Name">
-              <b-input :value="userName" custom-class="is-static" readonly/>
-            </b-field>
-            <hr>
-            <b-field label="E-mail">
-              <b-input :value="userEmail" custom-class="is-static" readonly/>
-            </b-field>
-          </card-component>
-        </div>
-      </div>
-      <hr>
+    <section class="section is-main-section">
+      <tiles>
+        <profile-update-form class="tile is-child"/>
+        <card-component title="Profile" icon="account" class="tile is-child">
+          <div class="image is-user-avatar">
+            <img :src="userAvatar" :alt="userName" class="is-rounded"/>
+          </div>
+          <hr>
+          <b-field label="Name">
+            <b-input :value="userName" custom-class="is-static" readonly/>
+          </b-field>
+          <hr>
+          <b-field label="E-mail">
+            <b-input :value="userEmail" custom-class="is-static" readonly/>
+          </b-field>
+        </card-component>
+      </tiles>
       <password-update-form/>
     </section>
   </div>
@@ -41,9 +36,10 @@ import TitleBar from '@/components/TitleBar'
 import HeroBar from '@/components/HeroBar'
 import ProfileUpdateForm from '@/components/ProfileUpdateForm'
 import PasswordUpdateForm from '@/components/PasswordUpdateForm'
+import Tiles from '@/components/Tiles'
 export default {
   name: 'Profile',
-  components: { PasswordUpdateForm, ProfileUpdateForm, HeroBar, TitleBar, CardComponent },
+  components: { Tiles, PasswordUpdateForm, ProfileUpdateForm, HeroBar, TitleBar, CardComponent },
   computed: {
     titleStack () {
       return [

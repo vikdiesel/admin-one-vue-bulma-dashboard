@@ -20,13 +20,6 @@ export default {
     AsideMenu,
     NavBar
   },
-  created () {
-    this.$store.commit('user', {
-      name: 'John Doe',
-      email: 'john@example.com',
-      avatar: '/data-sources/avatars/annie-spratt-121576-unsplash.jpg'
-    })
-  },
   computed: {
     menu () {
       return [
@@ -87,6 +80,13 @@ export default {
         ]
       ]
     }
+  },
+  created () {
+    this.$store.commit('user', {
+      name: 'John Doe',
+      email: 'john@example.com',
+      avatar: '/data-sources/avatars/annie-spratt-121576-unsplash.jpg'
+    })
   }
 }
 </script>
