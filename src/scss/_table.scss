@@ -89,10 +89,11 @@ table.table {
       }
       td {
         &.is-progress-col {
-          span {
+          span, progress {
             display: flex;
             width: 45%;
             align-items: center;
+            align-self: center;
           }
         }
 

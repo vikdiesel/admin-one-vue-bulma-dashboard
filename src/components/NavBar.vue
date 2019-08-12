@@ -37,11 +37,11 @@
             </a>
           </div>
         </nav-bar-menu>
-        <a href="https://justboil.me/bulma-admin-template/one" class="navbar-item" title="About">
+        <a href="https://justboil.me/bulma-admin-template/one" class="navbar-item has-divider is-desktop-icon-only" title="About">
           <b-icon icon="help-circle-outline" custom-size="default"/>
           <span>About</span>
         </a>
-        <a class="navbar-item" title="Log out" @click="logout">
+        <a class="navbar-item is-desktop-icon-only" title="Log out" @click="logout">
           <b-icon icon="logout" custom-size="default"/>
           <span>Log out</span>
         </a>
@@ -87,7 +87,7 @@ export default {
 
     },
     logout () {
-      this.$snackbar.open({
+      this.$buefy.snackbar.open({
         message: 'Log out clicked',
         queue: false
       })

@@ -24,7 +24,6 @@
 </template>
 
 <script>
-import each from 'lodash/each'
 import { mapState } from 'vuex'
 import FilePicker from '@/components/FilePicker'
 import CardComponent from '@/components/CardComponent'
@@ -61,7 +60,7 @@ export default {
       setTimeout(() => {
         this.isLoading = false
         this.$store.commit('user', this.form)
-        this.$snackbar.open({
+        this.$buefy.snackbar.open({
           message: 'Updated',
           queue: false
         })

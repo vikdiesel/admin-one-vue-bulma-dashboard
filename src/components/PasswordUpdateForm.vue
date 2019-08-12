@@ -47,7 +47,7 @@ export default {
       this.isLoading = true
       setTimeout(() => {
         this.isLoading = false
-        this.$snackbar.open({
+        this.$buefy.snackbar.open({
           message: 'Updated',
           queue: false
         }, 500)

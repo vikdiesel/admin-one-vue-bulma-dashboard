@@ -69,7 +69,7 @@ export default {
   mounted () {
     this.fillChartData()
 
-    this.$snackbar.open({
+    this.$buefy.snackbar.open({
       message: 'Welcome back',
       queue: false
     })

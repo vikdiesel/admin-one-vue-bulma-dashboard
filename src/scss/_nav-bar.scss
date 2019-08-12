@@ -1,5 +1,21 @@
 nav.navbar {
-  padding-right: 1.5rem;
+  box-shadow: $navbar-box-shadow;
+
+  .navbar-item {
+    &.has-divider {
+      border-right: $navbar-divider-border;
+    }
+
+    &.has-dropdown {
+      padding-right: 0;
+      padding-left: 0;
+
+      .navbar-link {
+        padding-right: $navbar-item-h-padding;
+        padding-left: $navbar-item-h-padding;
+      }
+    }
+  }
 }
 
 @include touch {
@@ -34,6 +50,26 @@ nav.navbar {
               display: none;
             }
           }
+        }
+      }
+    }
+  }
+}
+
+@include desktop {
+  nav.navbar {
+    .navbar-item {
+      padding-right: $navbar-item-h-padding;
+      padding-left: $navbar-item-h-padding;
+
+      &:not(.is-desktop-icon-only) {
+        .icon:first-child {
+          margin-right: $default-padding * .5;
+        }
+      }
+      &.is-desktop-icon-only {
+        span:not(.icon) {
+          display: none;
         }
       }
     }

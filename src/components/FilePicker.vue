@@ -48,7 +48,7 @@ export default {
       //
       //   })
       //   .catch(err => {
-      //     this.$toast.open({
+      //     this.$buefy.toast.open({
       //       message: `Error: ${err.message}`,
       //       type: 'is-danger'
       //     })

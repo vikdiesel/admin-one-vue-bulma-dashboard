@@ -16,6 +16,12 @@
     }
   }
 
+  &.is-card-widget {
+    .card-content {
+      padding: $default-padding * .5;
+    }
+  }
+
   .card-header {
     border-bottom: 1px solid $base-color-light;
   }
@@ -27,13 +33,7 @@
     }
   }
 
-  .has-widget-icon {
-    border-left: 1px solid $white-bis;
-  }
-
   .is-widget-icon {
-    background-color: $white-bis;
-    border-radius: $radius-rounded;
     .icon {
       width: 5rem;
       height: 5rem;

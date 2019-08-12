@@ -117,7 +117,7 @@ export default {
         })
         .catch(e => {
           this.isLoading = false
-          this.$toast.open({
+          this.$buefy.toast.open({
             message: `Error: ${e.message}`,
             type: 'is-danger'
           })
@@ -131,7 +131,7 @@ export default {
     },
     trashConfirm () {
       this.isModalActive = false
-      this.$snackbar.open({
+      this.$buefy.snackbar.open({
         message: 'Confirmed',
         queue: false
       })
