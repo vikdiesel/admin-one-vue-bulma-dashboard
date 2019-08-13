@@ -6,6 +6,10 @@
 .icon {
   i {
     height: inherit;
+
+    &.has-height-auto {
+      height: auto;
+    }
   }
 }
 
