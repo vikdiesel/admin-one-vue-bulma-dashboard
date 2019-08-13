@@ -3,13 +3,33 @@
  * Problem with misalignment comes up with Buefy update 0.8.x
  */
 
-.icon {
+/*.icon {
   i {
     height: inherit;
 
-    &.has-height-auto {
+    &.mdi-24px {
       height: auto;
     }
+  }
+}*/
+
+.button, nav.navbar {
+  .icon {
+    i {
+      height: inherit;
+    }
+  }
+}
+
+.icon i {
+  &.mdi-24px {
+    height: auto!important;
+  }
+}
+
+@include touch {
+  .navbar-item:not(.has-dropdown), .navbar-link {
+    display: flex;
   }
 }
 

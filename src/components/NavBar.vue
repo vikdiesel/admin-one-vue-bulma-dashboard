@@ -2,7 +2,7 @@
   <nav v-show="isNavBarVisible" id="navbar-main" class="navbar is-fixed-top">
     <div class="navbar-brand">
       <a class="navbar-item is-hidden-desktop" @click.prevent="menuToggleMobile">
-        <b-icon :icon="menuToggleMobileIcon" custom-size="mdi-24px has-height-auto"/>
+        <b-icon :icon="menuToggleMobileIcon"/>
       </a>
     </div>
     <div class="navbar-brand is-right">
