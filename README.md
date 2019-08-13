@@ -1,8 +1,8 @@
 # [Admin One Vue Bulma Admin Dashboard](https://justboil.me/bulma-admin-template/one)
 
-![version](https://img.shields.io/badge/version-1.0.0-blue.svg)  ![license](https://img.shields.io/badge/license-MIT-blue.svg)
+![version](https://img.shields.io/badge/version-1.1.0-blue.svg)  ![license](https://img.shields.io/badge/license-MIT-blue.svg)
 
-![Vue Bulma Admin Dashboard](https://justboil.me/images/one/preview-free.jpg?v=1.1.0)
+![Vue Bulma Admin Dashboard](https://justboil.me/images/one/preview-free.jpg?v=1.1.1)
 
 **Admin One Vue Bulma Dashboard** is simple yet beautiful Vue.js Bulma Admin Dashboard.
 
