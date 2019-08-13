@@ -63,13 +63,16 @@ aside.aside {
 
   .menu-list {
     li {
-      a.has-dropdown-icon {
-        position: relative;
-        padding-right: $aside-icon-width;
-        .dropdown-icon {
-          position: absolute;
-          top: $size-base * .5;
-          right: 0;
+      a {
+        &.has-dropdown-icon {
+          position: relative;
+          padding-right: $aside-icon-width;
+
+          .dropdown-icon {
+            position: absolute;
+            top: $size-base * .5;
+            right: 0;
+          }
         }
       }
       ul {

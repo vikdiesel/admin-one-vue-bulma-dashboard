@@ -36,10 +36,10 @@
         <b-table-column custom-key="actions" class="is-actions-cell">
           <div class="buttons is-right">
             <button class="button is-small is-primary" type="button">
-              <b-icon icon="eye" custom-size="default"/>
+              <b-icon icon="eye" size="is-small"/>
             </button>
             <button class="button is-small is-danger" type="button" @click.prevent="trashModal(props.row)">
-              <b-icon icon="trash-can" custom-size="default"/>
+              <b-icon icon="trash-can" size="is-small"/>
             </button>
           </div>
         </b-table-column>

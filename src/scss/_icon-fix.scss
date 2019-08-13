@@ -1,0 +1,29 @@
+/*
+ * This fixes an issue with icons misalignment.
+ * Problem with misalignment comes up with Buefy update 0.8.x
+ */
+
+.icon {
+  i {
+    height: inherit;
+  }
+}
+
+aside.aside {
+  .menu-list {
+    li a.has-icon {
+      display: flex;
+
+      .icon {
+        i {
+          height: auto;
+        }
+      }
+
+      .menu-item-label {
+        line-height: 1.5rem;
+        height: 1.5rem;
+      }
+    }
+  }
+}
