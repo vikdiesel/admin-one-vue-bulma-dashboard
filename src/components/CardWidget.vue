@@ -1,6 +1,6 @@
 <template>
   <card-component>
-    <div class="level">
+    <div class="level is-mobile">
       <div class="level-item">
         <div class="is-widget-label">
           <h3 class="subtitle is-spaced">

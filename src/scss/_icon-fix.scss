@@ -3,7 +3,7 @@
  * Problem with misalignment comes up with Buefy update 0.8.x
  */
 
-.button, nav.navbar, .card-header-title {
+.button, nav.navbar, .card-header-title, .card-footer-item {
   .icon {
     i {
       height: inherit;
@@ -41,3 +41,4 @@ aside.aside {
     }
   }
 }
+
