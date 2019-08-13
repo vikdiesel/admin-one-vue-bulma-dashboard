@@ -6,11 +6,9 @@
       </a>
     </div>
     <div class="navbar-brand is-right">
-      <div class="navbar-item navbar-item-menu-toggle is-hidden-desktop">
-        <a @click.prevent="menuNavBarToggle">
-          <b-icon :icon="menuNavBarToggleIcon" custom-size="default"/>
-        </a>
-      </div>
+      <a class="navbar-item navbar-item-menu-toggle is-hidden-desktop" @click.prevent="menuNavBarToggle">
+        <b-icon :icon="menuNavBarToggleIcon" custom-size="default"/>
+      </a>
     </div>
     <div ref="menuNavBar" class="navbar-menu fadeIn animated faster" :class="{'is-active':isMenuNavBarActive}">
       <div class="navbar-end">
