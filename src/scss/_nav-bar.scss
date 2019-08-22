@@ -2,8 +2,19 @@ nav.navbar {
   box-shadow: $navbar-box-shadow;
 
   .navbar-item {
+    &.has-user-avatar {
+      .is-user-avatar {
+        margin-right: $default-padding * .5;
+        display: inline-flex;
+      }
+    }
+
     &.has-divider {
       border-right: $navbar-divider-border;
+    }
+
+    &.no-left-space {
+      padding-left: 0;
     }
 
     &.has-dropdown {
@@ -13,6 +24,19 @@ nav.navbar {
       .navbar-link {
         padding-right: $navbar-item-h-padding;
         padding-left: $navbar-item-h-padding;
+      }
+    }
+
+    .control {
+      .input {
+        color: $navbar-input-color;
+        border: 0;
+        box-shadow: none;
+        background: transparent;
+
+        &::placeholder {
+          color: $navbar-input-placeholder-color;
+        }
       }
     }
   }
@@ -49,6 +73,15 @@ nav.navbar {
             .icon:last-child {
               display: none;
             }
+          }
+        }
+
+        &.has-user-avatar {
+          >.navbar-link {
+            display: flex;
+            align-items: center;
+            padding-top: $default-padding * .5;
+            padding-bottom: $default-padding * .5;
           }
         }
       }

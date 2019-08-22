@@ -11,9 +11,7 @@
       <tiles>
         <profile-update-form class="tile is-child"/>
         <card-component title="Profile" icon="account" class="tile is-child">
-          <div class="image is-user-avatar">
-            <img :src="userAvatar" :alt="userName" class="is-rounded"/>
-          </div>
+          <user-avatar class="image has-max-width is-aligned-center"/>
           <hr>
           <b-field label="Name">
             <b-input :value="userName" custom-class="is-static" readonly/>
@@ -37,9 +35,10 @@ import HeroBar from '@/components/HeroBar'
 import ProfileUpdateForm from '@/components/ProfileUpdateForm'
 import PasswordUpdateForm from '@/components/PasswordUpdateForm'
 import Tiles from '@/components/Tiles'
+import UserAvatar from '@/components/UserAvatar'
 export default {
   name: 'Profile',
-  components: { Tiles, PasswordUpdateForm, ProfileUpdateForm, HeroBar, TitleBar, CardComponent },
+  components: { UserAvatar, Tiles, PasswordUpdateForm, ProfileUpdateForm, HeroBar, TitleBar, CardComponent },
   computed: {
     titleStack () {
       return [
@@ -49,8 +48,7 @@ export default {
     },
     ...mapState([
       'userName',
-      'userEmail',
-      'userAvatar'
+      'userEmail'
     ])
   }
 }

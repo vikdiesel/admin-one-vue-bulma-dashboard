@@ -3,14 +3,15 @@
     <modal-box :is-active="isModalActive" :trash-object-name="trashObjectName" @confirm="trashConfirm"
                @cancel="trashCancel"/>
     <b-table
-        :checkable="checkable"
-        :loading="isLoading"
-        :paginated="paginated"
-        :per-page="perPage"
-        :striped="true"
-        :hoverable="true"
-        default-sort="name"
-        :data='clients'>
+      :checked-rows.sync="checkedRows"
+      :checkable="checkable"
+      :loading="isLoading"
+      :paginated="paginated"
+      :per-page="perPage"
+      :striped="true"
+      :hoverable="true"
+      default-sort="name"
+      :data='clients'>
 
       <template slot-scope="props">
         <b-table-column class="has-no-head-mobile is-image-cell">
@@ -35,9 +36,9 @@
         </b-table-column>
         <b-table-column custom-key="actions" class="is-actions-cell">
           <div class="buttons is-right">
-            <button class="button is-small is-primary" type="button">
-              <b-icon icon="eye" size="is-small"/>
-            </button>
+            <router-link :to="{name:'client.edit', params: {id: props.row.id}}" class="button is-small is-primary">
+              <b-icon icon="account-edit" size="is-small"/>
+            </router-link>
             <button class="button is-small is-danger" type="button" @click.prevent="trashModal(props.row)">
               <b-icon icon="trash-can" size="is-small"/>
             </button>
@@ -89,7 +90,8 @@ export default {
       clients: [],
       isLoading: false,
       paginated: false,
-      perPage: 10
+      perPage: 10,
+      checkedRows: []
     }
   },
   computed: {

@@ -29,6 +29,17 @@ export default new Router({
       path: '/profile',
       name: 'profile',
       component: () => import(/* webpackChunkName: "profile" */ './views/Profile.vue')
+    },
+    {
+      path: '/client/new',
+      name: 'client.new',
+      component: () => import(/* webpackChunkName: "client-form" */ './views/ClientForm.vue'),
+    },
+    {
+      path: '/client/:id',
+      name: 'client.edit',
+      component: () => import(/* webpackChunkName: "client-form" */ './views/ClientForm.vue'),
+      props: true
     }
   ],
   scrollBehavior (to, from, savedPosition) {

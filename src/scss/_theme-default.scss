@@ -21,6 +21,8 @@ $light-border: 1px solid $base-color-light;
 $hr-height: 1px;
 
 /* NavBar: specifics */
+$navbar-input-color: $grey-darker;
+$navbar-input-placeholder-color: $grey-lighter;
 $navbar-box-shadow: 0 1px 0 rgba(24,28,33,.04);
 $navbar-divider-border: 1px solid rgba($grey-lighter, .25);
 $navbar-item-h-padding: $default-padding * .75;

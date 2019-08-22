@@ -1,8 +1,8 @@
 # [Admin One Vue Bulma Admin Dashboard](https://justboil.me/bulma-admin-template/one)
 
-![version](https://img.shields.io/badge/version-1.1.0-blue.svg)  ![license](https://img.shields.io/badge/license-MIT-blue.svg)
+![version](https://img.shields.io/badge/version-1.2.0-blue.svg)  ![license](https://img.shields.io/badge/license-MIT-blue.svg)
 
-![Vue Bulma Admin Dashboard](https://justboil.me/images/one/preview-free.jpg?v=1.1.1)
+![Vue Bulma Admin Dashboard](https://justboil.me/images/one/preview-free.jpg?v=1.2.0)
 
 **Admin One Vue Bulma Dashboard** is simple yet beautiful Vue.js Bulma Admin Dashboard.
 
@@ -80,4 +80,5 @@ The issue list is reserved exclusively for bug reports and feature requests. Tha
 
 - [JustBoil.me](https://justboil.me)
 - [Affiliate Program](https://justboil.me/info/affiliates)
+- [Buefy](https://buefy.org)
 - [VueCLI Configuration Reference](https://cli.vuejs.org/config/)
