@@ -11,7 +11,7 @@
       :striped="true"
       :hoverable="true"
       default-sort="name"
-      :data='clients'>
+      :data="clients">
 
       <template slot-scope="props">
         <b-table-column class="has-no-head-mobile is-image-cell">

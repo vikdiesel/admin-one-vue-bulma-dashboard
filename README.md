@@ -8,22 +8,28 @@
 
 * Free under MIT License
 * SPA — Single page app
-* Built with VueCLI 3.6
-* Powered by Buefy
+* Built with VueCLI 3.6, Buefy & Bulma
 * SCSS sources with variables
 * More than 17 custom components
 * [Premium version](https://justboil.me/bulma-admin-template/one) available
 
-JustBoil.me is happy to share this dashboard with you. Feel free to give your feedback
+[JustBoil.me](https://justboil.me) is happy to share this dashboard with you. Feel free to give your feedback
 
 ## Table of Contents
 
+* [Laravel version](#laravel-version)
 * [Description & Demo](#description--demo)
 * [Quick Start](#quick-start)
 * [Browser Support](#browser-support)
 * [Reporting Issues](#reporting-issues)
 * [Licensing](#licensing)
 * [Useful Links](#useful-links)
+
+## Laravel version
+
+Laravel version with fully-styled authentication scaffolding and resource CRUD samples (front-end & back-end) is available at https://github.com/vikdiesel/admin-one-laravel-dashboard 
+
+More info on free & premium versions of Admin One Dashboard: https://justboil.me/bulma-admin-template/one
 
 ## Description & Demo
 

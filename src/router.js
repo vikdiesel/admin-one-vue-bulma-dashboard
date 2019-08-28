@@ -33,7 +33,7 @@ export default new Router({
     {
       path: '/client/new',
       name: 'client.new',
-      component: () => import(/* webpackChunkName: "client-form" */ './views/ClientForm.vue'),
+      component: () => import(/* webpackChunkName: "client-form" */ './views/ClientForm.vue')
     },
     {
       path: '/client/:id',
