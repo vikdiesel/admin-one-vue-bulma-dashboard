@@ -6,6 +6,8 @@ nav.navbar {
       .is-user-avatar {
         margin-right: $default-padding * .5;
         display: inline-flex;
+        width: $navbar-avatar-size;
+        height: $navbar-avatar-size;
       }
     }
 
