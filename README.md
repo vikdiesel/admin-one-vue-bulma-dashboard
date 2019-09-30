@@ -1,6 +1,6 @@
 # [Admin One Vue Bulma Admin Dashboard](https://justboil.me/bulma-admin-template/one)
 
-![version](https://img.shields.io/badge/version-1.2.0-blue.svg)  ![license](https://img.shields.io/badge/license-MIT-blue.svg)
+![version](https://img.shields.io/badge/version-1.2.1-blue.svg)  ![license](https://img.shields.io/badge/license-MIT-blue.svg)
 
 ![Vue Bulma Admin Dashboard](https://justboil.me/images/one/preview-free.jpg?v=1.2.0)
 
@@ -17,7 +17,7 @@
 
 ## Table of Contents
 
-* [Laravel version](#laravel-version)
+* [Other versions](#other-versions)
 * [Description & Demo](#description--demo)
 * [Quick Start](#quick-start)
 * [Browser Support](#browser-support)
@@ -25,11 +25,27 @@
 * [Licensing](#licensing)
 * [Useful Links](#useful-links)
 
-## Laravel version
-
-Laravel version with fully-styled authentication scaffolding and resource CRUD samples (front-end & back-end) is available at https://github.com/vikdiesel/admin-one-laravel-dashboard 
+## Other versions
 
 More info on free & premium versions of Admin One Dashboard: https://justboil.me/bulma-admin-template/one
+
+### Bulma Admin Dashboard (HTML)
+
+**Free & premium.** HTML + CSS/SCSS Bulma admin dashboard 
+
+https://github.com/vikdiesel/admin-one-bulma-dashboard
+
+### Laravel Bulma Admin Dashboard (Vue.js SPA)
+
+**Free & premium.** Laravel version with fully-styled authentication scaffolding and resource CRUD samples (front-end & back-end) 
+ 
+https://github.com/vikdiesel/admin-one-laravel-dashboard 
+
+### Vue.js Bulma Admin Dashboard (SPA)
+
+**Free & premium.** Vue.js 2.6 + Vue CLI 3.6 SPA Dashboard
+
+https://github.com/vikdiesel/admin-one-vue-bulma-dashboard
 
 ## Description & Demo
 
