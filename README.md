@@ -2,7 +2,7 @@
 
 ![version](https://img.shields.io/badge/version-1.2.5-blue.svg)  ![license](https://img.shields.io/badge/license-MIT-blue.svg)
 
-![Vue Bulma Admin Dashboard](https://justboil.me/images/one/preview-free.jpg?v=1.2.0)
+![Vue Bulma Admin Dashboard](https://justboil.me/images/one/repository-preview-free.png)
 
 **Admin One** is simple, beautiful and free Vue Bulma admin dashboard (SPA/PWA).
 
