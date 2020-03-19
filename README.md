@@ -1,19 +1,19 @@
-# [Admin One Vue Bulma Admin Dashboard](https://justboil.me/bulma-admin-template/one)
+# [Admin One  — Free Vue Bulma Dashboard](https://justboil.me/bulma-admin-template/one)
 
-![version](https://img.shields.io/badge/version-1.2.4-blue.svg)  ![license](https://img.shields.io/badge/license-MIT-blue.svg)
+![version](https://img.shields.io/badge/version-1.2.5-blue.svg)  ![license](https://img.shields.io/badge/license-MIT-blue.svg)
 
 ![Vue Bulma Admin Dashboard](https://justboil.me/images/one/preview-free.jpg?v=1.2.0)
 
-**Admin One Vue Bulma Dashboard** is simple yet beautiful Vue.js Bulma Admin Dashboard.
+**Admin One** is simple, beautiful and free Vue Bulma admin dashboard (SPA/PWA).
 
 * Free under MIT License
-* SPA — Single page app
+* PWA/SPA — Single page app
 * Built with VueCLI 3.6, Buefy & Bulma
 * SCSS sources with variables
 * More than 17 custom components
 * [Premium version](https://justboil.me/bulma-admin-template/one) available
 
-[JustBoil.me](https://justboil.me) is happy to share this dashboard with you. Feel free to give your feedback
+[JustBoil.me](https://justboil.me) is excited to share this dashboard with community.
 
 ## Table of Contents
 
@@ -41,12 +41,6 @@ https://github.com/vikdiesel/admin-one-bulma-dashboard
  
 https://github.com/vikdiesel/admin-one-laravel-dashboard 
 
-### Vue.js Bulma Admin Dashboard (SPA)
-
-**Free & premium.** Vue.js 2.6 + Vue CLI 3.6 SPA Dashboard
-
-https://github.com/vikdiesel/admin-one-vue-bulma-dashboard
-
 ## Description & Demo
 
 * Description: https://justboil.me/bulma-admin-template/one
@@ -59,9 +53,8 @@ https://github.com/vikdiesel/admin-one-vue-bulma-dashboard
 
 Do one of the following:
 
-* Clone this repo
-* Download as zip-archive from GitHub
-* Download from [JustBoil.me](https://justboil.me/bulma-admin-template/one)
+* Clone the repo
+* [Download .zip](https://github.com/vikdiesel/admin-one-vue-bulma-dashboard/archive/master.zip) from GitHub
 
 #### Install
 
@@ -95,7 +88,7 @@ The issue list is reserved exclusively for bug reports and feature requests. Tha
 
 ## Licensing
 
-- Copyright &copy; 2019 Viktor Kuzhelnyi (https://justboil.me)
+- Copyright &copy; 2019-2020 JustBoil.me (https://justboil.me)
 - Licensed under MIT
 
 ## Useful Links
