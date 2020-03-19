@@ -94,6 +94,7 @@ The issue list is reserved exclusively for bug reports and feature requests. Tha
 ## Useful Links
 
 - [JustBoil.me](https://justboil.me)
-- [Affiliate Program](https://justboil.me/info/affiliates)
+- [Vue.js Guide](https://vuejs.org/v2/guide/)
+- [Vue CLI Guide](https://cli.vuejs.org/guide/)
 - [Buefy](https://buefy.org)
-- [VueCLI Configuration Reference](https://cli.vuejs.org/config/)
+- [Bulma](https://bulma.io)
