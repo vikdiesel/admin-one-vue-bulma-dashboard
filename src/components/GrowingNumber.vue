@@ -43,11 +43,11 @@ export default {
   },
   methods: {
     growInit () {
-      let m = this.value / (this.duration / 25)
+      const m = this.value / (this.duration / 25)
       this.grow(m)
     },
     grow (m) {
-      let v = Math.ceil(this.newValue + m)
+      const v = Math.ceil(this.newValue + m)
 
       if (v > this.value) {
         this.newValue = this.value

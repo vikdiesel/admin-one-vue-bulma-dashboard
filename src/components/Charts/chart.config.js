@@ -14,7 +14,7 @@ export const baseChartOptions = {
   responsive: true
 }
 
-export let chartOptionsMain = {
+export const chartOptionsMain = {
   ...baseChartOptions,
   tooltips: {
     backgroundColor: '#f5f5f5',
