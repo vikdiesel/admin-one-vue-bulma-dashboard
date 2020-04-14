@@ -59,7 +59,7 @@ https://admin-one-vue-cli.justboil.me
 
 * [Create new repo](https://github.com/vikdiesel/admin-one-vue-bulma-dashboard/generate) from this template
 * &hellip;or clone the repo on GitHub
-* &hellip;or [Download .zip](https://github.com/vikdiesel/admin-one-vue-bulma-dashboard/archive/master.zip) from GitHub
+* &hellip;or [download .zip](https://github.com/vikdiesel/admin-one-vue-bulma-dashboard/archive/master.zip) from GitHub
 
 #### Install
 
