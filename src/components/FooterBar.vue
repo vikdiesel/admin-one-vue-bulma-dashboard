@@ -4,7 +4,9 @@
       <div class="level">
         <div class="level-left">
           <div class="level-item">
-            &copy; {{ year }}, JustBoil.me
+            <div class="footer-copyright">
+              <b>&copy; {{ year }}, JustBoil.me</b> &mdash; Admin One Demo <span class="tag">v1.2.7</span>
+            </div>
           </div>
         </div>
         <div class="level-right">

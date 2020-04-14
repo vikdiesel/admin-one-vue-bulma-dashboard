@@ -85,7 +85,7 @@ export default {
     this.$store.commit('user', {
       name: 'John Doe',
       email: 'john@example.com',
-      avatar: '/data-sources/avatars/annie-spratt-121576-unsplash.jpg'
+      avatar: 'https://avatars.dicebear.com/v2/gridy/John-Doe.svg'
     })
   }
 }

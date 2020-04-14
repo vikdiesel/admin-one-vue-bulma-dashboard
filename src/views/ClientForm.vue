@@ -53,7 +53,7 @@
           </form>
         </card-component>
         <card-component v-if="isProfileExists" title="Client Profile" icon="account" class="tile is-child">
-          <user-avatar :avatar="form.file" class="image has-max-width is-aligned-center"/>
+          <user-avatar :avatar="form.avatar" class="image has-max-width is-aligned-center"/>
           <hr>
           <b-field label="Name">
             <b-input :value="form.name" custom-class="is-static" readonly/>

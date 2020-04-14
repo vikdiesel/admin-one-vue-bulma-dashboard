@@ -1,19 +1,17 @@
 # [Admin One  — Free Vue Bulma Dashboard](https://justboil.me/bulma-admin-template/one)
 
-![version](https://img.shields.io/badge/version-1.2.6-blue.svg)  ![license](https://img.shields.io/badge/license-MIT-blue.svg)
+[![version](https://img.shields.io/badge/version-1.2.7-blue.svg)](https://justboil.me/bulma-admin-template/one)  [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://justboil.me/bulma-admin-template/one)
 
 [![Vue.js Bulma free admin dashboard](https://justboil.me/images/one/repository-preview-free.png)](https://justboil.me/bulma-admin-template/one)
 
-**Admin One** is simple, beautiful and free Vue Bulma admin dashboard (SPA/PWA).
+**Admin One** is simple, beautiful and free Vue.js Buefy Bulma admin dashboard (SPA/PWA).
 
 * Free under MIT License
 * PWA/SPA — Single page app
-* Built with VueCLI 3.6, Buefy & Bulma
+* Built with Vue CLI, Vue.js, Buefy & Bulma
 * SCSS sources with variables
 * More than 17 custom components
 * [Premium version](https://justboil.me/bulma-admin-template/one) available
-
-[JustBoil.me](https://justboil.me) is excited to share this dashboard with community.
 
 ## Table of Contents
 
@@ -43,9 +41,17 @@ https://github.com/vikdiesel/admin-one-laravel-dashboard
 
 ## Description & Demo
 
-* Description: https://justboil.me/bulma-admin-template/one
-* **Free Dashboard** Demo: https://admin-one-free.justboil.me
-* **Premium Dashboard** Demo: https://admin-one-vue-cli.justboil.me
+#### Description
+
+https://justboil.me/bulma-admin-template/one
+
+#### Free Dashboard Demo
+
+https://admin-one-free.justboil.me
+
+#### Premium Dashboard Demo
+
+https://admin-one-vue-cli.justboil.me
 
 ## Quick Start
 
@@ -72,7 +78,7 @@ Production-ready with minified bundle `npm run build`
 
 We try to make sure Dashboard works well in latest versions of all major browsers
 
-![Chrome](https://justboil.me/images/browsers/chrome.png) ![Firefox](https://justboil.me/images/browsers/firefox.png) ![Microsoft Edge](https://justboil.me/images/browsers/edge.png) ![Opera](https://justboil.me/images/browsers/opera.png) ![Safari](https://justboil.me/images/browsers/safari.png)
+<img src="https://justboil.me/images/browsers-svg/chrome.svg" width="64" height="64" alt="Chrome"> <img src="https://justboil.me/images/browsers-svg/firefox.svg" width="64" height="64" alt="Firefox"> <img src="https://justboil.me/images/browsers-svg/edge.svg" width="64" height="64" alt="Edge"> <img src="https://justboil.me/images/browsers-svg/safari.svg" width="64" height="64" alt="Safari"> <img src="https://justboil.me/images/browsers-svg/opera.svg" width="64" height="64" alt="Opera">
 
 ## Reporting Issues
 

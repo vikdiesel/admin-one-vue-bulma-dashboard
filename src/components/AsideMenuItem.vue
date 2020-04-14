@@ -17,6 +17,9 @@
 <script>
 export default {
   name: 'AsideMenuItem',
+  components: {
+    AsideMenuList: () => import('@/components/AsideMenuList')
+  },
   data () {
     return {
       isDropdownActive: false

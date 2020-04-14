@@ -47,10 +47,10 @@
           </div>
 
           <div slot="dropdown" class="navbar-dropdown">
-            <a class="navbar-item">
-              <b-icon icon="account" custom-size="default"></b-icon>
+            <router-link to="/profile" class="navbar-item" exact-active-class="is-active">
+              <b-icon icon="account" custom-size="default"/>
               <span>My Profile</span>
-            </a>
+            </router-link>
             <a class="navbar-item">
               <b-icon icon="settings" custom-size="default"></b-icon>
               <span>Settings</span>
