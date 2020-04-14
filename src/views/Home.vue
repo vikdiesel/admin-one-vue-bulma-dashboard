@@ -23,7 +23,7 @@
       </card-component>
 
       <card-component title="Clients" class="has-table has-mobile-sort-spaced">
-        <clients-table-sample data-url="/data-sources/clients.json"/>
+        <clients-table-sample :data-url="`${$router.options.base}data-sources/clients.json`"/>
       </card-component>
     </section>
   </div>

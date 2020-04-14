@@ -5,6 +5,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "build:gh-pages": "cross-env DEPLOY_ENV=GH_PAGES vue-cli-service build",
+    "deploy:gh-pages": "cross-env NODE_DEBUG=gh-pages gh-pages -d dist -t",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -32,12 +34,14 @@
     "@vue/cli-service": "^4.3.0",
     "@vue/eslint-config-standard": "^5.1.2",
     "babel-eslint": "^10.1.0",
+    "cross-env": "^7.0.2",
     "eslint": "^6.8.0",
-    "eslint-plugin-vue": "^6.2.2",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
+    "eslint-plugin-vue": "^6.2.2",
+    "gh-pages": "^2.2.0",
     "sass": "^1.26.3",
     "sass-loader": "^8.0.2",
     "vue-template-compiler": "^2.6.11"
