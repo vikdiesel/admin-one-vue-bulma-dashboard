@@ -2,7 +2,7 @@
 
 [![version](https://img.shields.io/badge/version-1.2.7-blue.svg)](https://justboil.me/bulma-admin-template/one)  [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://justboil.me/bulma-admin-template/one)
 
-[![Vue.js Bulma free admin dashboard](https://justboil.me/images/one/repository-preview-free.png)](https://vikdiesel.github.io/admin-one-vue-bulma-dashboard/)
+[![Vue.js Bulma free admin dashboard](https://justboil.me/images/one/repository-preview-hi-res.png)](https://vikdiesel.github.io/admin-one-vue-bulma-dashboard/)
 
 **Admin One** is simple, beautiful and free Vue.js Buefy Bulma admin dashboard (SPA/PWA).
 
