@@ -5,7 +5,7 @@
         <div class="level-left">
           <div class="level-item">
             <div class="footer-copyright">
-              <b>&copy; {{ year }}, JustBoil.me</b> &mdash; Admin One Demo <span class="tag">v1.2.7</span>
+              <b>&copy; {{ year }}, JustBoil.me</b> &mdash; Admin One Demo <span class="tag">v1.3.0</span>
             </div>
           </div>
         </div>
@@ -24,14 +24,14 @@
 </template>
 
 <script>
-import moment from 'moment'
+import dayjs from 'dayjs'
 import { mapState } from 'vuex'
 
 export default {
   name: 'FooterBar',
   computed: {
     year () {
-      return moment().year()
+      return dayjs().year()
     },
     ...mapState([
       'isFooterBarVisible'
