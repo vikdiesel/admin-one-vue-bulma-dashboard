@@ -11,7 +11,7 @@
       <div class="level-right">
         <div class="level-item">
           <div class="buttons is-right">
-            <a href="https://admin-one-vue-cli.justboil.me/" target="_blank" class="button is-primary">
+            <a href="https://admin-one.justboil.me/" target="_blank" class="button is-primary">
               <b-icon icon="credit-card" custom-size="default"/>
               <span>Premium Demo</span>
             </a>

@@ -22,7 +22,7 @@ const defaultDocumentTitle = 'Admin One Bulma'
 router.afterEach(to => {
   store.commit('asideMobileStateToggle', false)
 
-  if (to.meta.title) {
+  if (to.meta && to.meta.title) {
     document.title = `${to.meta.title} — ${defaultDocumentTitle}`
   } else {
     document.title = defaultDocumentTitle

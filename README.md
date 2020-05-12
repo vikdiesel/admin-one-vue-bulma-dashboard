@@ -50,7 +50,7 @@ https://vikdiesel.github.io/admin-one-vue-bulma-dashboard/
 
 #### Premium Dashboard Demo
 
-https://admin-one-vue-cli.justboil.me
+https://admin-one.justboil.me
 
 ## Quick Start
 

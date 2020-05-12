@@ -68,7 +68,7 @@ export default {
         'About',
         [
           {
-            href: 'https://admin-one-vue-cli.justboil.me',
+            href: 'https://admin-one.justboil.me',
             label: 'Premium Demo',
             icon: 'credit-card'
           },
