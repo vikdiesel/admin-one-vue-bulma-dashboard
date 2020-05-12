@@ -8,11 +8,15 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/admin-one-vue-bulma-dashboard/data-sources/clients.json"
   },
   {
+    "revision": "9ed33b873e49a44feb61a3e2fea0dc2a",
+    "url": "/admin-one-vue-bulma-dashboard/favicon.png"
+  },
+  {
     "revision": "7298fabbecbc6f87cf690f717af8652c",
     "url": "/admin-one-vue-bulma-dashboard/img/justboil-logo.7298fabb.svg"
   },
   {
-    "revision": "e8b22b967f925746cfd53920ce6edfbc",
+    "revision": "73a5ceb9d5e0972f83372aa8c699c0c2",
     "url": "/admin-one-vue-bulma-dashboard/index.html"
   },
   {
