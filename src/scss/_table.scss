@@ -5,7 +5,7 @@ table.table {
     }
   }
 
-  td {
+  td,th {
     .image {
       width: $table-avatar-size;
       height: $table-avatar-size;
@@ -14,6 +14,18 @@ table.table {
     &.is-progress-col {
       min-width: 5rem;
       vertical-align: middle;
+    }
+
+    &.checkbox-cell {
+      .b-checkbox.checkbox:not(.button) {
+        margin-right: 0;
+        width: 20px;
+
+        .control-label {
+          display: none;
+          padding: 0;
+        }
+      }
     }
   }
 
