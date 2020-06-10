@@ -1,7 +1,7 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "2b8ed21eb45a022b7ab0",
-    "url": "/admin-one-vue-bulma-dashboard/css/app.f92a7ffc.css"
+    "revision": "a46489c3e09bf8e26f61",
+    "url": "/admin-one-vue-bulma-dashboard/css/app.89c951b5.css"
   },
   {
     "revision": "eeaeb4a3eebc670da20483c2c01ac750",
@@ -16,36 +16,36 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/admin-one-vue-bulma-dashboard/img/justboil-logo.7298fabb.svg"
   },
   {
-    "revision": "b980525568ba273cd7a399a53ba8cbe9",
+    "revision": "0f7ce4e2f9bf609e19f4c92fcd6ea520",
     "url": "/admin-one-vue-bulma-dashboard/index.html"
   },
   {
-    "revision": "2b8ed21eb45a022b7ab0",
-    "url": "/admin-one-vue-bulma-dashboard/js/app.e4ffd3a4.js"
+    "revision": "a46489c3e09bf8e26f61",
+    "url": "/admin-one-vue-bulma-dashboard/js/app.0f796733.js"
   },
   {
     "revision": "6f6721cb57d531522d6c",
     "url": "/admin-one-vue-bulma-dashboard/js/chunk-vendors.6c50ea45.js"
   },
   {
-    "revision": "91e00797a68b36a50188",
-    "url": "/admin-one-vue-bulma-dashboard/js/client-form.3894e584.js"
+    "revision": "24c076f75ec822fb8b40",
+    "url": "/admin-one-vue-bulma-dashboard/js/client-form.a9606ad1.js"
   },
   {
-    "revision": "179f6fd911aceea6b2f8",
-    "url": "/admin-one-vue-bulma-dashboard/js/client-form~forms.56163b0c.js"
+    "revision": "8f76a231dd7956dc6d73",
+    "url": "/admin-one-vue-bulma-dashboard/js/client-form~forms.3adca4dd.js"
   },
   {
-    "revision": "c2b8b5ca3314fa872844",
-    "url": "/admin-one-vue-bulma-dashboard/js/forms.d53c2cc6.js"
+    "revision": "22fd70bfcfd2687ca147",
+    "url": "/admin-one-vue-bulma-dashboard/js/forms.9ac17543.js"
   },
   {
-    "revision": "0b6fcd38a6fdbf0d2fb0",
-    "url": "/admin-one-vue-bulma-dashboard/js/profile.d582c497.js"
+    "revision": "2333869f03ab9c8fa3f3",
+    "url": "/admin-one-vue-bulma-dashboard/js/profile.948a027d.js"
   },
   {
-    "revision": "71d9468338a92e80287e",
-    "url": "/admin-one-vue-bulma-dashboard/js/tables.78f7653f.js"
+    "revision": "1e634aedba7720ef32d8",
+    "url": "/admin-one-vue-bulma-dashboard/js/tables.5c553c0b.js"
   },
   {
     "revision": "9e02268cb14385af9653507bc8b8ee72",
