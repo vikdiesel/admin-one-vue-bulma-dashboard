@@ -5,17 +5,7 @@ table.table {
     }
   }
 
-  td,th {
-    .image {
-      width: $table-avatar-size;
-      height: $table-avatar-size;
-    }
-
-    &.is-progress-col {
-      min-width: 5rem;
-      vertical-align: middle;
-    }
-
+  td, th {
     &.checkbox-cell {
       .b-checkbox.checkbox:not(.button) {
         margin-right: 0;
@@ -29,11 +19,16 @@ table.table {
     }
   }
 
-  tr {
-    td.is-image-cell:first-child {
-      .image {
-        margin: 0 auto;
-      }
+  td {
+    .image {
+      margin: 0 auto;
+      width: $table-avatar-size;
+      height: $table-avatar-size;
+    }
+
+    &.is-progress-col {
+      min-width: 5rem;
+      vertical-align: middle;
     }
   }
 }

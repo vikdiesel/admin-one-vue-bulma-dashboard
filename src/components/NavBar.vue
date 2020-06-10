@@ -4,7 +4,7 @@
       <a class="navbar-item is-hidden-desktop" @click.prevent="menuToggleMobile">
         <b-icon :icon="menuToggleMobileIcon"/>
       </a>
-      <div class="navbar-item">
+      <div class="navbar-item has-control no-left-space-touch">
         <div class="control">
           <input class="input" placeholder="Search everywhere...">
         </div>

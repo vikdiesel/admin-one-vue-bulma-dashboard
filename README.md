@@ -1,6 +1,6 @@
 # [Admin One  — Free Vue Bulma Dashboard](https://justboil.me/bulma-admin-template/one)
 
-[![version](https://img.shields.io/badge/version-1.4.0-blue.svg)](https://justboil.me/bulma-admin-template/one)  [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://justboil.me/bulma-admin-template/one)
+[![version](https://img.shields.io/badge/version-1.4.1-blue.svg)](https://justboil.me/bulma-admin-template/one)  [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://justboil.me/bulma-admin-template/one)
 
 [![Vue.js Bulma free admin dashboard](https://justboil.me/images/one/repository-preview-hi-res.png)](https://vikdiesel.github.io/admin-one-vue-bulma-dashboard/)
 
