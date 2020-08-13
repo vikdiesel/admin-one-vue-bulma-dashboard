@@ -1,6 +1,6 @@
 <template>
   <div class="is-user-avatar">
-    <img :src="newUserAvatar" :alt="userName">
+    <img :src="newUserAvatar" :alt="userName" />
   </div>
 </template>
 
@@ -32,10 +32,7 @@ export default {
 
       return `https://avatars.dicebear.com/v2/human/${name}.svg?options[mood][]=happy`
     },
-    ...mapState([
-      'userAvatar',
-      'userName'
-    ])
+    ...mapState(['userAvatar', 'userName'])
   }
 }
 </script>

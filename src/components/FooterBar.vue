@@ -5,7 +5,8 @@
         <div class="level-left">
           <div class="level-item">
             <div class="footer-copyright">
-              <b>&copy; {{ year }}, JustBoil.me</b> &mdash; Admin One Demo <span class="tag">v1.4.1</span>
+              <b>&copy; {{ year }}, JustBoil.me</b> &mdash; Admin One Demo
+              <span class="tag">v1.4.2</span>
             </div>
           </div>
         </div>
@@ -13,7 +14,7 @@
           <div class="level-item">
             <div class="logo">
               <a href="https://justboil.me">
-                <img src="../assets/justboil-logo.svg" alt="JustBoil.me"/>
+                <img src="../assets/justboil-logo.svg" alt="JustBoil.me" />
               </a>
             </div>
           </div>
@@ -33,9 +34,7 @@ export default {
     year () {
       return dayjs().year()
     },
-    ...mapState([
-      'isFooterBarVisible'
-    ])
+    ...mapState(['isFooterBarVisible'])
   }
 }
 </script>

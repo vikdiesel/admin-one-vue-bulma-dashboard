@@ -1,6 +1,6 @@
 <template>
   <div>
-    <title-bar :title-stack="titleStack"/>
+    <title-bar :title-stack="titleStack" />
     <hero-bar>
       Profile
       <router-link slot="right" to="/" class="button">
@@ -9,20 +9,20 @@
     </hero-bar>
     <section class="section is-main-section">
       <tiles>
-        <profile-update-form class="tile is-child"/>
+        <profile-update-form class="tile is-child" />
         <card-component title="Profile" icon="account" class="tile is-child">
-          <user-avatar class="image has-max-width is-aligned-center"/>
-          <hr>
+          <user-avatar class="image has-max-width is-aligned-center" />
+          <hr />
           <b-field label="Name">
-            <b-input :value="userName" custom-class="is-static" readonly/>
+            <b-input :value="userName" custom-class="is-static" readonly />
           </b-field>
-          <hr>
+          <hr />
           <b-field label="E-mail">
-            <b-input :value="userEmail" custom-class="is-static" readonly/>
+            <b-input :value="userEmail" custom-class="is-static" readonly />
           </b-field>
         </card-component>
       </tiles>
-      <password-update-form/>
+      <password-update-form />
     </section>
   </div>
 </template>
@@ -38,18 +38,20 @@ import Tiles from '@/components/Tiles'
 import UserAvatar from '@/components/UserAvatar'
 export default {
   name: 'Profile',
-  components: { UserAvatar, Tiles, PasswordUpdateForm, ProfileUpdateForm, HeroBar, TitleBar, CardComponent },
+  components: {
+    UserAvatar,
+    Tiles,
+    PasswordUpdateForm,
+    ProfileUpdateForm,
+    HeroBar,
+    TitleBar,
+    CardComponent
+  },
   computed: {
     titleStack () {
-      return [
-        'Admin',
-        'Profile'
-      ]
+      return ['Admin', 'Profile']
     },
-    ...mapState([
-      'userName',
-      'userEmail'
-    ])
+    ...mapState(['userName', 'userEmail'])
   }
 }
 </script>

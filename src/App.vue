@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <nav-bar/>
-    <aside-menu :menu="menu"/>
-    <router-view/>
-    <footer-bar/>
+    <nav-bar />
+    <aside-menu :menu="menu" />
+    <router-view />
+    <footer-bar />
   </div>
 </template>
 
@@ -14,7 +14,7 @@ import AsideMenu from '@/components/AsideMenu'
 import FooterBar from '@/components/FooterBar'
 
 export default {
-  name: 'home',
+  name: 'Home',
   components: {
     FooterBar,
     AsideMenu,

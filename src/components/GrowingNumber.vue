@@ -1,7 +1,5 @@
 <template>
-  <div>
-    {{ prefix }}{{ newValueFormatted }}{{ suffix }}
-  </div>
+  <div>{{ prefix }}{{ newValueFormatted }}{{ suffix }}</div>
 </template>
 
 <script>
@@ -35,7 +33,14 @@ export default {
   },
   computed: {
     newValueFormatted () {
-      return (this.newValue < 1000) ? this.newValue : numeral(this.newValue).format('0,0')
+      return this.newValue < 1000
+        ? this.newValue
+        : numeral(this.newValue).format('0,0')
+    }
+  },
+  watch: {
+    value () {
+      this.growInit()
     }
   },
   mounted () {
@@ -58,11 +63,6 @@ export default {
       setTimeout(() => {
         this.grow(m)
       }, 25)
-    }
-  },
-  watch: {
-    value () {
-      this.growInit()
     }
   }
 }

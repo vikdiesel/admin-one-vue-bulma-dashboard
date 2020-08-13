@@ -13,13 +13,14 @@ export default {
     }
   },
   mounted () {
-    this.$watch('chartData', (newVal, oldVal) => {
-      if (!oldVal) {
-        this.renderChart(
-          this.chartData,
-          this.extraOptions
-        )
-      }
-    }, { immediate: true })
+    this.$watch(
+      'chartData',
+      (newVal, oldVal) => {
+        if (!oldVal) {
+          this.renderChart(this.chartData, this.extraOptions)
+        }
+      },
+      { immediate: true }
+    )
   }
 }

@@ -10,7 +10,7 @@ $family-sans-serif: "Nunito", sans-serif;
 
 /* Base color */
 $base-color: #2e323a;
-$base-color-light: rgba(24,28,33,0.06);
+$base-color-light: rgba(24, 28, 33, .06);
 
 /* General overrides */
 $primary: $turquoise;
@@ -23,7 +23,7 @@ $hr-height: 1px;
 /* NavBar: specifics */
 $navbar-input-color: $grey-darker;
 $navbar-input-placeholder-color: $grey-lighter;
-$navbar-box-shadow: 0 1px 0 rgba(24,28,33,.04);
+$navbar-box-shadow: 0 1px 0 rgba(24, 28, 33, .04);
 $navbar-divider-border: 1px solid rgba($grey-lighter, .25);
 $navbar-item-h-padding: $default-padding * .75;
 $navbar-avatar-size: 1.75rem;

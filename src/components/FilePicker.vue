@@ -1,12 +1,12 @@
 <template>
   <b-field class="file">
-    <b-upload v-model="file" @input="upload" :accept="accept">
+    <b-upload v-model="file" :accept="accept" @input="upload">
       <a class="button is-primary">
         <b-icon icon="upload" custom-size="default"></b-icon>
         <span>{{ buttonLabel }}</span>
       </a>
     </b-upload>
-    <span class="file-name" v-if="file">{{ file.name }}</span>
+    <span v-if="file" class="file-name">{{ file.name }}</span>
   </b-field>
 </template>
 
@@ -55,7 +55,9 @@ export default {
       //   })
     },
     progressEvent (progressEvent) {
-      this.uploadPercent = Math.round((progressEvent.loaded * 100) / progressEvent.total)
+      this.uploadPercent = Math.round(
+        (progressEvent.loaded * 100) / progressEvent.total
+      )
     }
   }
 }

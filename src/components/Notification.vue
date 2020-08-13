@@ -3,11 +3,13 @@
     <div class="level">
       <div class="level-left">
         <div class="level-item">
-          <slot/>
+          <slot />
         </div>
       </div>
       <div class="level-right">
-        <button type="button" class="button is-small is-white" @click="dismiss">Dismiss</button>
+        <button type="button" class="button is-small is-white" @click="dismiss">
+          Dismiss
+        </button>
       </div>
     </div>
   </div>
