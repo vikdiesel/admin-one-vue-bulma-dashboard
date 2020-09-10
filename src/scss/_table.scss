@@ -73,6 +73,12 @@ table.table {
   }
 }
 
+.has-thead-hidden {
+  thead {
+    display: none;
+  }
+}
+
 @include mobile {
   .card {
     &.has-table {

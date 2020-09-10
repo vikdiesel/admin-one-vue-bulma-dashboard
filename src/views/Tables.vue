@@ -51,7 +51,7 @@
         </div>
       </notification>
 
-      <card-component class="has-table">
+      <card-component class="has-table has-thead-hidden">
         <clients-table-sample />
       </card-component>
     </section>

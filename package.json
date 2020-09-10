@@ -1,6 +1,6 @@
 {
   "name": "admin-one-vue-bulma-dashboard",
-  "version": "1.4.2",
+  "version": "1.5.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -11,31 +11,31 @@
     "lintfix": "vue-cli-service lint --fix"
   },
   "dependencies": {
-    "axios": "^0.19.2",
-    "buefy": "^0.8.20",
+    "axios": "^0.20.0",
+    "buefy": "^0.9.3",
     "bulma": "^0.9.0",
     "chart.js": "^2.9.3",
     "core-js": "^3.6.5",
-    "dayjs": "^1.8.33",
-    "lodash": "^4.17.19",
+    "dayjs": "^1.8.35",
+    "lodash": "^4.17.20",
     "numeral": "^2.0.6",
     "register-service-worker": "^1.7.1",
-    "vue": "^2.6.11",
+    "vue": "^2.6.12",
     "vue-chartjs": "^3.5.0",
     "vue-router": "^3.4.3",
     "vuex": "^3.5.1"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.4.6",
-    "@vue/cli-plugin-eslint": "^4.4.6",
-    "@vue/cli-plugin-pwa": "^4.4.6",
-    "@vue/cli-plugin-router": "^4.4.6",
-    "@vue/cli-plugin-vuex": "^4.4.6",
-    "@vue/cli-service": "^4.4.6",
+    "@vue/cli-plugin-babel": "~4.5.4",
+    "@vue/cli-plugin-eslint": "~4.5.4",
+    "@vue/cli-plugin-pwa": "~4.5.4",
+    "@vue/cli-plugin-router": "~4.5.4",
+    "@vue/cli-plugin-vuex": "~4.5.4",
+    "@vue/cli-service": "~4.5.4",
     "@vue/eslint-config-standard": "^5.1.2",
     "babel-eslint": "^10.1.0",
     "cross-env": "^7.0.2",
-    "eslint": "^7.6.0",
+    "eslint": "^7.8.1",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
@@ -43,8 +43,8 @@
     "eslint-plugin-vue": "^6.2.2",
     "gh-pages": "^3.1.0",
     "sass": "^1.26.10",
-    "sass-loader": "^8.0.2",
-    "vue-template-compiler": "^2.6.11"
+    "sass-loader": "^10.0.2",
+    "vue-template-compiler": "^2.6.12"
   },
   "eslintConfig": {
     "root": true,
