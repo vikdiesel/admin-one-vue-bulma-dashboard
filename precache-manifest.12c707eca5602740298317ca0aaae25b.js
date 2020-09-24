@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "1016b8df6ed64add3d37",
+    "revision": "a02801bafedb98f4da5e",
     "url": "/admin-one-vue-bulma-dashboard/css/app.1a69b2bd.css"
   },
   {
@@ -8,12 +8,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/admin-one-vue-bulma-dashboard/img/justboil-logo.7298fabb.svg"
   },
   {
-    "revision": "c952fbede61bb4bd655e771b7237cbdc",
+    "revision": "cd42023bea926c98e72f39f27330d114",
     "url": "/admin-one-vue-bulma-dashboard/index.html"
   },
   {
-    "revision": "1016b8df6ed64add3d37",
-    "url": "/admin-one-vue-bulma-dashboard/js/app-legacy.a24a77a0.js"
+    "revision": "a02801bafedb98f4da5e",
+    "url": "/admin-one-vue-bulma-dashboard/js/app-legacy.beb285ec.js"
   },
   {
     "revision": "460fcc34e8c20d03ab9f",
