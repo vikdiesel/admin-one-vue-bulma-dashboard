@@ -129,6 +129,11 @@ export default {
     },
     ...mapState(['isNavBarVisible', 'isAsideMobileExpanded', 'userName'])
   },
+  mounted () {
+    this.$router.afterEach(() => {
+      this.isMenuNavBarActive = false
+    })
+  },
   methods: {
     menuToggleMobile () {
       this.$store.commit('asideMobileStateToggle')
