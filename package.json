@@ -11,7 +11,7 @@
     "lintfix": "vue-cli-service lint --fix"
   },
   "dependencies": {
-    "axios": "^0.20.0",
+    "axios": "^0.21.1",
     "buefy": "^0.9.3",
     "bulma": "^0.9.0",
     "chart.js": "^2.9.3",
