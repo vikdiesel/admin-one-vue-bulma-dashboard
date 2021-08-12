@@ -1,7 +1,6 @@
 {
   "name": "admin-one-vue-bulma-dashboard",
-  "version": "1.5.1",
-  "private": true,
+  "version": "1.5.2",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
