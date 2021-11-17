@@ -1,14 +1,14 @@
 # [Admin One  — Free Vue Bulma Dashboard](https://justboil.me/bulma-admin-template/one)
 
-[![version](https://img.shields.io/github/v/release/vikdiesel/admin-one-vue-bulma-dashboard)](https://justboil.me/bulma-admin-template/one)  [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://justboil.me/bulma-admin-template/one)
+[![version](https://img.shields.io/badge/version-1.5.2-blue)](https://justboil.me/bulma-admin-template/one)  [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://justboil.me/bulma-admin-template/one)
 
 [![Vue.js Bulma free admin dashboard](https://justboil.me/images/one/repository-preview-hi-res.png)](https://vikdiesel.github.io/admin-one-vue-bulma-dashboard/)
 
-**Admin One** is simple, beautiful and free Vue.js Buefy Bulma admin dashboard (SPA/PWA).
+**Admin One** is simple, beautiful and free Vue.js 2.x Buefy Bulma admin dashboard (SPA/PWA).
 
 * Free under MIT License
 * PWA/SPA — Single page app
-* Built with Bulma, Vue.js, Buefy & Vue CLI
+* Built with Bulma, Vue.js 2.x, Buefy & Vue CLI
 * SCSS sources with variables
 * [Premium version](https://justboil.me/bulma-admin-template/one) available
 
@@ -24,7 +24,7 @@
 
 ## Other versions
 
-This is Bulma Vue.js Buefy dashboard version.
+This is Bulma Vue.js 2.6 Buefy dashboard version. [Vue.js 3 version](https://github.com/vikdiesel/admin-one-vue-bulma-dashboard)
 
 ### Tailwind CSS
 
@@ -68,11 +68,11 @@ More info on free & premium versions of Admin One Dashboard: https://justboil.me
 
 #### Description
 
-https://justboil.me/bulma-admin-template/one
+https://justboil.me/bulma-admin-template/free-vue-dashboard/
 
 #### Free Dashboard Demo
 
-https://vikdiesel.github.io/admin-one-vue-bulma-dashboard/
+https://admin-one-vue2-bulma-free.justboil.me/
 
 #### Premium Dashboard Demo
 
@@ -82,9 +82,7 @@ https://admin-one.justboil.me
 
 #### Get the repo
 
-* [Create new repo](https://github.com/vikdiesel/admin-one-vue-bulma-dashboard/generate) from this template
-* &hellip;or clone the repo on GitHub
-* &hellip;or [download .zip](https://github.com/vikdiesel/admin-one-vue-bulma-dashboard/archive/master.zip) from GitHub
+[Download .zip](https://github.com/vikdiesel/admin-one-vue-bulma-dashboard/archive/vue-2x.zip) from GitHub
 
 #### Install
 
