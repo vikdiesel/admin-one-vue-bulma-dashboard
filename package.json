@@ -4,8 +4,6 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "build:gh-pages": "cross-env DEPLOY_ENV=GH_PAGES vue-cli-service build --modern",
-    "deploy:gh-pages": "cross-env NODE_DEBUG=gh-pages gh-pages -d dist -t",
     "lint": "vue-cli-service lint",
     "lintfix": "vue-cli-service lint --fix"
   },
