@@ -22,7 +22,7 @@
     </div>
     <div
       class="jb-navbar-menu"
-      :class="{ 'inactive': !isMenuNavBarActive, 'active': isMenuNavBarActive }"
+      :class="[isMenuNavBarActive ? 'active' : 'inactive']"
     >
       <div class="jb-navbar-menu-container">
         <nav-bar-menu has-divider>

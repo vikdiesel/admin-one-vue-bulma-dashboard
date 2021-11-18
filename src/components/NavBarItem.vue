@@ -19,8 +19,7 @@ export default {
     activeColor: {
       type: String,
       default: 'is-active'
-    },
-    pX: String
+    }
   },
   setup (props) {
     const is = computed(() => {

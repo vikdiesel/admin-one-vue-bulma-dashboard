@@ -18,6 +18,10 @@
 
   &.aside-mobile-expanded {
     margin-left: $size-base * 60;
+
+    @include desktop {
+      margin-left: 0;
+    }
   }
 
   @include desktop {
