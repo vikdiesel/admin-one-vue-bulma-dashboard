@@ -46,7 +46,7 @@ This is **Vue.js 3 Bulma** admin dashboard version. Vue.js 2.6 Buefy version has
     </tr>
 </table>
 
-#### Bulma admin dashboard
+### Bulma admin dashboard
 
 <table>
     <tr>
