@@ -84,7 +84,7 @@
           </div>
         </nav-bar-menu>
         <a
-          href="https://justboil.me/bulma-admin-template/one"
+          href="https://github.com/vikdiesel/admin-one-vue-bulma-dashboard/tree/vue-2x"
           class="navbar-item has-divider is-desktop-icon-only"
           title="About"
         >
