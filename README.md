@@ -44,7 +44,7 @@ This is **Bulma Vue.js 2.6 Buefy** dashboard version.
     </tr>
 </table>
 
-#### Bulma admin dashboard
+### Bulma admin dashboard
 
 <table>
     <tr>
