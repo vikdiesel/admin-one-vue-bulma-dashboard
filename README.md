@@ -28,7 +28,9 @@
 
 ## Other versions
 
-This is **Vue.js 3 Bulma** admin dashboard version. Vue.js 2.6 Buefy version has been moved to [vue-2x branch](https://github.com/vikdiesel/admin-one-vue-bulma-dashboard/tree/vue-2x).
+This is **Vue.js 3 Bulma** admin dashboard version. 
+
+**Vue.js 2.6 Buefy** version has been moved to [vue-2x branch](https://github.com/vikdiesel/admin-one-vue-bulma-dashboard/tree/vue-2x).
 
 ### TailwindCSS admin dashboard
 
@@ -61,7 +63,6 @@ This is **Vue.js 3 Bulma** admin dashboard version. Vue.js 2.6 Buefy version has
         <td align="center">Bulma admin dashboard<br/><b>Vue.js 3</b><br/><br/><a href="https://github.com/vikdiesel/admin-one-vue-bulma-dashboard" title="Free Vue.js 3 Bulma admin dashboard">Free</a></td>
     </tr>
 </table>
-
 
 ## Responsive layout
 
