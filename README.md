@@ -1,8 +1,8 @@
-# [Admin One  — Free Vue Bulma Dashboard](https://justboil.me/bulma-admin-template/one)
+# [Admin One  — Free Vue Bulma Dashboard](https://admin-one-vue2-bulma-free.justboil.me/)
 
-[![version](https://img.shields.io/badge/version-1.5.2-blue)](https://justboil.me/bulma-admin-template/one)  [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://justboil.me/bulma-admin-template/one)
+[![version](https://img.shields.io/badge/version-1.5.2-blue)](https://admin-one-vue2-bulma-free.justboil.me/)  [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://admin-one-vue2-bulma-free.justboil.me/)
 
-[![Vue.js Bulma free admin dashboard](https://justboil.me/images/one/repository-preview-hi-res.png)](https://vikdiesel.github.io/admin-one-vue-bulma-dashboard/)
+[![Free Vue.js 2.6 Bulma Buefy admin dashboard](https://justboil.me/images/one/repository-preview-hi-res.png)](https://admin-one-vue2-bulma-free.justboil.me/)
 
 **Admin One** is simple, beautiful and free Vue.js 2.x Buefy Bulma admin dashboard (SPA/PWA).
 
@@ -22,45 +22,41 @@
 * [Licensing](#licensing)
 * [Useful Links](#useful-links)
 
-## Other versions
+## Other vesions
 
-This is Bulma Vue.js 2.6 Buefy dashboard version. [Vue.js 3 version](https://github.com/vikdiesel/admin-one-vue-bulma-dashboard)
+This is **Bulma Vue.js 2.6 Buefy** dashboard version. 
 
-### Tailwind CSS
+**Vue.js 3 version** is on [master branch](https://github.com/vikdiesel/admin-one-vue-bulma-dashboard)
+
+### TailwindCSS admin dashboard
 
 <table>
     <tr>
-        <td align="center" colspan="2"><a href="https://justboil.me/tailwind-admin-templates"><img src="https://justboil.me/images/tailwind-gh-logo.png?v=2" width="219" height="40" alt="Tailwind CSS admin dashboard templates"></a></td>
+        <td align="center" colspan="2"><a href="https://justboil.me/tailwind-admin-templates/"><img src="https://justboil.me/images/tailwind-gh-logo.png?v=2" width="219" height="40" alt="Tailwind CSS admin dashboard templates"></a></td>
     </tr>
     <tr>
         <td align="center"><a href="https://github.com/justboil/admin-one-tailwind" title="Free Tailwind CSS admin dashboard HTML"><img src="https://justboil.me/svg/language-html5.svg" width="64" height="64"></a></td>
-        <td align="center"><a href="https://github.com/justboil/admin-one-vue-tailwind" title="Free Vue.js 3 Tailwind CSS admin dashboard"><img src="https://justboil.me/svg/vuejs.svg" width="64" height="64"></a></td>
+        <td align="center"><a href="https://github.com/justboil/admin-one-vue-tailwind" title="Free Vue.js 3 Tailwind CSS admin dashboard"><img src="https://justboil.me/svg/vuejs-3.svg" width="64" height="64"></a></td>
     </tr>
     <tr>
-        <td align="center">Tailwind admin dashboard<br/>Pure HTML/CSS<br/><br/><a href="https://github.com/justboil/admin-one-tailwind" title="Free Tailwind admin dashboard HTML CSS">Free</a></td>
-        <td align="center">Tailwind admin dashboard<br/>Vue.js 3<br/><br/><a href="https://github.com/justboil/admin-one-vue-tailwind" title="Free Vue.js 3 Tailwind CSS admin dashboard">Free</a> | <a href="https://justboil.me/tailwind-admin-templates/vue-dashboard" title="Vue.js 3 Tailwind CSS admin dashboard">Premium</a></td>
+        <td align="center">Tailwind admin dashboard<br/><b>Vanilla HTML/CSS</b><br/><br/><a href="https://github.com/justboil/admin-one-tailwind" title="Free Tailwind admin dashboard HTML CSS">Free</a></td>
+        <td align="center">Tailwind admin dashboard<br/><b>Vue.js 3</b><br/><br/><a href="https://github.com/justboil/admin-one-vue-tailwind" title="Free Vue.js 3 Tailwind CSS admin dashboard">Free</a> | <a href="https://justboil.me/tailwind-admin-templates/vue-dashboard/" title="Vue.js 3 Tailwind CSS admin dashboard">Premium</a></td>
     </tr>
 </table>
 
-### Bulma
-
-More info on free & premium versions of Admin One Dashboard: https://justboil.me/bulma-admin-template/one
+#### Bulma admin dashboard
 
 <table>
     <tr>
-        <td align="center" colspan="4"><a href="https://justboil.me/"><img src="https://justboil.me/images/bulma-gh-logo.png" width="219" height="40" alt="Bulma admin dashboard templates"></a></td>
+        <td align="center" colspan="2"><a href="https://justboil.me/bulma-admin-template/"><img src="https://justboil.me/images/bulma-gh-logo.png" width="219" height="40" alt="Bulma admin dashboard templates"></a></td>
     </tr>
     <tr>
-        <td align="center"><a href="https://github.com/vikdiesel/admin-one-bulma-dashboard" title="Free Bulma admin dashboard HTML CSS SCSS"><img src="https://justboil.me/svg/language-html5.svg" width="64" height="64"></a></td>
-        <td align="center"><a href="https://github.com/vikdiesel/admin-one-vue-bulma-dashboard" title="Free Bulma Vue.js Buefy admin dashboard"><img src="https://justboil.me/svg/vuejs.svg" width="64" height="64"></a></td>
-        <td align="center"><a href="https://github.com/justboil/admin-one-nuxt" title="Free Bulma Nuxt.js Buefy admin dashboard"><img src="https://justboil.me/svg/nuxt.svg" width="64" height="64"></a></td>
-        <td align="center"><a href="https://github.com/vikdiesel/admin-one-laravel-dashboard" title="Free Bulma Laravel admin dashboard"><img src="https://justboil.me/svg/laravel.svg" width="64" height="64"></a></td>
+        <td align="center"><a href="https://github.com/vikdiesel/admin-one-vue-bulma-dashboard/tree/vue-2x" title="Free Vue.js 2 Bulma Buefy admin dashboard"><img src="https://justboil.me/svg/vuejs-2.svg" width="64" height="64"></a></td>
+        <td align="center"><a href="https://github.com/vikdiesel/admin-one-vue-bulma-dashboard" title="Free Vue.js 3 Bulma admin dashboard"><img src="https://justboil.me/svg/vuejs-3.svg" width="64" height="64"></a></td>
     </tr>
     <tr>
-        <td align="center">Bulma admin dashboard<br/>HTML/CSS/SCSS<br/><br/><a href="https://github.com/vikdiesel/admin-one-bulma-dashboard" title="Free Bulma admin dashboard HTML CSS SCSS">Free</a> | <a href="https://justboil.me/bulma-admin-template/one-html" title="Premium Bulma admin dashboard HTML CSS SCSS">Premium</a></td>
-        <td align="center">Bulma admin dashboard<br/>Vue.js Buefy<br/><br/><a href="https://github.com/vikdiesel/admin-one-vue-bulma-dashboard" title="Free Bulma Vue.js Buefy admin dashboard">Free</a> | <a href="https://justboil.me/bulma-admin-template/one" title="Premium Bulma Vue.js Buefy admin dashboard">Premium</a></td>
-        <td align="center">Bulma admin dashboard<br/>Nuxt.js Buefy<br/><br/><a href="https://github.com/justboil/admin-one-nuxt" title="Free Bulma Nuxt.js Buefy admin dashboard">Free</a> | <a href="https://justboil.me/bulma-admin-template/one-nuxt" title="Premium Bulma Nuxt.js Buefy admin dashboard">Premium</a></td>
-        <td align="center">Bulma admin dashboard<br/>Laravel<br/><br/><a href="https://github.com/vikdiesel/admin-one-laravel-dashboard" title="Free Bulma Laravel admin dashboard">Free</a></td>
+        <td align="center">Bulma admin dashboard<br/><b>Vue.js 2.6 Buefy</b><br/><br/><a href="https://github.com/vikdiesel/admin-one-vue-bulma-dashboard/tree/vue-2x" title="Free Bulma Vue.js 2.6 Buefy admin dashboard">Free</a>  | <a href="https://justboil.me/bulma-admin-template/one/" title="Bulma Vue.js 2.6 Buefy admin dashboard">Premium</a></td>
+        <td align="center">Bulma admin dashboard<br/><b>Vue.js 3</b><br/><br/><a href="https://github.com/vikdiesel/admin-one-vue-bulma-dashboard" title="Free Vue.js 3 Bulma admin dashboard">Free</a></td>
     </tr>
 </table>
 
