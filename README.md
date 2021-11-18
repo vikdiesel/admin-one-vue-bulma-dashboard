@@ -1,8 +1,8 @@
-# [Admin One &mdash; Free Vue.js 3 Bulma Admin Dashboard with dark mode](https://justboil.me/bulma-admin-template/free-vue-dashboard/)
+# [Admin One &mdash; Free Vue.js 3 Bulma Admin Dashboard with dark mode](https://vikdiesel.github.io/admin-one-vue-bulma-dashboard/?v=3.0.0)
 
 [![version](https://img.shields.io/github/v/release/vikdiesel/admin-one-vue-bulma-dashboard)](https://justboil.me/bulma-admin-template/free-vue-dashboard/)  [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://justboil.me/bulma-admin-template/free-vue-dashboard/)
 
-[![Free Vue.js 3 Bulma admin dashboard](https://justboil.me/images/one-v3/repository-bulma-vue3.png)](https://vikdiesel.github.io/admin-one-vue-bulma-dashboard/)
+[![Free Vue.js 3 Bulma admin dashboard](https://justboil.me/images/one-v3/repository-bulma-vue3.png)](https://vikdiesel.github.io/admin-one-vue-bulma-dashboard/?v=3.0.0)
 
 **Admin One** is simple, beautiful and free Vue.js 3 Bulma admin dashboard
 
@@ -69,27 +69,27 @@ This is **Vue.js 3 Bulma** admin dashboard version. Vue.js 2.6 Buefy version has
 
 Mobile layout with hidden aside menu and collapsable cards & tables
 
-[![Free Vue.js 3 Bulma admin dashboard](https://justboil.me/images/one-tailwind/repository-preview-m-hi-res.png?v=1.3)](https://vikdiesel.github.io/admin-one-vue-bulma-dashboard/)
+[![Free Vue.js 3 Bulma admin dashboard](https://justboil.me/images/one-tailwind/repository-preview-m-hi-res.png?v=1.3)](https://vikdiesel.github.io/admin-one-vue-bulma-dashboard/?v=3.0.0)
 
 ### Small laptops 1024px
 
 Small laptop layout with show/hide aside menu option
 
-[![Free Vue.js 3 Bulma admin dashboard](https://justboil.me/images/one-tailwind/repository-preview-1024.png?v=1.3)](https://vikdiesel.github.io/admin-one-vue-bulma-dashboard/)
+[![Free Vue.js 3 Bulma admin dashboard](https://justboil.me/images/one-tailwind/repository-preview-1024.png?v=1.3)](https://vikdiesel.github.io/admin-one-vue-bulma-dashboard/?v=3.0.0)
 
-[![Free Vue.js 3 Bulma admin dashboard](https://justboil.me/images/one-tailwind/repository-preview-1024-menu.png?v=1.3)](https://vikdiesel.github.io/admin-one-vue-bulma-dashboard/)
+[![Free Vue.js 3 Bulma admin dashboard](https://justboil.me/images/one-tailwind/repository-preview-1024-menu.png?v=1.3)](https://vikdiesel.github.io/admin-one-vue-bulma-dashboard/?v=3.0.0)
 
 ### Laptops & desktops
 
 Classic layout with aside menus on the left
 
-[![Free Vue.js 3 Bulma admin dashboard](https://justboil.me/images/one-tailwind/repository-preview-no-libs.png?v=1.3)](https://vikdiesel.github.io/admin-one-vue-bulma-dashboard/)
+[![Free Vue.js 3 Bulma admin dashboard](https://justboil.me/images/one-tailwind/repository-preview-no-libs.png?v=1.3)](https://vikdiesel.github.io/admin-one-vue-bulma-dashboard/?v=3.0.0)
 
 ## Demo
 
 #### Free Dashboard Demo
 
-https://vikdiesel.github.io/admin-one-vue-bulma-dashboard/
+https://vikdiesel.github.io/admin-one-vue-bulma-dashboard/?v=3.0.0
 
 #### Premium Dashboard Demo
 
