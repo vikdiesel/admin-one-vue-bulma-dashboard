@@ -1,0 +1,67 @@
+.jb-user-avatar {
+  &.is-in-card-client-bar {
+    width: $size-base * 12;
+    height: $size-base * 12;
+
+    @include tablet {
+      margin-right: $size-base * 6;
+    }
+  }
+
+  &.is-in-user-card {
+    @include desktop {
+      margin-left: $size-base * 12;
+      margin-right: $size-base * 12;
+    }
+  }
+
+  &.is-navbar-avatar {
+    display: inline-flex;
+    width: $size-base * 6;
+    height: $size-base * 6;
+    margin-right: $size-base * 3;
+  }
+}
+
+.jb-user-avatar-image {
+  display: block;
+  height: auto;
+  width: 100%;
+  max-width: 100%;
+  border-radius: $radius-rounded;
+
+  &.has-bg-default {
+    background: $gray-100;
+  }
+}
+
+.jb-user-info {
+  text-align: center;
+
+  @include tablet {
+    text-align: left;
+  }
+
+  @include desktop {
+    margin-left: $size-base * 12;
+    margin-right: $size-base * 12;
+  }
+
+  h1 {
+    @include text2xl;
+  }
+}
+
+.jb-user-info > * + * {
+  margin-top: 0.75rem;
+  margin-bottom: 0;
+}
+
+.jb-user-control, .jb-user-checkmark {
+  display: flex;
+  justify-content: center;
+
+  @include tablet {
+    display: block;
+  }
+}

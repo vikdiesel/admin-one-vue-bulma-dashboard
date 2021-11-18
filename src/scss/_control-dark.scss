@@ -1,0 +1,15 @@
+@include dark {
+  .jb-control {
+    &::placeholder {
+      color: $gray-400;
+    }
+
+    &.has-bg-default {
+      background: $gray-800;
+    }
+  }
+
+  .jb-control-icon {
+    color: $gray-400;
+  }
+}

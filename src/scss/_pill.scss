@@ -1,0 +1,26 @@
+.jb-pill {
+  display: inline-flex;
+  align-items: center;
+
+  &.is-default {
+    padding: $size-base * 2 $size-base * 4;
+    border-radius: $radius-2xl;
+    margin-right: $size-base * 3;
+  }
+
+  &.is-small {
+    @include textXs;
+    padding: $size-base * .5 $size-base * 2;
+    border-radius: $radius-large;
+    margin-right: $size-base * 1.5;
+  }
+
+  &.has-border {
+    border-width: 1px;
+    border-style: solid;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}

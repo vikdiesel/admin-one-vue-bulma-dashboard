@@ -1,57 +1,80 @@
 <template>
-  <b-modal :active.sync="isModalActive" has-modal-card>
-    <div class="modal-card">
-      <header class="modal-card-head">
-        <p class="modal-card-title">Confirm action</p>
-      </header>
-      <section class="modal-card-body">
-        <p>
-          This will permanently delete <b>{{ trashObjectName }}</b>
-        </p>
-        <p>Action can not be undone.</p>
-      </section>
-      <footer class="modal-card-foot">
-        <button class="button" type="button" @click="cancel">Cancel</button>
-        <button class="button is-danger" @click="confirm">Delete</button>
-      </footer>
-    </div>
-  </b-modal>
+  <overlay v-show="value" @overlay-click="cancel">
+    <card-component
+      v-show="value"
+      :title="title"
+      class="is-modal"
+      :header-icon="mdiClose"
+      @header-icon-click="cancel"
+    >
+      <div class="jb-card-modal-content">
+        <h1 v-if="largeTitle">{{ largeTitle }}</h1>
+        <slot />
+      </div>
+
+      <divider />
+
+      <jb-buttons>
+        <jb-button :label="buttonLabel" :color="button" @click="confirm" />
+        <jb-button v-if="hasCancel" label="Cancel" @click="cancel" :color="button" outline />
+      </jb-buttons>
+    </card-component>
+  </overlay>
 </template>
 
 <script>
+import { computed } from 'vue'
+import { mdiClose } from '@mdi/js'
+import JbButton from '@/components/JbButton'
+import JbButtons from '@/components/JbButtons'
+import CardComponent from '@/components/CardComponent'
+import Divider from '@/components/Divider'
+import Overlay from '@/components/Overlay'
+
 export default {
   name: 'ModalBox',
+  components: {
+    Overlay,
+    JbButton,
+    JbButtons,
+    CardComponent,
+    Divider
+  },
   props: {
-    isActive: {
-      type: Boolean,
-      default: false
-    },
-    trashObjectName: {
+    title: String,
+    largeTitle: String,
+    button: {
       type: String,
-      default: null
-    }
+      default: 'info'
+    },
+    buttonLabel: {
+      type: String,
+      default: 'Done'
+    },
+    hasCancel: Boolean,
+    modelValue: [String, Number, Boolean]
   },
-  data () {
+  emits: ['update:modelValue', 'cancel', 'confirm'],
+  setup (props, { emit }) {
+    const value = computed({
+      get: () => props.modelValue,
+      set: value => emit('update:modelValue', value)
+    })
+
+    const confirmCancel = mode => {
+      value.value = false
+      emit(mode)
+    }
+
+    const confirm = () => confirmCancel('confirm')
+
+    const cancel = () => confirmCancel('cancel')
+
     return {
-      isModalActive: false
-    }
-  },
-  watch: {
-    isActive (newValue) {
-      this.isModalActive = newValue
-    },
-    isModalActive (newValue) {
-      if (!newValue) {
-        this.cancel()
-      }
-    }
-  },
-  methods: {
-    cancel () {
-      this.$emit('cancel')
-    },
-    confirm () {
-      this.$emit('confirm')
+      value,
+      confirm,
+      cancel,
+      mdiClose
     }
   }
 }

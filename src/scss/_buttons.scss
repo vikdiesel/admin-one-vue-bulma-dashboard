@@ -1,0 +1,82 @@
+.jb-button {
+  @include transitionColors;
+  display: inline-flex;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  border-radius: $radius;
+  border-style: solid;
+  border-width: 1px;
+  line-height: inherit;
+
+  &.is-size-default {
+    padding: $size-base * 2;
+  }
+
+  &.is-size-small {
+    padding: $size-base;
+  }
+
+  &.has-focus-default:focus {
+    @include ringBlue;
+    outline: none;
+  }
+
+  &.is-active {
+    @include ringBlack;
+  }
+
+  &.has-sibling-right {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .is-label-default {
+    padding-left: $size-base * 2;
+    padding-right: $size-base * 2;
+  }
+
+  .is-label-small-with-icon {
+    padding-left: $size-base;
+    padding-right: $size-base;
+  }
+}
+
+.jb-buttons {
+  display: flex;
+  align-items: center;
+
+  &.has-space-default {
+    margin-bottom: $size-base * -3;
+  }
+
+  &.wrap {
+    flex-wrap: wrap;
+  }
+
+  &.nowrap {
+    flex-wrap: nowrap;
+  }
+
+  &.start {
+    justify-content: flex-start;
+  }
+
+  &.actions-cell {
+    justify-content: flex-start;
+
+    @include desktop {
+      justify-content: flex-end;
+    }
+  }
+
+  .jb-button.has-space-default {
+    margin-right: $size-base * 3;
+    margin-bottom: $size-base * 3;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

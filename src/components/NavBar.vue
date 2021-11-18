@@ -1,151 +1,170 @@
 <template>
-  <nav v-show="isNavBarVisible" id="navbar-main" class="navbar is-fixed-top">
-    <div class="navbar-brand">
-      <a
-        class="navbar-item is-hidden-desktop"
-        @click.prevent="menuToggleMobile"
-      >
-        <b-icon :icon="menuToggleMobileIcon" />
-      </a>
-      <div class="navbar-item has-control no-left-space-touch">
-        <div class="control">
-          <input class="input" placeholder="Search everywhere..." />
-        </div>
-      </div>
+  <nav
+    v-show="isNavBarVisible"
+    class="jb-navbar is-fixed-top"
+    :class="{'aside-mobile-expanded':isAsideMobileExpanded}"
+  >
+    <div class="jb-navbar-controls primary">
+      <nav-bar-item class="is-mobile-toggle-icon" @click.prevent="menuToggleMobile">
+        <icon :path="menuToggleMobileIcon" size="24" />
+      </nav-bar-item>
+      <nav-bar-item class="is-desktop-toggle-icon" @click.prevent="menuOpenLg">
+        <icon :path="mdiMenu" size="24" />
+      </nav-bar-item>
+      <nav-bar-item>
+        <nav-bar-search />
+      </nav-bar-item>
     </div>
-    <div class="navbar-brand is-right">
-      <a
-        class="navbar-item navbar-item-menu-toggle is-hidden-desktop"
-        @click.prevent="menuNavBarToggle"
-      >
-        <b-icon :icon="menuNavBarToggleIcon" custom-size="default" />
-      </a>
+    <div class="jb-navbar-controls secondary">
+      <nav-bar-item @click.prevent="menuNavBarToggle">
+        <icon :path="menuNavBarToggleIcon" size="24" />
+      </nav-bar-item>
     </div>
     <div
-      class="navbar-menu fadeIn animated faster"
-      :class="{ 'is-active': isMenuNavBarActive }"
+      class="jb-navbar-menu"
+      :class="{ 'inactive': !isMenuNavBarActive, 'active': isMenuNavBarActive }"
     >
-      <div class="navbar-end">
-        <nav-bar-menu class="has-divider">
-          <b-icon icon="menu" custom-size="default" />
-          <span>Sample Menu</span>
-          <div slot="dropdown" class="navbar-dropdown">
-            <router-link
-              to="/profile"
-              class="navbar-item"
-              exact-active-class="is-active"
-            >
-              <b-icon icon="account" custom-size="default" />
-              <span>My Profile</span>
-            </router-link>
-            <a class="navbar-item">
-              <b-icon icon="settings" custom-size="default" />
-              <span>Settings</span>
-            </a>
-            <a class="navbar-item">
-              <b-icon icon="email" custom-size="default" />
-              <span>Messages</span>
-            </a>
-            <hr class="navbar-divider" />
-            <a class="navbar-item">
-              <b-icon icon="logout" custom-size="default" />
-              <span>Log Out</span>
-            </a>
-          </div>
+      <div class="jb-navbar-menu-container">
+        <nav-bar-menu has-divider>
+          <nav-bar-item-label :icon="mdiMenu" label="Sample menu"/>
+
+          <template #dropdown>
+            <nav-bar-item>
+              <nav-bar-item-label :icon="mdiClockOutline" label="Item One"/>
+            </nav-bar-item>
+            <nav-bar-item>
+              <nav-bar-item-label :icon="mdiCloud" label="Item Two"/>
+            </nav-bar-item>
+            <nav-bar-menu-divider/>
+            <nav-bar-item>
+              <nav-bar-item-label :icon="mdiCrop" label="Item Last"/>
+            </nav-bar-item>
+          </template>
         </nav-bar-menu>
-        <nav-bar-menu class="has-divider has-user-avatar">
-          <user-avatar />
-          <div class="is-user-name">
+        <nav-bar-menu has-divider>
+          <user-avatar class="is-navbar-avatar" />
+          <div>
             <span>{{ userName }}</span>
           </div>
 
-          <div slot="dropdown" class="navbar-dropdown">
-            <router-link
-              to="/profile"
-              class="navbar-item"
-              exact-active-class="is-active"
-            >
-              <b-icon icon="account" custom-size="default" />
-              <span>My Profile</span>
-            </router-link>
-            <a class="navbar-item">
-              <b-icon icon="settings" custom-size="default"></b-icon>
-              <span>Settings</span>
-            </a>
-            <a class="navbar-item">
-              <b-icon icon="email" custom-size="default"></b-icon>
-              <span>Messages</span>
-            </a>
-            <hr class="navbar-divider" />
-            <a class="navbar-item">
-              <b-icon icon="logout" custom-size="default"></b-icon>
-              <span>Log Out</span>
-            </a>
-          </div>
+          <template #dropdown>
+            <nav-bar-item to="/profile">
+              <nav-bar-item-label :icon="mdiAccount" label="My Profile"/>
+            </nav-bar-item>
+            <nav-bar-item>
+              <nav-bar-item-label :icon="mdiCogOutline" label="Settings"/>
+            </nav-bar-item>
+            <nav-bar-item>
+              <nav-bar-item-label :icon="mdiEmail" label="Messages"/>
+            </nav-bar-item>
+            <nav-bar-menu-divider/>
+            <nav-bar-item>
+              <nav-bar-item-label :icon="mdiLogout" label="Log Out"/>
+            </nav-bar-item>
+          </template>
         </nav-bar-menu>
-        <a
-          href="https://justboil.me/bulma-admin-template/one"
-          class="navbar-item has-divider is-desktop-icon-only"
-          title="About"
-        >
-          <b-icon icon="help-circle-outline" custom-size="default" />
-          <span>About</span>
-        </a>
-        <a
-          class="navbar-item is-desktop-icon-only"
-          title="Log out"
-          @click="logout"
-        >
-          <b-icon icon="logout" custom-size="default" />
-          <span>Log out</span>
-        </a>
+        <nav-bar-item @click.prevent="toggleLightDark" has-divider is-desktop-icon-only>
+          <nav-bar-item-label :icon="mdiThemeLightDark" label="Light/Dark" is-desktop-icon-only />
+        </nav-bar-item>
+        <nav-bar-item href="https://github.com/justboil/admin-one-vue-tailwind" has-divider is-desktop-icon-only>
+          <nav-bar-item-label :icon="mdiGithub" label="GitHub" is-desktop-icon-only />
+        </nav-bar-item>
+        <nav-bar-item is-desktop-icon-only>
+          <nav-bar-item-label :icon="mdiLogout" label="Log out" is-desktop-icon-only />
+        </nav-bar-item>
       </div>
     </div>
   </nav>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { computed, ref } from 'vue'
+import { useStore } from 'vuex'
+import {
+  mdiForwardburger,
+  mdiBackburger,
+  mdiClose,
+  mdiDotsVertical,
+  mdiMenu,
+  mdiClockOutline,
+  mdiCloud,
+  mdiCrop,
+  mdiAccount,
+  mdiCogOutline,
+  mdiEmail,
+  mdiLogout,
+  mdiGithub,
+  mdiThemeLightDark
+} from '@mdi/js'
+import NavBarItem from '@/components/NavBarItem'
+import NavBarItemLabel from '@/components/NavBarItemLabel'
 import NavBarMenu from '@/components/NavBarMenu'
+import NavBarMenuDivider from '@/components/NavBarMenuDivider'
 import UserAvatar from '@/components/UserAvatar'
+import Icon from '@/components/Icon'
+import NavBarSearch from '@/components/NavBarSearch'
 
 export default {
   name: 'NavBar',
   components: {
+    NavBarSearch,
     UserAvatar,
-    NavBarMenu
+    NavBarMenu,
+    NavBarItem,
+    NavBarItemLabel,
+    NavBarMenuDivider,
+    Icon
   },
-  data () {
-    return {
-      isMenuNavBarActive: false
+  setup () {
+    const store = useStore()
+
+    const toggleLightDark = () => {
+      store.dispatch('darkMode')
     }
-  },
-  computed: {
-    menuNavBarToggleIcon () {
-      return this.isMenuNavBarActive ? 'close' : 'dots-vertical'
-    },
-    menuToggleMobileIcon () {
-      return this.isAsideMobileExpanded ? 'backburger' : 'forwardburger'
-    },
-    ...mapState(['isNavBarVisible', 'isAsideMobileExpanded', 'userName'])
-  },
-  mounted () {
-    this.$router.afterEach(() => {
-      this.isMenuNavBarActive = false
-    })
-  },
-  methods: {
-    menuToggleMobile () {
-      this.$store.commit('asideMobileStateToggle')
-    },
-    menuNavBarToggle () {
-      this.isMenuNavBarActive = !this.isMenuNavBarActive
-    },
-    logout () {
-      this.$buefy.snackbar.open({
-        message: 'Log out clicked',
-        queue: false
-      })
+
+    const isNavBarVisible = computed(() => !store.state.isFullScreen)
+
+    const isAsideMobileExpanded = computed(() => store.state.isAsideMobileExpanded)
+
+    const userName = computed(() => store.state.userName)
+
+    const menuToggleMobileIcon = computed(() => isAsideMobileExpanded.value ? mdiBackburger : mdiForwardburger)
+
+    const menuToggleMobile = () => store.dispatch('asideMobileToggle')
+
+    const isMenuNavBarActive = ref(false)
+
+    const menuNavBarToggleIcon = computed(() => isMenuNavBarActive.value ? mdiClose : mdiDotsVertical)
+
+    const menuNavBarToggle = () => {
+      isMenuNavBarActive.value = !isMenuNavBarActive.value
+    }
+
+    const menuOpenLg = () => {
+      store.dispatch('asideLgToggle', true)
+    }
+
+    return {
+      toggleLightDark,
+      isNavBarVisible,
+      isAsideMobileExpanded,
+      userName,
+      menuToggleMobileIcon,
+      menuToggleMobile,
+      isMenuNavBarActive,
+      menuNavBarToggleIcon,
+      menuNavBarToggle,
+      menuOpenLg,
+      mdiMenu,
+      mdiClockOutline,
+      mdiCloud,
+      mdiCrop,
+      mdiAccount,
+      mdiCogOutline,
+      mdiEmail,
+      mdiLogout,
+      mdiGithub,
+      mdiThemeLightDark
     }
   }
 }

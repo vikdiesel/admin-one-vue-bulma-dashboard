@@ -1,38 +1,39 @@
 <template>
-  <div class="is-user-avatar">
-    <img :src="newUserAvatar" :alt="userName" />
+  <div class="jb-user-avatar">
+    <img :src="avatar" :alt="name" class="jb-user-avatar-image" :class="bg" />
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { useStore } from 'vuex'
+import { computed } from 'vue'
+
 export default {
   name: 'UserAvatar',
   props: {
-    avatar: {
+    username: String,
+    bg: {
       type: String,
-      default: null
+      default: 'has-bg-default'
+    },
+    api: {
+      type: String,
+      default: 'api/avataaars'
     }
   },
-  computed: {
-    newUserAvatar () {
-      if (this.avatar) {
-        return this.avatar
-      }
+  setup (props) {
+    const store = useStore()
 
-      if (this.userAvatar) {
-        return this.userAvatar
-      }
+    const avatar = computed(() => props.username
+      ? `https://avatars.dicebear.com/${props.api}/${props.username.replace(/[^a-z0-9]+/i, '-')}.svg`
+      : store.state.userAvatar)
 
-      let name = 'somename'
+    const name = computed(() => props.username ? props.username : store.state.userName)
 
-      if (this.userName) {
-        name = this.userName.replace(/[^a-z0-9]+/i, '')
-      }
-
-      return `https://avatars.dicebear.com/v2/human/${name}.svg?options[mood][]=happy`
-    },
-    ...mapState(['userAvatar', 'userName'])
+    return {
+      name,
+      avatar
+    }
   }
 }
 </script>

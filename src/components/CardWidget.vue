@@ -1,55 +1,63 @@
 <template>
   <card-component>
-    <div class="level is-mobile">
-      <div class="level-item">
-        <div class="is-widget-label">
-          <h3 class="subtitle is-spaced">
-            {{ label }}
-          </h3>
-          <h1 class="title">
-            <growing-number :value="number" :prefix="prefix" :suffix="suffix" />
-          </h1>
-        </div>
+    <level v-if="trend" class="has-space" mobile>
+      <trend-pill :trend="trend" :trend-type="trendType" small />
+      <jb-button
+        :icon="mdiCog"
+        :color="darkMode ? 'white' : 'light'"
+        :outline="darkMode"
+        small
+      />
+    </level>
+    <level mobile>
+      <div>
+        <h3 class="jb-card-widget-label">
+          {{ label }}
+        </h3>
+        <h1 class="jb-card-widget-number">
+          <growing-number :value="number" :prefix="prefix" :suffix="suffix" />
+        </h1>
       </div>
-      <div v-if="icon" class="level-item has-widget-icon">
-        <div class="is-widget-icon">
-          <b-icon :icon="icon" size="is-large" :type="type" />
-        </div>
-      </div>
-    </div>
+      <icon v-if="icon" :path="icon" size="48" class="is-card-widget-icon" :class="color" />
+    </level>
   </card-component>
 </template>
 
 <script>
+import { mdiCog } from '@mdi/js'
+import { computed } from 'vue'
+import { useStore } from 'vuex'
 import CardComponent from '@/components/CardComponent'
 import GrowingNumber from '@/components/GrowingNumber'
+import Icon from '@/components/Icon'
+import Level from '@/components/Level'
+import TrendPill from '@/components/TrendPill'
+import JbButton from '@/components/JbButton'
+
 export default {
   name: 'CardWidget',
-  components: { GrowingNumber, CardComponent },
+  components: { JbButton, GrowingNumber, CardComponent, Icon, Level, TrendPill },
   props: {
-    icon: {
-      type: String,
-      default: null
-    },
     number: {
       type: Number,
       default: 0
     },
-    prefix: {
-      type: String,
-      default: null
-    },
-    suffix: {
-      type: String,
-      default: null
-    },
-    label: {
-      type: String,
-      default: null
-    },
-    type: {
-      type: String,
-      default: null
+    icon: String,
+    prefix: String,
+    suffix: String,
+    label: String,
+    color: String,
+    trend: String,
+    trendType: String
+  },
+  setup () {
+    const store = useStore()
+
+    const darkMode = computed(() => store.state.darkMode)
+
+    return {
+      darkMode,
+      mdiCog
     }
   }
 }

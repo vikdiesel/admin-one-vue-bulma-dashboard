@@ -1,186 +1,160 @@
 <template>
-  <div>
-    <title-bar :title-stack="titleStack" />
-    <hero-bar>
-      Forms
-      <router-link slot="right" to="/" class="button">
-        Dashboard
-      </router-link>
-    </hero-bar>
-    <section class="section is-main-section">
-      <card-component title="Forms" icon="ballot">
-        <form @submit.prevent="submit">
-          <b-field label="From" horizontal>
-            <b-field>
-              <b-input
-                v-model="form.name"
-                icon="account"
-                placeholder="Name"
-                name="name"
-                required
-              />
-            </b-field>
-            <b-field>
-              <b-input
-                v-model="form.email"
-                icon="email"
-                type="email"
-                placeholder="E-mail"
-                name="email"
-                required
-              />
-            </b-field>
-          </b-field>
-          <b-field message="Do not enter the leading zero" horizontal>
-            <b-field>
-              <p class="control">
-                <a class="button is-static">
-                  +44
-                </a>
-              </p>
-              <b-input v-model="form.phone" type="tel" name="phone" expanded />
-            </b-field>
-          </b-field>
-          <b-field label="Department" horizontal>
-            <b-select
-              v-model="form.department"
-              placeholder="Select a department"
-              required
-            >
-              <option
-                v-for="(department, index) in departments"
-                :key="index"
-                :value="department"
-              >
-                {{ department }}
-              </option>
-            </b-select>
-          </b-field>
-          <hr />
-          <b-field label="Subject" message="Message subject" horizontal>
-            <b-input
-              v-model="form.subject"
-              placeholder="e.g. Partnership proposal"
-              required
-            />
-          </b-field>
-          <b-field
-            label="Question"
-            message="Your question. Max 255 characters"
-            horizontal
-          >
-            <b-input
-              v-model="form.question"
-              type="textarea"
-              placeholder="Explain how we can help you"
-              maxlength="255"
-              required
-            />
-          </b-field>
-          <hr />
-          <b-field horizontal>
-            <b-field grouped>
-              <div class="control">
-                <b-button native-type="submit" type="is-primary"
-                  >Submit</b-button
-                >
-              </div>
-              <div class="control">
-                <b-button type="is-primary is-outlined" @click="reset"
-                  >Reset</b-button
-                >
-              </div>
-            </b-field>
-          </b-field>
-        </form>
-      </card-component>
-      <card-component title="Custom elements" icon="ballot-outline">
-        <b-field label="Checkbox" class="has-check" horizontal>
-          <checkbox-picker
-            v-model="customElementsForm.checkbox"
-            :options="{ lorem: 'Lorem', ipsum: 'Ipsum', dolore: 'Dolore' }"
-            type="is-primary"
-          />
-        </b-field>
-        <hr />
-        <b-field label="Radio" class="has-check" horizontal>
-          <radio-picker
-            v-model="customElementsForm.radio"
-            :options="{ one: 'One', two: 'Two' }"
-          ></radio-picker>
-        </b-field>
-        <hr />
-        <b-field label="Switch" horizontal>
-          <b-switch v-model="customElementsForm.switch">
-            Default
-          </b-switch>
-        </b-field>
-        <hr />
-        <b-field label="File" horizontal>
-          <file-picker v-model="customElementsForm.file" />
-        </b-field>
-      </card-component>
-    </section>
-  </div>
+  <title-bar :title-stack="titleStack" />
+  <hero-bar>Forms</hero-bar>
+
+  <main-section>
+    <title-sub-bar :icon="mdiBallotOutline" title="Forms example"/>
+    <card-component title="Forms" :icon="mdiBallot" @submit.prevent="submit" form>
+      <field label="Grouped with icons">
+        <control :icon="mdiAccount" v-model="form.name" />
+        <control type="email" :icon="mdiMail" v-model="form.email" />
+      </field>
+
+      <field label="With help line" help="Do not enter the leading zero">
+        <control type="tel" placeholder="Your phone number" v-model="form.phone" />
+      </field>
+
+      <field label="Dropdown">
+        <control :options="selectOptions" v-model="form.department" />
+      </field>
+
+      <divider/>
+
+      <field label="Question" help="Your question. Max 255 characters">
+        <control type="textarea" placeholder="Explain how we can help you"/>
+      </field>
+
+      <divider/>
+
+      <jb-buttons>
+        <jb-button type="submit" color="info" label="Submit" />
+        <jb-button type="reset" color="info" outline label="Reset" />
+      </jb-buttons>
+    </card-component>
+  </main-section>
+
+  <titled-section>
+    Custom elements
+  </titled-section>
+
+  <main-section>
+    <card-component title="Custom elements" :icon="mdiBallotOutline">
+
+      <field label="Checkbox" wrap-body>
+        <check-radio-picker
+          name="sample-checkbox"
+          v-model="customElementsForm.checkbox"
+          :options="{ lorem: 'Lorem', ipsum: 'Ipsum', dolore: 'Dolore' }"
+        />
+      </field>
+
+      <divider />
+
+      <field label="Radio" wrap-body>
+        <check-radio-picker
+          name="sample-radio"
+          type="radio"
+          v-model="customElementsForm.radio"
+          :options="{ one: 'One', two: 'Two' }"
+        ></check-radio-picker>
+      </field>
+
+      <divider />
+
+      <field label="Switch">
+        <check-radio-picker
+          name="sample-switch"
+          type="switch"
+          v-model="customElementsForm.switch"
+          :options="{ one: 'One', two: 'Two' }"
+        ></check-radio-picker>
+      </field>
+
+      <divider />
+
+      <file-picker v-model="customElementsForm.file" />
+    </card-component>
+  </main-section>
+
+  <bottom-other-pages-section />
 </template>
 
 <script>
-import mapValues from 'lodash/mapValues'
+import { ref, reactive } from 'vue'
+import { mdiBallot, mdiBallotOutline, mdiAccount, mdiMail, mdiCheck } from '@mdi/js'
+import MainSection from '@/components/MainSection'
 import TitleBar from '@/components/TitleBar'
 import CardComponent from '@/components/CardComponent'
-import CheckboxPicker from '@/components/CheckboxPicker'
-import RadioPicker from '@/components/RadioPicker'
+import CheckRadioPicker from '@/components/CheckRadioPicker'
 import FilePicker from '@/components/FilePicker'
 import HeroBar from '@/components/HeroBar'
+import Field from '@/components/Field'
+import Control from '@/components/Control'
+import Divider from '@/components/Divider.vue'
+import JbButton from '@/components/JbButton'
+import JbButtons from '@/components/JbButtons'
+import BottomOtherPagesSection from '@/components/BottomOtherPagesSection'
+import TitledSection from '@/components/TitledSection'
+import TitleSubBar from '@/components/TitleSubBar'
+
 export default {
   name: 'Forms',
   components: {
+    TitleSubBar,
+    TitledSection,
+    Divider,
+    MainSection,
     HeroBar,
     FilePicker,
-    RadioPicker,
-    CheckboxPicker,
+    CheckRadioPicker,
     CardComponent,
-    TitleBar
+    TitleBar,
+    Field,
+    Control,
+    JbButton,
+    JbButtons,
+    BottomOtherPagesSection
   },
-  data () {
-    return {
-      isLoading: false,
-      form: {
-        name: null,
-        email: null,
-        phone: null,
-        department: null,
-        subject: null,
-        question: null
-      },
-      customElementsForm: {
-        checkbox: [],
-        radio: null,
-        switch: true,
-        file: null
-      },
-      departments: ['Business Development', 'Marketing', 'Sales']
-    }
-  },
-  computed: {
-    titleStack () {
-      return ['Admin', 'Forms']
-    }
-  },
-  methods: {
-    submit () {},
-    reset () {
-      this.form = mapValues(this.form, (item) => {
-        if (item && typeof item === 'object') {
-          return []
-        }
-        return null
-      })
+  setup () {
+    const titleStack = ref(['Admin', 'Forms'])
 
-      this.$buefy.snackbar.open({
-        message: 'Reset successfully',
-        queue: false
-      })
+    const selectOptions = [
+      { id: 1, label: 'Business development' },
+      { id: 2, label: 'Marketing' },
+      { id: 3, label: 'Sales' }
+    ]
+
+    const form = reactive({
+      name: 'John Doe',
+      email: 'john.doe@example.com',
+      phone: '',
+      department: selectOptions[0],
+      subject: '',
+      question: ''
+    })
+
+    const customElementsForm = reactive({
+      checkbox: ['lorem'],
+      radio: 'one',
+      switch: ['one'],
+      file: null
+    })
+
+    const submit = () => {
+      //
+    }
+
+    return {
+      titleStack,
+      selectOptions,
+      form,
+      customElementsForm,
+      submit,
+      mdiBallot,
+      mdiBallotOutline,
+      mdiAccount,
+      mdiMail,
+      mdiCheck
     }
   }
 }

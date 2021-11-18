@@ -1,0 +1,74 @@
+.jb-overlay-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  &.z-default {
+    z-index: 50;
+  }
+
+  &.z-app {
+    z-index: 30;
+  }
+}
+
+.jb-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: .9;
+  background-image: linear-gradient(to top right, $gray-700, $gray-900, $gray-700);
+
+  &.enter-from-class, &.leave-to-class {
+    opacity: 0;
+  }
+
+  &.enter-to-class, &.leave-from-class {
+    opacity: 1;
+  }
+}
+
+.jb-overlay-transition {
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+  transition-duration: 150ms;
+}
+
+.jb-overlay-content-enter-active-class {
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  transition-duration: 100ms;
+}
+
+.jb-overlay-content-enter-from {
+  opacity: 0;
+  transform: translateX(0) translateY(0) rotate(0) skewX(0) skewY(0) scaleX(.95) scaleY(.95);
+}
+
+.jb-overlay-content-enter-to {
+  opacity: 1;
+  transform: translateX(0) translateY(0) rotate(0) skewX(0) skewY(0) scaleX(1) scaleY(1);
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.jb-overlay-content-leave {
+  animation: fadeOut .25s ease-in-out;
+}

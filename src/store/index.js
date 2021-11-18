@@ -1,24 +1,29 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import { createStore } from 'vuex'
+import axios from 'axios'
 
-Vue.use(Vuex)
-
-export default new Vuex.Store({
+export default createStore({
   state: {
     /* User */
     userName: null,
     userEmail: null,
     userAvatar: null,
 
-    /* NavBar */
-    isNavBarVisible: true,
-
-    /* FooterBar */
-    isFooterBarVisible: true,
+    /* fullScreen - fullscreen form layout (e.g. login page) */
+    isFullScreen: false,
 
     /* Aside */
-    isAsideVisible: true,
-    isAsideMobileExpanded: false
+    isAsideMobileExpanded: false,
+    isAsideLgActive: false,
+
+    /* Dark mode */
+    darkMode: false,
+
+    /* Field focus with ctrl+k (to register only once) */
+    isFieldFocusRegistered: false,
+
+    /* Sample data (commonly used) */
+    clients: [],
+    history: []
   },
   mutations: {
     /* A fit-them-all commit */
@@ -37,30 +42,67 @@ export default new Vuex.Store({
       if (payload.avatar) {
         state.userAvatar = payload.avatar
       }
-    },
-
-    /* Aside Mobile */
-    asideMobileStateToggle (state, payload = null) {
-      const htmlClassName = 'has-aside-mobile-expanded'
-
-      let isShow
-
-      if (payload !== null) {
-        isShow = payload
-      } else {
-        isShow = !state.isAsideMobileExpanded
-      }
-
-      if (isShow) {
-        document.documentElement.classList.add(htmlClassName)
-      } else {
-        document.documentElement.classList.remove(htmlClassName)
-      }
-
-      state.isAsideMobileExpanded = isShow
     }
   },
   actions: {
+    asideMobileToggle ({ commit, state }, payload = null) {
+      const isShow = payload !== null ? payload : !state.isAsideMobileExpanded
 
+      document.getElementById('app').classList[isShow ? 'add' : 'remove']('is-aside-mobile-active')
+
+      document.documentElement.classList[isShow ? 'add' : 'remove']('m-clipped')
+
+      commit('basic', {
+        key: 'isAsideMobileExpanded',
+        value: isShow
+      })
+    },
+
+    asideLgToggle ({ commit, state }, payload = null) {
+      commit('basic', { key: 'isAsideLgActive', value: payload !== null ? payload : !state.isAsideLgActive })
+    },
+
+    fullScreenToggle ({ commit, state }, value) {
+      commit('basic', { key: 'isFullScreen', value })
+
+      document.documentElement.classList[value ? 'add' : 'remove']('full-screen')
+    },
+
+    darkMode ({ commit, state }) {
+      const value = !state.darkMode
+
+      document.documentElement.classList[value ? 'add' : 'remove']('dark')
+
+      commit('basic', {
+        key: 'darkMode',
+        value
+      })
+    },
+
+    fetch ({ commit }, payload) {
+      axios
+        .get(`data-sources/${payload}.json`)
+        .then((r) => {
+          if (r.data) {
+            if (r.data.data) {
+              commit('basic', {
+                key: payload,
+                value: r.data.data
+              })
+            }
+            if (r.data.status) {
+              commit('basic', {
+                key: `${payload}Status`,
+                value: r.data.status
+              })
+            }
+          }
+        })
+        .catch(error => {
+          alert(error.message)
+        })
+    }
+  },
+  modules: {
   }
 })

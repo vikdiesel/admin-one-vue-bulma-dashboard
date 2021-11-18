@@ -1,75 +1,95 @@
 <template>
-  <li :class="{ 'is-active': isDropdownActive }">
+  <li>
     <component
       :is="componentIs"
       :to="itemTo"
       :href="itemHref"
-      exact-active-class="is-active"
-      :class="{ 'has-icon': !!item.icon, 'has-dropdown-icon': hasDropdown }"
+      :target="itemTarget"
+      v-slot="vSlot"
+      class="jb-aside-menu-item"
+      :class="[isSubmenuList ? 'is-submenu-list' : 'is-ancestor-list']"
       @click="menuClick"
     >
-      <b-icon
+      <icon
         v-if="item.icon"
-        :icon="item.icon"
-        :class="{ 'has-update-mark': item.updateMark }"
-        custom-size="default"
+        :path="item.icon"
+        class="is-aside-icon"
+        :class="[vSlot && vSlot.isExactActive ? styleActive : styleInactive]"
       />
-      <span v-if="item.label" :class="{ 'menu-item-label': !!item.icon }">{{
-        item.label
-      }}</span>
-      <div v-if="hasDropdown" class="dropdown-icon">
-        <b-icon :icon="dropdownIcon" custom-size="default" />
-      </div>
+      <span
+        class="jb-aside-menu-item-label"
+        :class="[vSlot && vSlot.isExactActive ? styleActive : styleInactive]"
+      >{{ item.label }}</span>
+      <icon
+        v-if="hasDropdown"
+        :path="dropdownIcon"
+        class="is-aside-icon"
+        :class="[vSlot && vSlot.isExactActive ? styleActive : styleInactive]"
+      />
     </component>
     <aside-menu-list
       v-if="hasDropdown"
       :menu="item.menu"
-      :is-submenu-list="true"
+      :class="{ 'jb-submenu-container-hidden': !isDropdownActive, 'jb-submenu-container-visible': isDropdownActive }"
+      is-submenu-list
     />
   </li>
 </template>
 
 <script>
+import { defineAsyncComponent, ref, computed } from 'vue'
+import { mdiMinus, mdiPlus } from '@mdi/js'
+import Icon from '@/components/Icon'
+
 export default {
   name: 'AsideMenuItem',
   components: {
-    AsideMenuList: () => import('@/components/AsideMenuList')
+    AsideMenuList: defineAsyncComponent(() => import('@/components/AsideMenuList')),
+    Icon
   },
+  emits: ['menu-click'],
   props: {
-    item: {
-      type: Object,
-      default: null
-    }
+    item: Object,
+    isSubmenuList: Boolean
   },
-  data () {
-    return {
-      isDropdownActive: false
-    }
-  },
-  computed: {
-    componentIs () {
-      return this.item.to ? 'router-link' : 'a'
-    },
-    hasDropdown () {
-      return !!this.item.menu
-    },
-    dropdownIcon () {
-      return this.isDropdownActive ? 'minus' : 'plus'
-    },
-    itemTo () {
-      return this.item.to ? this.item.to : null
-    },
-    itemHref () {
-      return this.item.href ? this.item.href : null
-    }
-  },
-  methods: {
-    menuClick () {
-      this.$emit('menu-click', this.item)
+  setup (props, { emit }) {
+    const isDropdownActive = ref(false)
 
-      if (this.hasDropdown) {
-        this.isDropdownActive = !this.isDropdownActive
+    const componentIs = computed(() => props.item.to ? 'router-link' : 'a')
+
+    const hasDropdown = computed(() => !!props.item.menu)
+
+    const dropdownIcon = computed(() => isDropdownActive.value ? mdiMinus : mdiPlus)
+
+    const itemTo = computed(() => props.item.to || null)
+
+    const itemHref = computed(() => props.item.href || null)
+
+    const itemTarget = computed(() => componentIs.value === 'a' && props.item.target ? props.item.target : null)
+
+    const menuClick = event => {
+      emit('menu-click', event, props.item)
+
+      if (hasDropdown.value) {
+        isDropdownActive.value = !isDropdownActive.value
       }
+    }
+
+    const styleActive = 'is-active'
+
+    const styleInactive = 'is-inactive'
+
+    return {
+      isDropdownActive,
+      componentIs,
+      hasDropdown,
+      dropdownIcon,
+      itemTo,
+      itemHref,
+      itemTarget,
+      menuClick,
+      styleActive,
+      styleInactive
     }
   }
 }

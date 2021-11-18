@@ -1,8 +1,5 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-
-Vue.use(VueRouter)
+import { createRouter, createWebHashHistory } from 'vue-router'
+import Home from '../views/Home'
 
 const routes = [
   {
@@ -24,7 +21,7 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "tables" */ '../views/Tables.vue')
+    component: () => import(/* webpackChunkName: "tables" */ '../views/Tables')
   },
   {
     meta: {
@@ -32,7 +29,7 @@ const routes = [
     },
     path: '/forms',
     name: 'forms',
-    component: () => import(/* webpackChunkName: "forms" */ '../views/Forms.vue')
+    component: () => import(/* webpackChunkName: "forms" */ '../views/Forms')
   },
   {
     meta: {
@@ -40,36 +37,49 @@ const routes = [
     },
     path: '/profile',
     name: 'profile',
-    component: () => import(/* webpackChunkName: "profile" */ '../views/Profile.vue')
+    component: () => import(/* webpackChunkName: "profile" */ '../views/Profile')
   },
   {
     meta: {
-      title: 'New Client'
+      title: 'Ui'
     },
-    path: '/client/new',
-    name: 'client.new',
-    component: () => import(/* webpackChunkName: "client-form" */ '../views/ClientForm.vue')
+    path: '/ui',
+    name: 'ui',
+    component: () => import(/* webpackChunkName: "ui" */ '../views/Ui')
   },
   {
     meta: {
-      title: 'Edit Client'
+      title: 'Responsive layout'
     },
-    path: '/client/:id',
-    name: 'client.edit',
-    component: () => import(/* webpackChunkName: "client-form" */ '../views/ClientForm.vue'),
-    props: true
+    path: '/responsive',
+    name: 'responsive',
+    component: () => import(/* webpackChunkName: "responsive" */ '../views/Responsive')
+  },
+  {
+    meta: {
+      title: 'Login',
+      fullScreen: true
+    },
+    path: '/login',
+    name: 'login',
+    component: () => import(/* webpackChunkName: "login" */ '../views/Login')
+  },
+  {
+    meta: {
+      title: 'Error',
+      fullScreen: true
+    },
+    path: '/error',
+    name: 'error',
+    component: () => import(/* webpackChunkName: "error" */ '../views/Error')
   }
 ]
 
-const router = new VueRouter({
-  base: process.env.BASE_URL,
+const router = createRouter({
+  history: createWebHashHistory(),
   routes,
   scrollBehavior (to, from, savedPosition) {
-    if (savedPosition) {
-      return savedPosition
-    } else {
-      return { x: 0, y: 0 }
-    }
+    return savedPosition || { top: 0 }
   }
 })
 

@@ -1,0 +1,7 @@
+@include dark {
+  .jb-button {
+    &.is-active {
+      @include ringWhite;
+    }
+  }
+}

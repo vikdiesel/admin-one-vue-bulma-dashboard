@@ -1,25 +1,81 @@
-/* Theme style (colors & sizes) */
-@import "theme-default";
+@import "vars";
+@import "~bulma/bulma";
 
-/* Core Libs & Lib configs */
-@import "libs/all";
-
-/* Mixins */
 @import "mixins";
+@import "mixins-dark";
 
-/* Theme components */
-@import "nav-bar";
+@import "colors";
+@import "colors-dark";
+
+@import "app";
+@import "app-dark";
+
 @import "aside";
-@import "title-bar";
-@import "hero-bar";
-@import "card";
-@import "table";
-@import "tiles";
-@import "form";
-@import "main-section";
-@import "modal";
-@import "footer";
-@import "misc";
+@import "aside-dark";
 
-/* Animate.css custom build (just selected animations to minimize bundle size) */
-@import "../css/animate.min.css";
+@import "bottom-section";
+@import "bottom-section-dark";
+
+@import "buttons";
+@import "buttons-dark";
+
+@import "card";
+@import "card-dark";
+
+@import "chart";
+
+@import "check-radio-switch";
+@import "check-radio-switch-dark";
+
+@import "check-radio-switch-group";
+
+@import "control";
+@import "control-dark";
+
+@import "divider";
+@import "divider-dark";
+
+@import "field";
+@import "field-dark";
+
+@import "file-picker";
+
+@import "footer";
+@import "footer-dark";
+
+@import "grid";
+
+@import "hero-bar";
+@import "hero-bar-dark";
+
+@import "icon";
+@import "icon-dark";
+
+@import "level";
+
+@import "navbar";
+@import "navbar-dark";
+
+@import "notification";
+
+@import "overlay";
+
+@import "pill";
+
+@import "ring";
+
+@import "section";
+
+@import "table";
+@import "table-dark";
+
+@import "title-bar";
+@import "title-bar-dark";
+
+@import "title-sub-bar";
+
+@import "titled-section";
+@import "titled-section-dark";
+
+@import "user";
+@import "user-dark";

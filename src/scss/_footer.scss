@@ -1,14 +1,36 @@
-footer.footer {
-  .logo {
-    img {
-      width: auto;
-      height: $footer-logo-height;
+.jb-footer {
+  background: $white;
+  padding: $size-base * 2 $size-base * 6;
+
+  a {
+    color: $black;
+
+    &.is-link {
+      color: $link;
     }
   }
-}
 
-@include mobile {
-  .footer-copyright {
+  .footer-text-wrap {
     text-align: center;
+
+    @include tablet {
+      text-align: left;
+    }
+  }
+
+  .footer-logo-wrap {
+    @include tablet {
+      padding-top: $size-base * 2;
+      padding-bottom: $size-base * 2;
+    }
+
+    .footer-logo {
+      width: auto;
+      height: $size-base * 8;
+
+      @include tablet {
+        height: $size-base * 6;
+      }
+    }
   }
 }

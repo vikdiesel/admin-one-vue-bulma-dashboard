@@ -1,0 +1,7 @@
+@include dark {
+  .jb-user-avatar-image {
+    &.has-bg-default {
+      background: $gray-800;
+    }
+  }
+}

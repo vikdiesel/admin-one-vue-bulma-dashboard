@@ -1,40 +1,42 @@
 <template>
-  <footer v-show="isFooterBarVisible" class="footer">
-    <div class="container-fluid">
-      <div class="level">
-        <div class="level-left">
-          <div class="level-item">
-            <div class="footer-copyright">
-              <b>&copy; {{ year }}, JustBoil.me</b> &mdash; Admin One Demo
-              <span class="tag">v1.5.1</span>
-            </div>
-          </div>
-        </div>
-        <div class="level-right">
-          <div class="level-item">
-            <div class="logo">
-              <a href="https://justboil.me">
-                <img src="../assets/justboil-logo.svg" alt="JustBoil.me" />
-              </a>
-            </div>
-          </div>
-        </div>
+  <footer v-show="isFooterBarVisible" class="jb-footer">
+    <level>
+      <div class="footer-text-wrap">
+        <b>&copy; {{ year }}, <a href="https://justboil.me/" target="_blank">JustBoil.me</a>.</b>
+        Get more with <a href="https://justboil.me/tailwind-admin-templates/vue-dashboard" class="is-link" target="_blank">Premium version</a>
       </div>
-    </div>
+      <div class="footer-logo-wrap">
+        <a href="https://justboil.me">
+          <jb-logo class="footer-logo" />
+        </a>
+      </div>
+    </level>
   </footer>
 </template>
 
 <script>
-import dayjs from 'dayjs'
-import { mapState } from 'vuex'
+import { computed } from 'vue'
+import { useStore } from 'vuex'
+import Level from '@/components/Level'
+import JbLogo from '@/components/JbLogo'
 
 export default {
   name: 'FooterBar',
-  computed: {
-    year () {
-      return dayjs().year()
-    },
-    ...mapState(['isFooterBarVisible'])
+  components: {
+    Level,
+    JbLogo
+  },
+  setup () {
+    const store = useStore()
+
+    const year = computed(() => new Date().getFullYear())
+
+    const isFooterBarVisible = computed(() => !store.state.isFullScreen)
+
+    return {
+      year,
+      isFooterBarVisible
+    }
   }
 }
 </script>

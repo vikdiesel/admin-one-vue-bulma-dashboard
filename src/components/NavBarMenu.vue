@@ -1,52 +1,69 @@
 <template>
-  <div
-    class="navbar-item has-dropdown has-dropdown-with-icons"
-    :class="{ 'is-hoverable': isHoverable, 'is-active': isDropdownActive }"
+  <nav-bar-item
+    :has-divider="hasDivider"
+    :active="isDropdownActive"
+    dropdown
     @click="toggle"
+    ref="root"
   >
-    <a class="navbar-link is-arrowless">
+    <a class="jb-navbar-dropdown-label">
       <slot />
-      <b-icon :icon="toggleDropdownIcon" custom-size="default" />
+      <icon :path="toggleDropdownIcon" class="jb-navbar-dropdown-icon" />
     </a>
-    <slot name="dropdown" />
-  </div>
+    <div
+      class="jb-navbar-dropdown-menu"
+      :class="{'is-inactive':!isDropdownActive}"
+    >
+      <slot name="dropdown" />
+    </div>
+  </nav-bar-item>
 </template>
 
 <script>
+import { computed, ref, onMounted, onBeforeUnmount } from 'vue'
+import { mdiChevronUp, mdiChevronDown } from '@mdi/js'
+import NavBarItem from '@/components/NavBarItem'
+import Icon from '@/components/Icon'
+
 export default {
   name: 'NavBarMenu',
+  components: { Icon, NavBarItem },
   props: {
-    isHoverable: {
+    hasDivider: {
       type: Boolean,
       default: false
     }
   },
-  data () {
+  setup () {
+    const isDropdownActive = ref(false)
+
+    const toggleDropdownIcon = computed(() => isDropdownActive.value ? mdiChevronUp : mdiChevronDown)
+
+    const toggle = () => {
+      isDropdownActive.value = !isDropdownActive.value
+    }
+
+    const root = ref(null)
+
+    const forceClose = event => {
+      if (!root.value.$el.contains(event.target)) {
+        isDropdownActive.value = false
+      }
+    }
+
+    onMounted(() => {
+      window.addEventListener('click', forceClose)
+    })
+
+    onBeforeUnmount(() => {
+      window.removeEventListener('click', forceClose)
+    })
+
     return {
-      isDropdownActive: false
-    }
-  },
-  computed: {
-    toggleDropdownIcon () {
-      return this.isDropdownActive ? 'chevron-up' : 'chevron-down'
-    }
-  },
-  mounted () {
-    window.addEventListener('click', this.forceClose)
-  },
-  beforeDestroy () {
-    window.removeEventListener('click', this.forceClose)
-  },
-  methods: {
-    toggle () {
-      if (!this.isHoverable) {
-        this.isDropdownActive = !this.isDropdownActive
-      }
-    },
-    forceClose (e) {
-      if (!this.$el.contains(e.target)) {
-        this.isDropdownActive = false
-      }
+      isDropdownActive,
+      toggleDropdownIcon,
+      toggle,
+      root
     }
   }
 }

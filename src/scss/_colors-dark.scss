@@ -1,0 +1,13 @@
+@include dark {
+  .jb-borders-light {
+    border-color: $gray-400;
+  }
+
+  .jb-text-white {
+    color: $gray-100;
+  }
+
+  .jb-text-light {
+    color: $gray-400;
+  }
+}

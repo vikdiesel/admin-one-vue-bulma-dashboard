@@ -1,31 +1,45 @@
 <template>
-  <section class="hero is-hero-bar">
-    <div class="hero-body">
-      <div class="level">
-        <div class="level-left">
-          <div class="level-item">
-            <h1 class="title">
-              <slot />
-            </h1>
-          </div>
-        </div>
-        <div v-show="hasRightVisible" class="level-right">
-          <div class="level-item">
-            <slot name="right" />
-          </div>
-        </div>
-      </div>
-    </div>
+  <section class="jb-hero-bar">
+    <level>
+      <h1>
+        <slot />
+      </h1>
+      <jb-button
+        :label="darkMode ? 'Light Mode' : 'Dark Mode'"
+        :icon="mdiThemeLightDark"
+        :outline="darkMode"
+        @click="darkModeToggle"
+      />
+    </level>
   </section>
 </template>
 
 <script>
+import { mdiThemeLightDark } from '@mdi/js'
+import { useStore } from 'vuex'
+import { computed } from 'vue'
+import Level from '@/components/Level'
+import JbButton from '@/components/JbButton'
+
 export default {
   name: 'HeroBar',
-  props: {
-    hasRightVisible: {
-      type: Boolean,
-      default: true
+  components: {
+    Level,
+    JbButton
+  },
+  setup () {
+    const store = useStore()
+
+    const darkMode = computed(() => store.state.darkMode)
+
+    const darkModeToggle = () => {
+      store.dispatch('darkMode')
+    }
+
+    return {
+      darkMode,
+      darkModeToggle,
+      mdiThemeLightDark
     }
   }
 }

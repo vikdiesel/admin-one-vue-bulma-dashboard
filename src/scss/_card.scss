@@ -1,48 +1,202 @@
-.card:not(:last-child) {
-  margin-bottom: $default-padding;
+.jb-card {
+  background: $white;
+  border: 1px solid $gray-100;
+
+  &.is-rounded-default {
+    @include tablet {
+      border-radius: $radius;
+    }
+  }
+
+  &.is-rounded-lg {
+    border-radius: $radius-large;
+  }
+
+  &.is-card-client-bar, &.is-card-transaction-bar {
+    margin-bottom: $size-base * 6;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &.is-modal {
+    @include shadowLg;
+    width: 100%;
+    max-height: calc(100vh - 160px);
+    z-index: 50;
+
+    @include tablet {
+      width: 60%;
+    }
+
+    @include desktop {
+      width: 40%;
+    }
+  }
+
+  &.is-fullscreen-card {
+    @include shadow2Xl;
+    width: 91.666667%;
+
+    @include tablet {
+      width: 58.333333%;
+    }
+
+    @include desktop {
+      width: 50%;
+    }
+
+    @include widescreen {
+      width: 33.333333%;
+    }
+  }
+
+  &.is-aligned-card {
+    @include shadow2Xl;
+    margin-left: auto;
+    margin-right: auto;
+
+    @include tablet {
+      width: 58.333333%;
+    }
+
+    @include desktop {
+      width: 41.666667%;
+    }
+
+    @include widescreen {
+      width: 33.333333%;
+    }
+  }
+
+  &.has-mb {
+    margin-bottom: $size-base * 6;
+  }
 }
 
-.card {
-  border-radius: $radius-large;
-  border: $card-border;
+.jb-card-header {
+  display: flex;
+  align-items: stretch;
+  border-bottom: 1px solid $gray-100;
+}
 
-  &.has-table {
-    .card-content {
-      padding: 0;
-    }
-    .b-table {
-      border-radius: $radius-large;
-      overflow: hidden;
+.jb-card-header-label {
+  display: flex;
+  align-items: center;
+  padding-top: $size-base * 3;
+  padding-bottom: $size-base * 3;
+  flex-grow: 1;
+  font-weight: bold;
+
+  &.has-icon {
+    padding-left: $size-base * 4;
+    padding-right: $size-base * 4;
+  }
+
+  &.has-no-icon {
+    padding-left: $size-base * 6;
+    padding-right: $size-base * 6;
+  }
+}
+
+.jb-card-header-clickable-icon {
+  display: flex;
+  align-items: center;
+  padding: $size-base * 3 $size-base * 4;
+  justify-content: center;
+  color: inherit;
+
+  &:focus {
+    @include ringBlue;
+  }
+}
+
+.jb-card-body {
+  padding: $size-base * 6;
+}
+
+.jb-card-client-bar-content {
+  text-align: center;
+
+  @include tablet {
+    text-align: left;
+  }
+
+  h4 {
+    @include textXl;
+
+    span {
+      color: $gray-500;
     }
   }
 
-  &.is-card-widget {
-    .card-content {
-      padding: $default-padding * .5;
-    }
+  p {
+    color: $gray-500;
+  }
+}
+
+.jb-card-transaction-content > * + *, .jb-card-transaction-content-right > * + * {
+  margin-top: 0.25rem;
+  margin-bottom: 0;
+}
+
+.jb-card-transaction-content {
+  text-align: center;
+
+  @include tablet {
+    text-align: left;
+    margin-right: $size-base * 6;
   }
 
-  .card-header {
-    border-bottom: 1px solid $base-color-light;
+  h4 {
+    @include textXl;
   }
 
-  .card-content {
-    hr {
-      margin-left: $card-content-padding * -1;
-      margin-right: $card-content-padding * -1;
-    }
+  p {
+    color: $gray-500;
+  }
+}
+
+.jb-card-transaction-content-right {
+  text-align: center;
+
+  @include tablet {
+    text-align: right;
+  }
+}
+
+.jb-card-widget-label {
+  @include textLg(1.25);
+  color: $gray-500;
+}
+
+.jb-card-widget-number {
+  @include text3xl(1.25);
+  font-weight: 600;
+}
+
+.jb-card-modal-content {
+  &> * + * {
+    margin-top: 0.75rem;
+    margin-bottom: 0;
   }
 
-  .is-widget-icon {
-    .icon {
-      width: 5rem;
-      height: 5rem;
-    }
+  h1 {
+    @include text2xl;
   }
+}
 
-  .is-widget-label {
-    .subtitle {
-      color: $grey;
-    }
+.jb-card-content-center-wrap, .jb-card-empty {
+  text-align: center;
+  padding-top: $size-base * 24;
+  padding-bottom: $size-base * 24;
+  color: $gray-500;
+}
+
+.jb-card-content-center-wrap {
+  @include desktop {
+    padding-top: $size-base * 12;
+    padding-bottom: $size-base * 12;
   }
 }

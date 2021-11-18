@@ -1,0 +1,53 @@
+.jb-control-wrap {
+  position: relative;
+}
+
+.jb-control {
+  padding: $size-base * 2 $size-base * 3;
+  width: 100%;
+  max-width: 100%;
+  border-radius: $radius;
+  color: inherit;
+
+  &.is-height-default {
+    height: $size-base * 12;
+  }
+
+  &.is-height-textarea {
+    height: $size-base * 24;
+  }
+
+  &.has-border {
+    border: 1px solid $gray-700;
+  }
+
+  &.no-border {
+    border: 0;
+  }
+
+  &.has-bg-default {
+    background: $white;
+  }
+
+  &.has-bg-transparent {
+    background: transparent;
+  }
+
+  &.has-icon {
+    padding-left: $size-base * 10;
+  }
+
+  &:focus {
+    @include ringBlue;
+    outline: none;
+  }
+}
+
+.jb-control-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  pointer-events: none;
+  color: $gray-500;
+}
