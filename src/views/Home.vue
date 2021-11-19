@@ -4,10 +4,10 @@
   <main-section>
     <notification color="info" :icon="mdiGithub">
       Please star this project on
-      <a href="https://github.com/justboil/admin-one-vue-tailwind" class="is-underlined is-inherit" target="_blank">GitHub</a>
+      <a href="https://github.com/vikdiesel/admin-one-vue-bulma-dashboard" class="is-underlined is-inherit" target="_blank">GitHub</a>
       <template #right>
         <jb-button
-          href="https://github.com/justboil/admin-one-vue-tailwind"
+          href="https://github.com/vikdiesel/admin-one-vue-bulma-dashboard"
           :icon="mdiGithub"
           :outline="darkMode"
           label="GitHub"

@@ -66,7 +66,7 @@
         <nav-bar-item @click.prevent="toggleLightDark" has-divider is-desktop-icon-only>
           <nav-bar-item-label :icon="mdiThemeLightDark" label="Light/Dark" is-desktop-icon-only />
         </nav-bar-item>
-        <nav-bar-item href="https://github.com/justboil/admin-one-vue-tailwind" has-divider is-desktop-icon-only>
+        <nav-bar-item href="https://github.com/vikdiesel/admin-one-vue-bulma-dashboard" has-divider is-desktop-icon-only>
           <nav-bar-item-label :icon="mdiGithub" label="GitHub" is-desktop-icon-only />
         </nav-bar-item>
         <nav-bar-item is-desktop-icon-only>

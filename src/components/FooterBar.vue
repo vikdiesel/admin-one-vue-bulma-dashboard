@@ -3,7 +3,7 @@
     <level>
       <div class="footer-text-wrap">
         <b>&copy; {{ year }}, <a href="https://justboil.me/" target="_blank">JustBoil.me</a>.</b>
-        Get more with <a href="https://justboil.me/tailwind-admin-templates/vue-dashboard" class="is-link" target="_blank">Premium version</a>
+        Get more with <a href="https://justboil.me/bulma-admin-template/one/" class="is-link" target="_blank">Premium version</a>
       </div>
       <div class="footer-logo-wrap">
         <a href="https://justboil.me">

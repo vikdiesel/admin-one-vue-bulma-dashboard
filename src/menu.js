@@ -76,13 +76,13 @@ export default [
   'About',
   [
     {
-      href: 'https://justboil.me/tailwind-admin-templates/vue-dashboard',
+      href: 'https://justboil.me/bulma-admin-template/one/',
       label: 'Premium version',
       icon: mdiMonitorShimmer,
       target: '_blank'
     },
     {
-      href: 'https://github.com/justboil/admin-one-vue-tailwind',
+      href: 'https://github.com/vikdiesel/admin-one-vue-bulma-dashboard',
       label: 'GitHub',
       icon: mdiGithub,
       target: '_blank'

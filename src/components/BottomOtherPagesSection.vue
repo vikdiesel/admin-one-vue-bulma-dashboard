@@ -3,7 +3,7 @@
     <h1 class="jb-bottom-section-text is-github-line">
         <span class="is-github-line-prefix-label">Please star this project on</span>
         <a
-          href="https://github.com/justboil/admin-one-vue-tailwind"
+          href="https://github.com/vikdiesel/admin-one-vue-bulma-dashboard"
           class="is-github-line-link"
           target="_blank"
         >
@@ -23,7 +23,7 @@
       screen samples
     </h1>
     <h1 class="jb-bottom-section-text">
-      Get more with <a href="https://justboil.me/tailwind-admin-templates/vue-dashboard" target="_blank">Premium version</a>
+      Get more with <a href="https://justboil.me/bulma-admin-template/one/" target="_blank">Premium version</a>
     </h1>
   </titled-section>
 </template>
