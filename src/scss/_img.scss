@@ -1,0 +1,15 @@
+.jb-img-wrapper {
+  @include shadow2xl;
+  border-radius: $radius-3xl;
+  border: 8px solid $white;
+  overflow: hidden;
+
+  @include tablet {
+    width: 83.333333%;
+    margin: 0 auto;
+  }
+
+  img {
+    display: block;
+  }
+}
