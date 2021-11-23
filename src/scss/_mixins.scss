@@ -84,6 +84,11 @@
   line-height: $leading;
 }
 
+@mixin textBase() {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
 @mixin textXs {
   font-size: 0.75rem;
   line-height: 1rem;

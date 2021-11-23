@@ -3,6 +3,7 @@ html {
 }
 
 body {
+  @include textBase;
   padding-top: $size-base * 14;
 
   @include widescreen {
