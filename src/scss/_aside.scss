@@ -8,6 +8,7 @@
   left: $size-base * 60 * -1;
   z-index: 40;
   background: $gray-800;
+  overflow: auto;
 
   &.is-aside-mobile-expanded {
     left: 0;
