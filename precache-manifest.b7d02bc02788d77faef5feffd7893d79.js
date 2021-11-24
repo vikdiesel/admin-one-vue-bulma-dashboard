@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3776c6e5d33d22cef6f5",
+    "revision": "b60e47e38457abcb65b4",
     "url": "/admin-one-vue-bulma-dashboard/css/app.fcd51fed.css"
   },
   {
@@ -16,16 +16,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/admin-one-vue-bulma-dashboard/img/justboil-logo.7298fabb.svg"
   },
   {
-    "revision": "88fc76288e59d2ad1047f9331821b45b",
+    "revision": "c86e37125e0f5d79a4992fe3b42a88dd",
     "url": "/admin-one-vue-bulma-dashboard/index.html"
   },
   {
-    "revision": "3776c6e5d33d22cef6f5",
-    "url": "/admin-one-vue-bulma-dashboard/js/app.fedeb6d1.js"
+    "revision": "b60e47e38457abcb65b4",
+    "url": "/admin-one-vue-bulma-dashboard/js/app.f791f008.js"
   },
   {
-    "revision": "d991a3c62128b339c692",
-    "url": "/admin-one-vue-bulma-dashboard/js/chunk-vendors.2c47e6b3.js"
+    "revision": "d7f88ddf26bedf5eeb8b",
+    "url": "/admin-one-vue-bulma-dashboard/js/chunk-vendors.0baa7d12.js"
   },
   {
     "revision": "100184f42e8c7845b6b7",
