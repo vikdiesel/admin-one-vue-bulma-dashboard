@@ -1,6 +1,6 @@
 {
   "name": "admin-one-vue-bulma-dashboard",
-  "version": "1.5.2",
+  "version": "1.5.3",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -8,11 +8,11 @@
     "lintfix": "vue-cli-service lint --fix"
   },
   "dependencies": {
-    "axios": "^0.21.1",
-    "buefy": "^0.9.4",
-    "bulma": "^0.9.2",
+    "axios": "^0.24.0",
+    "buefy": "^0.9.13",
+    "bulma": "^0.9.3",
     "chart.js": "^2.9.4",
-    "core-js": "^3.9.0",
+    "core-js": "^3.19.1",
     "dayjs": "^1.10.4",
     "lodash": "^4.17.20",
     "numeral": "^2.0.6",
