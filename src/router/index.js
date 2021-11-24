@@ -1,5 +1,8 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
-import Home from '../views/Home'
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+import Home from '../views/Home.vue'
+
+Vue.use(VueRouter)
 
 const routes = [
   {
@@ -21,7 +24,7 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "tables" */ '../views/Tables')
+    component: () => import(/* webpackChunkName: "tables" */ '../views/Tables.vue')
   },
   {
     meta: {
@@ -29,7 +32,7 @@ const routes = [
     },
     path: '/forms',
     name: 'forms',
-    component: () => import(/* webpackChunkName: "forms" */ '../views/Forms')
+    component: () => import(/* webpackChunkName: "forms" */ '../views/Forms.vue')
   },
   {
     meta: {
@@ -37,49 +40,36 @@ const routes = [
     },
     path: '/profile',
     name: 'profile',
-    component: () => import(/* webpackChunkName: "profile" */ '../views/Profile')
+    component: () => import(/* webpackChunkName: "profile" */ '../views/Profile.vue')
   },
   {
     meta: {
-      title: 'Ui'
+      title: 'New Client'
     },
-    path: '/ui',
-    name: 'ui',
-    component: () => import(/* webpackChunkName: "ui" */ '../views/Ui')
+    path: '/client/new',
+    name: 'client.new',
+    component: () => import(/* webpackChunkName: "client-form" */ '../views/ClientForm.vue')
   },
   {
     meta: {
-      title: 'Responsive layout'
+      title: 'Edit Client'
     },
-    path: '/responsive',
-    name: 'responsive',
-    component: () => import(/* webpackChunkName: "responsive" */ '../views/Responsive')
-  },
-  {
-    meta: {
-      title: 'Login',
-      fullScreen: true
-    },
-    path: '/login',
-    name: 'login',
-    component: () => import(/* webpackChunkName: "login" */ '../views/Login')
-  },
-  {
-    meta: {
-      title: 'Error',
-      fullScreen: true
-    },
-    path: '/error',
-    name: 'error',
-    component: () => import(/* webpackChunkName: "error" */ '../views/Error')
+    path: '/client/:id',
+    name: 'client.edit',
+    component: () => import(/* webpackChunkName: "client-form" */ '../views/ClientForm.vue'),
+    props: true
   }
 ]
 
-const router = createRouter({
-  history: createWebHashHistory(),
+const router = new VueRouter({
+  base: process.env.BASE_URL,
   routes,
   scrollBehavior (to, from, savedPosition) {
-    return savedPosition || { top: 0 }
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return { x: 0, y: 0 }
+    }
   }
 })
 

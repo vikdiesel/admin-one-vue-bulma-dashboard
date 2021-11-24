@@ -1,100 +1,13 @@
-@mixin transitionPosition {
-  transition-property: right,left,top,bottom,margin,padding;
-  transition-timing-function: cubic-bezier(.4,0,.2,1);
-  transition-duration: .15s;
+@mixin transition($t) {
+  transition: $t 250ms ease-in-out 50ms;
 }
 
-@mixin transitionColors {
-  transition-property: background-color, border-color, color, fill, stroke;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
+@mixin icon-with-update-mark ($icon-base-width) {
+  .icon {
+    width: $icon-base-width;
 
-@mixin scrollbars($track, $thumb, $hover: false) {
-  scrollbar-color: $thumb $track;
-  scrollbar-width: thin;
-  overflow: overlay;
-
-  &::-webkit-scrollbar-track {
-    background-color: $track;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: $thumb;
-    border-radius: .25rem;
-
-    @if ($hover != false) {
-      &:hover {
-        background-color: $hover;
-      }
+    &.has-update-mark:after {
+      right: ($icon-base-width / 2) - .85;
     }
   }
-
-  &::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-  }
-}
-
-@mixin ringBlue {
-  box-shadow: 0 0 0 3px $blue-700;
-}
-
-@mixin ringBlack {
-  box-shadow: 0 0 0 3px $black;
-}
-
-@mixin ringWhite {
-  box-shadow: 0 0 0 3px $white;
-}
-
-@mixin shadow {
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-}
-
-@mixin shadowMd {
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-}
-
-@mixin shadowLg {
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-}
-
-@mixin shadow2xl {
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-}
-
-@mixin text3xl ($leading: 2.25rem) {
-  font-size: 1.875rem;
-  line-height: $leading;
-}
-
-@mixin text2xl {
-  font-size: 1.5rem;
-  line-height: 2rem;
-}
-
-@mixin textXl {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-}
-
-@mixin textLg($leading: 1.75rem) {
-  font-size: 1.125rem;
-  line-height: $leading;
-}
-
-@mixin textBase() {
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-
-@mixin textXs {
-  font-size: 0.75rem;
-  line-height: 1rem;
-}
-
-@mixin textSm {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
 }

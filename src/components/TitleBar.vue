@@ -1,45 +1,40 @@
 <template>
-  <section class="jb-title-bar">
-    <level>
-      <ul>
-        <li
-          v-for="(title, index) in titleStack"
-          :key="index"
-        >
-          {{ title }}
-        </li>
-      </ul>
-      <jb-button
-        href="https://github.com/vikdiesel/admin-one-vue-bulma-dashboard"
-        color="info"
-        label="Star on GitHub"
-        target="_blank"
-        :icon="mdiGithub"
-      />
-    </level>
+  <section class="section is-title-bar">
+    <div class="level">
+      <div class="level-left">
+        <div class="level-item">
+          <ul>
+            <li v-for="(title, index) in titleStack" :key="index">
+              {{ title }}
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="level-right">
+        <div class="level-item">
+          <div class="buttons is-right">
+            <a
+              href="https://admin-one.justboil.me/"
+              target="_blank"
+              class="button is-primary"
+            >
+              <b-icon icon="credit-card" custom-size="default" />
+              <span>Premium Demo</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 </template>
 
 <script>
-import { mdiGithub } from '@mdi/js'
-import Level from '@/components/Level'
-import JbButton from '@/components/JbButton'
-
 export default {
   name: 'TitleBar',
-  components: {
-    Level,
-    JbButton
-  },
   props: {
     titleStack: {
       type: Array,
       default: () => []
-    }
-  },
-  setup () {
-    return {
-      mdiGithub
     }
   }
 }

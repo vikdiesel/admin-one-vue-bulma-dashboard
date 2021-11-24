@@ -1,179 +1,166 @@
 <template>
-  <title-bar :title-stack="titleStack" />
-  <hero-bar>Dashboard</hero-bar>
-  <main-section>
-    <notification color="info" :icon="mdiGithub">
-      Please star this project on
-      <a href="https://github.com/vikdiesel/admin-one-vue-bulma-dashboard" class="is-underlined is-inherit" target="_blank">GitHub</a>
-      <template #right>
-        <jb-button
-          href="https://github.com/vikdiesel/admin-one-vue-bulma-dashboard"
-          :icon="mdiGithub"
-          :outline="darkMode"
-          label="GitHub"
-          target="_blank"
-          small
+  <div>
+    <title-bar :title-stack="titleStack" />
+    <hero-bar :has-right-visible="false">
+      Dashboard
+    </hero-bar>
+    <section class="section is-main-section">
+      <tiles>
+        <card-widget
+          class="tile is-child"
+          type="is-primary"
+          icon="account-multiple"
+          :number="512"
+          label="Clients"
         />
-      </template>
-    </notification>
-    <div class="jb-grid is-widgets-grid has-mb">
-      <card-widget
-        trend="12%"
-        trend-type="up"
-        color="jb-text-green"
-        :icon="mdiAccountMultiple"
-        :number="512"
-        label="Clients"
-      />
-      <card-widget
-        trend="12%"
-        trend-type="down"
-        color="jb-text-blue"
-        :icon="mdiCartOutline"
-        :number="7770"
-        prefix="$"
-        label="Sales"
-      />
-      <card-widget
-        trend="Overflow"
-        trend-type="alert"
-        color="jb-text-red"
-        :icon="mdiChartTimelineVariant"
-        :number="256"
-        suffix="%"
-        label="Performance"
-      />
-    </div>
+        <card-widget
+          class="tile is-child"
+          type="is-info"
+          icon="cart-outline"
+          :number="7770"
+          prefix="$"
+          label="Sales"
+        />
+        <card-widget
+          class="tile is-child"
+          type="is-success"
+          icon="chart-timeline-variant"
+          :number="256"
+          suffix="%"
+          label="Performance"
+        />
+      </tiles>
 
-    <div class="jb-grid is-bars-grid has-mb">
-      <div class="is-bars-container">
-        <card-transaction-bar
-          v-for="(transaction,index) in transactionBarItems"
-          :key="index"
-          :amount="transaction.amount"
-          :date="transaction.date"
-          :business="transaction.business"
-          :type="transaction.type"
-          :name="transaction.name"
-          :account="transaction.account"/>
-      </div>
-      <div class="is-bars-container">
-        <card-client-bar
-          v-for="client in clientBarItems"
-          :key="client.id"
-          :name="client.name"
-          :login="client.login"
-          :date="client.created"
-          :progress="client.progress"/>
-      </div>
-    </div>
+      <card-component
+        title="Performance"
+        icon="finance"
+        header-icon="reload"
+        @header-icon-click="fillChartData"
+      >
+        <div v-if="defaultChart.chartData" class="chart-area">
+          <line-chart
+            ref="bigChart"
+            style="height: 100%;"
+            chart-id="big-line-chart"
+            :chart-data="defaultChart.chartData"
+            :extra-options="defaultChart.extraOptions"
+          >
+          </line-chart>
+        </div>
+      </card-component>
 
-    <title-sub-bar :icon="mdiChartPie" title="Trends overview"/>
-
-    <card-component
-      title="Performance"
-      :icon="mdiFinance"
-      :header-icon="mdiReload"
-      class="has-mb"
-      @header-icon-click="fillChartData"
-    >
-      <div v-if="chartData">
-        <line-chart :data="chartData" class="jb-line-chart-large"/>
-      </div>
-    </card-component>
-
-    <title-sub-bar :icon="mdiAccountMultiple" title="Clients"/>
-
-    <notification color="info" :icon="mdiMonitorCellphone">
-      <b>Responsive table.</b> Collapses on mobile
-    </notification>
-
-    <card-component :icon="mdiMonitorCellphone" title="Responsive table" has-table>
-      <clients-table />
-    </card-component>
-  </main-section>
+      <card-component title="Clients" class="has-table has-mobile-sort-spaced">
+        <clients-table-sample
+          :data-url="`${$router.options.base}data-sources/clients.json`"
+        />
+      </card-component>
+    </section>
+  </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import { computed, ref, onMounted } from 'vue'
-import { useStore } from 'vuex'
-import {
-  mdiAccountMultiple,
-  mdiCartOutline,
-  mdiChartTimelineVariant,
-  mdiFinance,
-  mdiMonitorCellphone,
-  mdiReload,
-  mdiGithub,
-  mdiChartPie
-} from '@mdi/js'
 import * as chartConfig from '@/components/Charts/chart.config'
-import LineChart from '@/components/Charts/LineChart'
-import MainSection from '@/components/MainSection'
 import TitleBar from '@/components/TitleBar'
 import HeroBar from '@/components/HeroBar'
+import Tiles from '@/components/Tiles'
 import CardWidget from '@/components/CardWidget'
 import CardComponent from '@/components/CardComponent'
-import ClientsTable from '@/components/ClientsTable'
-import Notification from '@/components/Notification'
-import JbButton from '@/components/JbButton'
-import CardTransactionBar from '@/components/CardTransactionBar'
-import CardClientBar from '@/components/CardClientBar'
-import TitleSubBar from '@/components/TitleSubBar'
-
+import LineChart from '@/components/Charts/LineChart'
+import ClientsTableSample from '@/components/ClientsTableSample'
 export default {
   name: 'Home',
   components: {
-    TitleSubBar,
-    MainSection,
-    ClientsTable,
+    ClientsTableSample,
     LineChart,
     CardComponent,
     CardWidget,
+    Tiles,
     HeroBar,
-    TitleBar,
-    Notification,
-    JbButton,
-    CardTransactionBar,
-    CardClientBar
+    TitleBar
   },
-  setup () {
-    const titleStack = ref(['Admin', 'Dashboard'])
-
-    const chartData = ref(null)
-
-    const fillChartData = () => {
-      chartData.value = chartConfig.sampleChartData()
-    }
-
-    onMounted(() => {
-      fillChartData()
-    })
-
-    const store = useStore()
-
-    const clientBarItems = computed(() => store.state.clients.slice(0, 3))
-
-    const transactionBarItems = computed(() => store.state.history.slice(0, 3))
-
-    const darkMode = computed(() => store.state.darkMode)
-
+  data () {
     return {
-      titleStack,
-      chartData,
-      fillChartData,
-      clientBarItems,
-      transactionBarItems,
-      darkMode,
-      mdiAccountMultiple,
-      mdiCartOutline,
-      mdiChartTimelineVariant,
-      mdiFinance,
-      mdiMonitorCellphone,
-      mdiReload,
-      mdiGithub,
-      mdiChartPie
+      defaultChart: {
+        chartData: null,
+        extraOptions: chartConfig.chartOptionsMain
+      }
+    }
+  },
+  computed: {
+    titleStack () {
+      return ['Admin', 'Dashboard']
+    }
+  },
+  mounted () {
+    this.fillChartData()
+
+    this.$buefy.snackbar.open({
+      message: 'Welcome back',
+      queue: false
+    })
+  },
+  methods: {
+    randomChartData (n) {
+      const data = []
+
+      for (let i = 0; i < n; i++) {
+        data.push(Math.round(Math.random() * 200))
+      }
+
+      return data
+    },
+    fillChartData () {
+      this.defaultChart.chartData = {
+        datasets: [
+          {
+            fill: false,
+            borderColor: chartConfig.chartColors.default.primary,
+            borderWidth: 2,
+            borderDash: [],
+            borderDashOffset: 0.0,
+            pointBackgroundColor: chartConfig.chartColors.default.primary,
+            pointBorderColor: 'rgba(255,255,255,0)',
+            pointHoverBackgroundColor: chartConfig.chartColors.default.primary,
+            pointBorderWidth: 20,
+            pointHoverRadius: 4,
+            pointHoverBorderWidth: 15,
+            pointRadius: 4,
+            data: this.randomChartData(9)
+          },
+          {
+            fill: false,
+            borderColor: chartConfig.chartColors.default.info,
+            borderWidth: 2,
+            borderDash: [],
+            borderDashOffset: 0.0,
+            pointBackgroundColor: chartConfig.chartColors.default.info,
+            pointBorderColor: 'rgba(255,255,255,0)',
+            pointHoverBackgroundColor: chartConfig.chartColors.default.info,
+            pointBorderWidth: 20,
+            pointHoverRadius: 4,
+            pointHoverBorderWidth: 15,
+            pointRadius: 4,
+            data: this.randomChartData(9)
+          },
+          {
+            fill: false,
+            borderColor: chartConfig.chartColors.default.danger,
+            borderWidth: 2,
+            borderDash: [],
+            borderDashOffset: 0.0,
+            pointBackgroundColor: chartConfig.chartColors.default.danger,
+            pointBorderColor: 'rgba(255,255,255,0)',
+            pointHoverBackgroundColor: chartConfig.chartColors.default.danger,
+            pointBorderWidth: 20,
+            pointHoverRadius: 4,
+            pointHoverBorderWidth: 15,
+            pointRadius: 4,
+            data: this.randomChartData(9)
+          }
+        ],
+        labels: ['01', '02', '03', '04', '05', '06', '07', '08', '09']
+      }
     }
   }
 }

@@ -1,11 +1,34 @@
-.jb-hero-bar {
-  background: $white;
-  border-top: 1px solid $gray-100;
-  border-bottom: 1px solid $gray-100;
-  padding: $size-base * 6;
+section.hero.is-hero-bar {
+  background-color: $hero-bar-background;
+  border-bottom: $light-border;
 
-  h1 {
-    @include text3xl(1.25);
-    font-weight: 600;
+  .hero-body {
+    padding: $default-padding;
+
+    .level-item {
+      &.is-hero-avatar-item {
+        margin-right: $default-padding;
+      }
+
+      > div > .level {
+        margin-bottom: $default-padding * .5;
+      }
+
+      .subtitle + p {
+        margin-top: $default-padding * .5;
+      }
+    }
+
+    .button {
+      &.is-hero-button {
+        background-color: rgba($white, .5);
+        font-weight: 300;
+        @include transition(background-color);
+
+        &:hover {
+          background-color: $white;
+        }
+      }
+    }
   }
 }

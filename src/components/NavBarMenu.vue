@@ -1,69 +1,52 @@
 <template>
-  <nav-bar-item
-    :has-divider="hasDivider"
-    :active="isDropdownActive"
-    dropdown
+  <div
+    class="navbar-item has-dropdown has-dropdown-with-icons"
+    :class="{ 'is-hoverable': isHoverable, 'is-active': isDropdownActive }"
     @click="toggle"
-    ref="root"
   >
-    <a class="jb-navbar-dropdown-label">
+    <a class="navbar-link is-arrowless">
       <slot />
-      <icon :path="toggleDropdownIcon" class="jb-navbar-dropdown-icon" />
+      <b-icon :icon="toggleDropdownIcon" custom-size="default" />
     </a>
-    <div
-      class="jb-navbar-dropdown-menu"
-      :class="{'is-inactive':!isDropdownActive}"
-    >
-      <slot name="dropdown" />
-    </div>
-  </nav-bar-item>
+    <slot name="dropdown" />
+  </div>
 </template>
 
 <script>
-import { computed, ref, onMounted, onBeforeUnmount } from 'vue'
-import { mdiChevronUp, mdiChevronDown } from '@mdi/js'
-import NavBarItem from '@/components/NavBarItem'
-import Icon from '@/components/Icon'
-
 export default {
   name: 'NavBarMenu',
-  components: { Icon, NavBarItem },
   props: {
-    hasDivider: {
+    isHoverable: {
       type: Boolean,
       default: false
     }
   },
-  setup () {
-    const isDropdownActive = ref(false)
-
-    const toggleDropdownIcon = computed(() => isDropdownActive.value ? mdiChevronUp : mdiChevronDown)
-
-    const toggle = () => {
-      isDropdownActive.value = !isDropdownActive.value
-    }
-
-    const root = ref(null)
-
-    const forceClose = event => {
-      if (!root.value.$el.contains(event.target)) {
-        isDropdownActive.value = false
-      }
-    }
-
-    onMounted(() => {
-      window.addEventListener('click', forceClose)
-    })
-
-    onBeforeUnmount(() => {
-      window.removeEventListener('click', forceClose)
-    })
-
+  data () {
     return {
-      isDropdownActive,
-      toggleDropdownIcon,
-      toggle,
-      root
+      isDropdownActive: false
+    }
+  },
+  computed: {
+    toggleDropdownIcon () {
+      return this.isDropdownActive ? 'chevron-up' : 'chevron-down'
+    }
+  },
+  mounted () {
+    window.addEventListener('click', this.forceClose)
+  },
+  beforeDestroy () {
+    window.removeEventListener('click', this.forceClose)
+  },
+  methods: {
+    toggle () {
+      if (!this.isHoverable) {
+        this.isDropdownActive = !this.isDropdownActive
+      }
+    },
+    forceClose (e) {
+      if (!this.$el.contains(e.target)) {
+        this.isDropdownActive = false
+      }
     }
   }
 }

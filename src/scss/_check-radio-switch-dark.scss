@@ -1,9 +1,0 @@
-@include dark {
-  .checkbox, .radio, .switch {
-    input[type=checkbox], input[type=radio] {
-      &:not(:checked)+.check {
-        background-color: $gray-800;
-      }
-    }
-  }
-}

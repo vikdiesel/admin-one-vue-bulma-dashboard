@@ -1,10 +1,9 @@
 <template>
-  <ul>
+  <ul :class="{ 'menu-list': !isSubmenuList }">
     <aside-menu-item
       v-for="(item, index) in menu"
       :key="index"
       :item="item"
-      :is-submenu-list="isSubmenuList"
       @menu-click="menuClick"
     />
   </ul>
@@ -18,7 +17,6 @@ export default {
   components: {
     AsideMenuItem
   },
-  emits: ['menu-click'],
   props: {
     isSubmenuList: {
       type: Boolean,
@@ -29,13 +27,9 @@ export default {
       default: () => []
     }
   },
-  setup (props, { emit }) {
-    const menuClick = (event, item) => {
-      emit('menu-click', event, item)
-    }
-
-    return {
-      menuClick
+  methods: {
+    menuClick (item) {
+      this.$emit('menu-click', item)
     }
   }
 }

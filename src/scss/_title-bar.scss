@@ -1,22 +1,29 @@
-.jb-title-bar {
-  padding: $size-base * 6;
+section.section.is-title-bar {
+  padding: $default-padding;
+  border-bottom: $light-border;
 
-  li {
-    @include text2xl;
-    display: inline-block;
-    padding-right: $size-base * 3;
-    color: $gray-500;
-
-    &:last-child {
-      padding-right: 0;
-      color: $black;
-      font-weight: 900;
-    }
-
-    &:not(:last-child):after {
-      content: '/';
+  ul {
+    li {
       display: inline-block;
-      padding-left: $size-base * 3;
+      padding: 0 $default-padding * .5 0 0;
+      font-size: $default-padding;
+      color: $title-bar-color;
+
+      &:after {
+        display: inline-block;
+        content: '/';
+        padding-left: $default-padding * .5;
+      }
+
+      &:last-child {
+        padding-right: 0;
+        font-weight: 900;
+        color: $title-bar-active-color;
+
+        &:after {
+          display: none;
+        }
+      }
     }
   }
 }

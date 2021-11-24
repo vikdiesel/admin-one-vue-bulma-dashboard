@@ -1,25 +1,16 @@
 <template>
-  <aside
-    v-show="!isFullScreen"
-    class="jb-aside"
-    :class="[ isAsideMobileExpanded ? 'is-aside-mobile-expanded' : '', isAsideLgActive ? 'is-aside-desktop-active' : '' ]"
-  >
-    <div class="jb-aside-header">
-      <nav-bar-item class="is-desktop-toggle-icon" @click="asideLgClose" active-color="is-active-white" active>
-        <icon :path="mdiMenu" class="cursor-pointer" size="24" />
-      </nav-bar-item>
-      <div class="jb-aside-label">
-        <span>Admin</span> <b>One</b>
-      </div>
-    </div>
-    <div>
+  <aside v-show="isAsideVisible" class="aside is-placed-left is-expanded">
+    <aside-tools :is-main-menu="true">
+      <span slot="label"> <b>Admin</b> One </span>
+    </aside-tools>
+    <div class="menu is-menu-main">
       <template v-for="(menuGroup, index) in menu">
-        <p v-if="typeof menuGroup === 'string'" :key="`a-${index}`" class="jb-aside-menu-group-label">
+        <p v-if="typeof menuGroup === 'string'" :key="index" class="menu-label">
           {{ menuGroup }}
         </p>
         <aside-menu-list
           v-else
-          :key="`b-${index}`"
+          :key="index"
           :menu="menuGroup"
           @menu-click="menuClick"
         />
@@ -29,46 +20,25 @@
 </template>
 
 <script>
-import { computed } from 'vue'
-import { useStore } from 'vuex'
-import { mdiMenu } from '@mdi/js'
+import { mapState } from 'vuex'
+import AsideTools from '@/components/AsideTools'
 import AsideMenuList from '@/components/AsideMenuList'
-import NavBarItem from '@/components/NavBarItem'
-import Icon from '@/components/Icon'
 
 export default {
   name: 'AsideMenu',
-  components: { AsideMenuList, NavBarItem, Icon },
+  components: { AsideTools, AsideMenuList },
   props: {
     menu: {
       type: Array,
       default: () => []
     }
   },
-  setup () {
-    const store = useStore()
-
-    const isFullScreen = computed(() => store.state.isFullScreen)
-
-    const isAsideMobileExpanded = computed(() => store.state.isAsideMobileExpanded)
-
-    const isAsideLgActive = computed(() => store.state.isAsideLgActive)
-
-    const asideLgClose = () => {
-      store.dispatch('asideLgToggle', false)
-    }
-
-    const menuClick = (event, item) => {
+  computed: {
+    ...mapState(['isAsideVisible'])
+  },
+  methods: {
+    menuClick (item) {
       //
-    }
-
-    return {
-      isFullScreen,
-      isAsideMobileExpanded,
-      isAsideLgActive,
-      asideLgClose,
-      menuClick,
-      mdiMenu
     }
   }
 }

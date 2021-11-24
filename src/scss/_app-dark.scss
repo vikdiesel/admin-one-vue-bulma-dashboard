@@ -1,9 +1,0 @@
-@include dark {
-  @include scrollbars($gray-200, $gray-500);
-  background: $gray-800;
-  color: $gray-100;
-
-  body {
-    color: $gray-100;
-  }
-}

@@ -3,7 +3,6 @@
 </template>
 
 <script>
-import { computed, ref, watch, onMounted } from 'vue'
 import numeral from 'numeral'
 
 export default {
@@ -26,44 +25,44 @@ export default {
       default: 500
     }
   },
-  setup (props) {
-    const newValue = ref(0)
+  data () {
+    return {
+      newValue: 0,
+      step: 0
+    }
+  },
+  computed: {
+    newValueFormatted () {
+      return this.newValue < 1000
+        ? this.newValue
+        : numeral(this.newValue).format('0,0')
+    }
+  },
+  watch: {
+    value () {
+      this.growInit()
+    }
+  },
+  mounted () {
+    this.growInit()
+  },
+  methods: {
+    growInit () {
+      const m = this.value / (this.duration / 25)
+      this.grow(m)
+    },
+    grow (m) {
+      const v = Math.ceil(this.newValue + m)
 
-    const newValueFormatted = computed(
-      () => newValue.value < 1000 ? newValue.value : numeral(newValue.value).format('0,0')
-    )
-
-    const value = computed(() => props.value)
-
-    const grow = m => {
-      const v = Math.ceil(newValue.value + m)
-
-      if (v > value.value) {
-        newValue.value = value.value
+      if (v > this.value) {
+        this.newValue = this.value
         return false
       }
 
-      newValue.value = v
-
+      this.newValue = v
       setTimeout(() => {
-        grow(m)
+        this.grow(m)
       }, 25)
-    }
-
-    const growInit = () => {
-      grow(props.value / (props.duration / 25))
-    }
-
-    watch(value, () => {
-      growInit()
-    })
-
-    onMounted(() => {
-      growInit()
-    })
-
-    return {
-      newValueFormatted
     }
   }
 }

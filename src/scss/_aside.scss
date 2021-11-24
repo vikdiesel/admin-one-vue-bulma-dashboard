@@ -1,96 +1,161 @@
-.jb-aside {
-  @include scrollbars($gray-900, $gray-600);
-  @include transitionPosition;
-  width: $size-base * 60;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: $size-base * 60 * -1;
-  z-index: 40;
-  background: $gray-800;
-  overflow: auto;
-
-  &.is-aside-mobile-expanded {
-    left: 0;
-  }
-
-  @include desktop {
-    display: none;
-    left: 0;
-
-    &.is-aside-desktop-active {
-      display: block;
+@include desktop {
+  html {
+    &.has-aside-left {
+      &.has-aside-expanded {
+        nav.navbar, body {
+          padding-left: $aside-width;
+        }
+      }
+      nav.navbar, body {
+        @include transition(padding-left);
+      }
+      aside.is-placed-left {
+        display: block;
+      }
     }
   }
 
-  @include widescreen {
-    display: block;
+  aside.aside.is-expanded {
+    width: $aside-width;
+
+    .menu-list {
+      @include icon-with-update-mark($aside-icon-width);
+
+      span.menu-item-label {
+        display: inline-block;
+      }
+
+      li.is-active {
+        ul {
+          display: block;
+        }
+      }
+    }
   }
 }
 
-.jb-aside-header {
-  display: flex;
-  width: 100%;
-  background: $gray-900;
-  color: $white;
-  flex: 1 1 0;
-  height: $size-base * 14;
-  align-items: center;
-}
-
-.jb-aside-label {
-  flex: 1 1 0;
-  padding-left: $size-base * 3;
-  padding-right: $size-base * 3;
-
-  b {
-    font-weight: 900;
-  }
-}
-
-.jb-aside-menu-group-label {
-  @include textXs;
-  padding: $size-base * 3;
-  text-transform: uppercase;
-  color: $gray-400;
-}
-
-.jb-aside-menu-item {
-  display: flex;
-
-  &.is-ancestor-list {
-    padding-top: $size-base * 2;
-    padding-bottom: $size-base * 2;
-  }
-
-  &.is-submenu-list {
-    @include textSm;
-    padding: $size-base * 3;
-  }
-
-  &:hover {
-    background: $gray-600;
-  }
-
-  .jb-aside-menu-item-label {
-    flex-grow: 1;
-  }
-
-  .is-active {
-    font-weight: bold;
-    color: $white;
-  }
-
-  .is-inactive {
-    color: $gray-300;
-  }
-}
-
-.jb-submenu-container-hidden {
+aside.aside {
   display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 40;
+  height: 100vh;
+  padding: 0;
+  box-shadow: $aside-box-shadow;
+  background: $aside-background-color;
+
+  .aside-tools {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: $aside-tools-background-color;
+    color: $aside-tools-color;
+    line-height: $navbar-height;
+    height: $navbar-height;
+    padding-left: $default-padding * .5;
+    flex: 1;
+
+    .icon {
+      margin-right: $default-padding * .5;
+    }
+  }
+
+  .menu-list {
+    li {
+      a {
+        &.has-dropdown-icon {
+          position: relative;
+          padding-right: $aside-icon-width;
+
+          .dropdown-icon {
+            position: absolute;
+            top: $size-base * .5;
+            right: 0;
+          }
+        }
+      }
+      ul {
+        display: none;
+        border-left: 0;
+        background-color: darken($base-color, 2.5%);
+        padding-left: 0;
+        margin: 0 0 $default-padding * .5;
+
+        li {
+          a {
+            padding: $default-padding * .5 0 $default-padding * .5 $default-padding * .5;
+            font-size: $aside-submenu-font-size;
+
+            &.has-icon {
+              padding-left: 0;
+            }
+            &.is-active {
+              &:not(:hover) {
+                background: transparent;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .menu-label {
+    padding: 0 $default-padding * .5;
+    margin-top: $default-padding * .5;
+    margin-bottom: $default-padding * .5;
+  }
+
 }
 
-.jb-submenu-container-visible {
-  display: block;
-  background: $gray-700;
+@include touch {
+  #app, nav.navbar {
+    @include transition(margin-left);
+  }
+  aside.aside {
+    @include transition(left);
+  }
+  html.has-aside-mobile-transition {
+    body {
+      overflow-x: hidden;
+    }
+    body, #app, nav.navbar {
+      width: 100vw;
+    }
+    aside.aside {
+      width: $aside-mobile-width;
+      display: block;
+      left: $aside-mobile-width * -1;
+
+      .image {
+        img {
+          max-width: $aside-mobile-width * .33;
+        }
+      }
+
+      .menu-list {
+        li.is-active {
+          ul {
+            display: block;
+          }
+        }
+        a {
+          @include icon-with-update-mark($aside-icon-width);
+
+          span.menu-item-label {
+            display: inline-block;
+          }
+        }
+      }
+    }
+  }
+  html.has-aside-mobile-expanded {
+    #app, nav.navbar {
+      margin-left: $aside-mobile-width;
+    }
+    aside.aside {
+      left: 0;
+    }
+  }
 }

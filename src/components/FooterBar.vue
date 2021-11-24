@@ -1,42 +1,40 @@
 <template>
-  <footer v-show="isFooterBarVisible" class="jb-footer">
-    <level>
-      <div class="footer-text-wrap">
-        <b>&copy; {{ year }}, <a href="https://justboil.me/" target="_blank">JustBoil.me</a>.</b>
-        Get more with <a href="https://justboil.me/bulma-admin-template/one/" class="is-link" target="_blank">Premium version</a>
+  <footer v-show="isFooterBarVisible" class="footer">
+    <div class="container-fluid">
+      <div class="level">
+        <div class="level-left">
+          <div class="level-item">
+            <div class="footer-copyright">
+              <b>&copy; {{ year }}, JustBoil.me</b> &mdash; Admin One Demo
+              <span class="tag">v1.5.3</span>
+            </div>
+          </div>
+        </div>
+        <div class="level-right">
+          <div class="level-item">
+            <div class="logo">
+              <a href="https://justboil.me">
+                <img src="../assets/justboil-logo.svg" alt="JustBoil.me" />
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="footer-logo-wrap">
-        <a href="https://justboil.me">
-          <jb-logo class="footer-logo" />
-        </a>
-      </div>
-    </level>
+    </div>
   </footer>
 </template>
 
 <script>
-import { computed } from 'vue'
-import { useStore } from 'vuex'
-import Level from '@/components/Level'
-import JbLogo from '@/components/JbLogo'
+import dayjs from 'dayjs'
+import { mapState } from 'vuex'
 
 export default {
   name: 'FooterBar',
-  components: {
-    Level,
-    JbLogo
-  },
-  setup () {
-    const store = useStore()
-
-    const year = computed(() => new Date().getFullYear())
-
-    const isFooterBarVisible = computed(() => !store.state.isFullScreen)
-
-    return {
-      year,
-      isFooterBarVisible
-    }
+  computed: {
+    year () {
+      return dayjs().year()
+    },
+    ...mapState(['isFooterBarVisible'])
   }
 }
 </script>

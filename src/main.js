@@ -1,37 +1,40 @@
-import { createApp } from 'vue'
+/* Styles */
+import '@/scss/main.scss'
 
-import App from './App.vue'
+/* Core */
+import Vue from 'vue'
+import Buefy from 'buefy'
+
+/* Router & Store */
 import router from './router'
 import store from './store'
 
-import './scss/main.scss'
+/* Service Worker */
+import './registerServiceWorker'
 
-/* Fetch sample data */
-store.dispatch('fetch', 'clients')
-store.dispatch('fetch', 'history')
-
-/* Dark mode */
-// store.dispatch('darkMode')
-
-/* Collapse mobile aside menu on route change */
-router.beforeEach(to => {
-  store.dispatch('asideMobileToggle', false)
-  store.dispatch('asideLgToggle', false)
-})
+/* Vue. Main component */
+import App from './App.vue'
 
 /* Default title tag */
-const defaultDocumentTitle = 'Admin One Vue 3 Bulma'
+const defaultDocumentTitle = 'Admin One Bulma'
 
+/* Collapse mobile aside menu on route change & set document title from route meta */
 router.afterEach(to => {
-  /* Set document title from route meta */
+  store.commit('asideMobileStateToggle', false)
+
   if (to.meta && to.meta.title) {
     document.title = `${to.meta.title} — ${defaultDocumentTitle}`
   } else {
     document.title = defaultDocumentTitle
   }
-
-  /* Full screen mode */
-  store.dispatch('fullScreenToggle', !!to.meta.fullScreen)
 })
 
-createApp(App).use(store).use(router).mount('#app')
+Vue.config.productionTip = false
+
+Vue.use(Buefy)
+
+new Vue({
+  router,
+  store,
+  render: h => h(App)
+}).$mount('#app')
