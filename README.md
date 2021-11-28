@@ -24,7 +24,7 @@
 * [Licensing](#licensing)
 * [Useful Links](#useful-links)
 
-## Other vesions
+## Other versions
 
 ### Bulma versions
 
