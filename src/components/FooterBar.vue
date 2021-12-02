@@ -9,7 +9,6 @@
           <div class="level-item">
             <div class="footer-copyright">
               <b>&copy; {{ year }}, JustBoil.me</b> &mdash; Admin One Demo
-              <span class="tag">v1.5.3</span>
             </div>
           </div>
         </div>
