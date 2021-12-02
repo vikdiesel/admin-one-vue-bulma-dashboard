@@ -7,11 +7,17 @@
     <div class="navbar-brand">
       <a
         class="navbar-item is-hidden-desktop"
-        @click.prevent="menuToggleMobile"
+        @click.prevent="asideToggleMobile"
       >
         <b-icon :icon="menuToggleMobileIcon" />
       </a>
-      <div class="navbar-item has-control no-left-space-touch">
+      <a
+        class="navbar-item is-hidden-touch is-hidden-widescreen is-desktop-icon-only"
+        @click.prevent="asideToggleDesktopOnly"
+      >
+        <b-icon icon="menu" />
+      </a>
+      <div class="navbar-item has-control no-left-space-touch no-left-space-desktop-only">
         <div class="control">
           <input
             class="input"
@@ -184,8 +190,11 @@ export default {
     })
   },
   methods: {
-    menuToggleMobile () {
+    asideToggleMobile () {
       this.$store.commit('asideMobileStateToggle')
+    },
+    asideToggleDesktopOnly () {
+      this.$store.dispatch('asideDesktopOnlyToggle')
     },
     menuNavBarToggle () {
       this.isMenuNavBarActive = !this.isMenuNavBarActive

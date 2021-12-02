@@ -61,6 +61,8 @@ export default new Vuex.Store({
     }
   },
   actions: {
-
+    asideDesktopOnlyToggle () {
+      document.documentElement.classList.toggle('has-aside-desktop-only-visible')
+    }
   }
 })

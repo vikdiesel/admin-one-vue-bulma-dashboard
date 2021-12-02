@@ -102,6 +102,14 @@ nav.navbar {
   }
 }
 
+@include desktop-only {
+  nav.navbar {
+    .navbar-item.no-left-space-desktop-only {
+      padding-left: 0;
+    }
+  }
+}
+
 @include desktop {
   nav.navbar {
     .navbar-item {
