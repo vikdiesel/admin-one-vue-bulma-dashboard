@@ -51,12 +51,14 @@ export default [
     {
       href: 'https://admin-one.justboil.me',
       label: 'Premium Demo',
-      icon: 'credit-card'
+      icon: 'credit-card',
+      target: '_blank'
     },
     {
       href: 'https://github.com/vikdiesel/admin-one-vue-bulma-dashboard',
       label: 'About',
-      icon: 'help-circle'
+      icon: 'help-circle',
+      target: '_blank'
     }
   ]
 ]

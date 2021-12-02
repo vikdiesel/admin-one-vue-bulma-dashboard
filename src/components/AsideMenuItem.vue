@@ -4,6 +4,7 @@
       :is="componentIs"
       :to="itemTo"
       :href="itemHref"
+      :target="itemTarget"
       exact-active-class="is-active"
       :class="{ 'has-icon': !!item.icon, 'has-dropdown-icon': hasDropdown }"
       @click="menuClick"
@@ -70,6 +71,9 @@ export default {
     },
     itemHref () {
       return this.item.href ? this.item.href : null
+    },
+    itemTarget () {
+      return this.item.target ?? null
     }
   },
   methods: {
