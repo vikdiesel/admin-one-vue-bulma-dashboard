@@ -1,3 +1,5 @@
+@use "sass:math";
+
 aside.aside {
   @include transition(left);
   width: $aside-mobile-width;
@@ -117,7 +119,7 @@ aside.aside {
     display: none;
 
     .aside-tools {
-      padding-left: $default-padding / 6;
+      padding-left: math.div($default-padding, 6);
     }
   }
   html.has-aside-desktop-only-visible {
