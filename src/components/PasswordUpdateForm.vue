@@ -1,5 +1,8 @@
 <template>
-  <card-component title="Change Password" icon="lock">
+  <card-component
+    title="Change Password"
+    icon="lock"
+  >
     <form @submit.prevent="submit">
       <b-field
         horizontal
@@ -14,8 +17,12 @@
           autcomplete="current-password"
         />
       </b-field>
-      <hr />
-      <b-field horizontal label="New password" message="Required. New password">
+      <hr>
+      <b-field
+        horizontal
+        label="New password"
+        message="Required. New password"
+      >
         <b-input
           v-model="form.password"
           name="password"
@@ -37,7 +44,7 @@
           autocomplete="new-password"
         />
       </b-field>
-      <hr />
+      <hr>
       <b-field horizontal>
         <div class="control">
           <button

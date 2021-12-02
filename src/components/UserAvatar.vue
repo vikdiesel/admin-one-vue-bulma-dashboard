@@ -1,6 +1,9 @@
 <template>
   <div class="is-user-avatar">
-    <img :src="newUserAvatar" :alt="userName" />
+    <img
+      :src="newUserAvatar"
+      :alt="userName"
+    >
   </div>
 </template>
 

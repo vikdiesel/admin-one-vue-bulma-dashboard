@@ -3,14 +3,21 @@
     <title-bar :title-stack="titleStack" />
     <hero-bar>
       Tables
-      <router-link slot="right" to="/" class="button">
+      <router-link
+        slot="right"
+        to="/"
+        class="button"
+      >
         Dashboard
       </router-link>
     </hero-bar>
     <section class="section is-main-section">
       <notification class="is-info">
         <div>
-          <b-icon icon="buffer" custom-size="default" />
+          <b-icon
+            icon="buffer"
+            custom-size="default"
+          />
           <b>Sorted and paginated table.</b>&nbsp;Based on Buefy's table.
         </div>
       </notification>
@@ -26,11 +33,14 @@
         />
       </card-component>
 
-      <hr />
+      <hr>
 
       <notification class="is-info">
         <div>
-          <b-icon icon="buffer" custom-size="default" />
+          <b-icon
+            icon="buffer"
+            custom-size="default"
+          />
           <b>Tightly wrapped</b> &mdash; table header becomes card header
         </div>
       </notification>
@@ -42,11 +52,14 @@
         />
       </card-component>
 
-      <hr />
+      <hr>
 
       <notification class="is-info">
         <div>
-          <b-icon icon="buffer" custom-size="default" />
+          <b-icon
+            icon="buffer"
+            custom-size="default"
+          />
           <b>Empty table.</b> When there's nothing to show
         </div>
       </notification>

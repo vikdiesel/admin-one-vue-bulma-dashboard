@@ -1,6 +1,13 @@
 <template>
-  <b-field grouped group-multiline>
-    <div v-for="(v, k) in options" :key="k" class="control">
+  <b-field
+    grouped
+    group-multiline
+  >
+    <div
+      v-for="(v, k) in options"
+      :key="k"
+      class="control"
+    >
       <b-checkbox
         v-model="newValue"
         :native-value="k"

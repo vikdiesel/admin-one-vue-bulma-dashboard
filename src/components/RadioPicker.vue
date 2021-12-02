@@ -1,7 +1,19 @@
 <template>
-  <b-field grouped group-multiline>
-    <div v-for="(v, k) in options" :key="k" class="control">
-      <b-radio v-model="newValue" :native-value="k" :type="type" @input="input">
+  <b-field
+    grouped
+    group-multiline
+  >
+    <div
+      v-for="(v, k) in options"
+      :key="k"
+      class="control"
+    >
+      <b-radio
+        v-model="newValue"
+        :native-value="k"
+        :type="type"
+        @input="input"
+      >
         {{ v }}
       </b-radio>
     </div>

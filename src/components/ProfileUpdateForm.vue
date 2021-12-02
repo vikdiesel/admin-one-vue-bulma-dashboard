@@ -1,17 +1,40 @@
 <template>
-  <card-component title="Edit Profile" icon="account-circle">
+  <card-component
+    title="Edit Profile"
+    icon="account-circle"
+  >
     <form @submit.prevent="submit">
-      <b-field horizontal label="Avatar">
+      <b-field
+        horizontal
+        label="Avatar"
+      >
         <file-picker />
       </b-field>
-      <hr />
-      <b-field horizontal label="Name" message="Required. Your name">
-        <b-input v-model="form.name" name="name" required />
+      <hr>
+      <b-field
+        horizontal
+        label="Name"
+        message="Required. Your name"
+      >
+        <b-input
+          v-model="form.name"
+          name="name"
+          required
+        />
       </b-field>
-      <b-field horizontal label="E-mail" message="Required. Your e-mail">
-        <b-input v-model="form.email" name="email" type="email" required />
+      <b-field
+        horizontal
+        label="E-mail"
+        message="Required. Your e-mail"
+      >
+        <b-input
+          v-model="form.email"
+          name="email"
+          type="email"
+          required
+        />
       </b-field>
-      <hr />
+      <hr>
       <b-field horizontal>
         <div class="control">
           <button

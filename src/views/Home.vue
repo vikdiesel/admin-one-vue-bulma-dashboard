@@ -37,19 +37,24 @@
         header-icon="reload"
         @header-icon-click="fillChartData"
       >
-        <div v-if="defaultChart.chartData" class="chart-area">
+        <div
+          v-if="defaultChart.chartData"
+          class="chart-area"
+        >
           <line-chart
             ref="bigChart"
             style="height: 100%;"
             chart-id="big-line-chart"
             :chart-data="defaultChart.chartData"
             :extra-options="defaultChart.extraOptions"
-          >
-          </line-chart>
+          />
         </div>
       </card-component>
 
-      <card-component title="Clients" class="has-table has-mobile-sort-spaced">
+      <card-component
+        title="Clients"
+        class="has-table has-mobile-sort-spaced"
+      >
         <clients-table-sample
           :data-url="`${$router.options.base}data-sources/clients.json`"
         />

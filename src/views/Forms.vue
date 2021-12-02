@@ -3,14 +3,24 @@
     <title-bar :title-stack="titleStack" />
     <hero-bar>
       Forms
-      <router-link slot="right" to="/" class="button">
+      <router-link
+        slot="right"
+        to="/"
+        class="button"
+      >
         Dashboard
       </router-link>
     </hero-bar>
     <section class="section is-main-section">
-      <card-component title="Forms" icon="ballot">
+      <card-component
+        title="Forms"
+        icon="ballot"
+      >
         <form @submit.prevent="submit">
-          <b-field label="From" horizontal>
+          <b-field
+            label="From"
+            horizontal
+          >
             <b-field>
               <b-input
                 v-model="form.name"
@@ -31,17 +41,28 @@
               />
             </b-field>
           </b-field>
-          <b-field message="Do not enter the leading zero" horizontal>
+          <b-field
+            message="Do not enter the leading zero"
+            horizontal
+          >
             <b-field>
               <p class="control">
                 <a class="button is-static">
                   +44
                 </a>
               </p>
-              <b-input v-model="form.phone" type="tel" name="phone" expanded />
+              <b-input
+                v-model="form.phone"
+                type="tel"
+                name="phone"
+                expanded
+              />
             </b-field>
           </b-field>
-          <b-field label="Department" horizontal>
+          <b-field
+            label="Department"
+            horizontal
+          >
             <b-select
               v-model="form.department"
               placeholder="Select a department"
@@ -56,8 +77,12 @@
               </option>
             </b-select>
           </b-field>
-          <hr />
-          <b-field label="Subject" message="Message subject" horizontal>
+          <hr>
+          <b-field
+            label="Subject"
+            message="Message subject"
+            horizontal
+          >
             <b-input
               v-model="form.subject"
               placeholder="e.g. Partnership proposal"
@@ -77,46 +102,69 @@
               required
             />
           </b-field>
-          <hr />
+          <hr>
           <b-field horizontal>
             <b-field grouped>
               <div class="control">
-                <b-button native-type="submit" type="is-primary"
-                  >Submit</b-button
+                <b-button
+                  native-type="submit"
+                  type="is-primary"
                 >
+                  Submit
+                </b-button>
               </div>
               <div class="control">
-                <b-button type="is-primary is-outlined" @click="reset"
-                  >Reset</b-button
+                <b-button
+                  type="is-primary is-outlined"
+                  @click="reset"
                 >
+                  Reset
+                </b-button>
               </div>
             </b-field>
           </b-field>
         </form>
       </card-component>
-      <card-component title="Custom elements" icon="ballot-outline">
-        <b-field label="Checkbox" class="has-check" horizontal>
+      <card-component
+        title="Custom elements"
+        icon="ballot-outline"
+      >
+        <b-field
+          label="Checkbox"
+          class="has-check"
+          horizontal
+        >
           <checkbox-picker
             v-model="customElementsForm.checkbox"
             :options="{ lorem: 'Lorem', ipsum: 'Ipsum', dolore: 'Dolore' }"
             type="is-primary"
           />
         </b-field>
-        <hr />
-        <b-field label="Radio" class="has-check" horizontal>
+        <hr>
+        <b-field
+          label="Radio"
+          class="has-check"
+          horizontal
+        >
           <radio-picker
             v-model="customElementsForm.radio"
             :options="{ one: 'One', two: 'Two' }"
-          ></radio-picker>
+          />
         </b-field>
-        <hr />
-        <b-field label="Switch" horizontal>
+        <hr>
+        <b-field
+          label="Switch"
+          horizontal
+        >
           <b-switch v-model="customElementsForm.switch">
             Default
           </b-switch>
         </b-field>
-        <hr />
-        <b-field label="File" horizontal>
+        <hr>
+        <b-field
+          label="File"
+          horizontal
+        >
           <file-picker v-model="customElementsForm.file" />
         </b-field>
       </card-component>

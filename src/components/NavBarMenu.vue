@@ -6,7 +6,10 @@
   >
     <a class="navbar-link is-arrowless">
       <slot />
-      <b-icon :icon="toggleDropdownIcon" custom-size="default" />
+      <b-icon
+        :icon="toggleDropdownIcon"
+        custom-size="default"
+      />
     </a>
     <slot name="dropdown" />
   </div>

@@ -4,7 +4,10 @@
       <div class="level-left">
         <div class="level-item">
           <ul>
-            <li v-for="(title, index) in titleStack" :key="index">
+            <li
+              v-for="(title, index) in titleStack"
+              :key="index"
+            >
               {{ title }}
             </li>
           </ul>
@@ -18,7 +21,10 @@
               target="_blank"
               class="button is-primary"
             >
-              <b-icon icon="credit-card" custom-size="default" />
+              <b-icon
+                icon="credit-card"
+                custom-size="default"
+              />
               <span>Premium Demo</span>
             </a>
           </div>

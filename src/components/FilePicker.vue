@@ -1,12 +1,22 @@
 <template>
   <b-field class="file">
-    <b-upload v-model="file" :accept="accept" @input="upload">
+    <b-upload
+      v-model="file"
+      :accept="accept"
+      @input="upload"
+    >
       <a class="button is-primary">
-        <b-icon icon="upload" custom-size="default"></b-icon>
+        <b-icon
+          icon="upload"
+          custom-size="default"
+        />
         <span>{{ buttonLabel }}</span>
       </a>
     </b-upload>
-    <span v-if="file" class="file-name">{{ file.name }}</span>
+    <span
+      v-if="file"
+      class="file-name"
+    >{{ file.name }}</span>
   </b-field>
 </template>
 
