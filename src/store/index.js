@@ -58,11 +58,23 @@ export default new Vuex.Store({
       }
 
       state.isAsideMobileExpanded = isShow
+    },
+
+    /* Full Page mode */
+    fullPage (state, payload) {
+      state.isNavBarVisible = !payload
+      state.isAsideVisible = !payload
+      state.isFooterBarVisible = !payload
     }
   },
   actions: {
     asideDesktopOnlyToggle () {
       document.documentElement.classList.toggle('has-aside-desktop-only-visible')
+    },
+    toggleFullPage ({ commit }, payload) {
+      commit('fullPage', payload)
+
+      document.documentElement.classList[!payload ? 'add' : 'remove']('has-aside-left', 'has-navbar-fixed-top')
     }
   }
 })

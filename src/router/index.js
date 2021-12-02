@@ -58,7 +58,22 @@ const routes = [
     name: 'client.edit',
     component: () => import(/* webpackChunkName: "client-form" */ '../views/ClientForm.vue'),
     props: true
+  },
+  {
+    path: '/full-page',
+    component: () => import(/* webpackChunkName: "full-page" */ '../views/FullPage.vue'),
+    children: [
+      {
+        meta: {
+          title: 'Login'
+        },
+        path: '/login',
+        name: 'login',
+        component: () => import(/* webpackChunkName: "full-page" */ '../views/full-page/Login.vue')
+      }
+    ]
   }
+
 ]
 
 const router = new VueRouter({
