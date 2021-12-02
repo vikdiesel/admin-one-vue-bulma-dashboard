@@ -67,10 +67,10 @@ export default {
       return this.isDropdownActive ? 'minus' : 'plus'
     },
     itemTo () {
-      return this.item.to ? this.item.to : null
+      return this.item.to ?? null
     },
     itemHref () {
-      return this.item.href ? this.item.href : null
+      return this.item.href ?? null
     },
     itemTarget () {
       return this.item.target ?? null
