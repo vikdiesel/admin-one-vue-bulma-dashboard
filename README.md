@@ -2,7 +2,7 @@
 
 [![version](https://img.shields.io/github/v/release/vikdiesel/admin-one-vue-bulma-dashboard)](https://justboil.me/bulma-admin-template/free-vue-buefy-dashboard/)  [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://justboil.me/bulma-admin-template/free-vue-buefy-dashboard/)
 
-[![Free Vue.js 2.6 Bulma Buefy admin dashboard](https://justboil.me/images/one/repository-preview-hi-res.png)](https://vikdiesel.github.io/admin-one-vue-bulma-dashboard/)
+[![Free Vue.js 2.6 Bulma Buefy admin dashboard](https://justboil.me/images/one/repository-preview-hi-res.png)](https://vikdiesel.github.io/admin-one-vue-bulma-dashboard/?v=2)
 
 **Admin One** is simple, beautiful and free Vue.js 2.x Buefy Bulma admin dashboard
 
@@ -57,7 +57,7 @@ https://justboil.me/bulma-admin-template/free-vue-buefy-dashboard/
 
 #### Free Dashboard Demo
 
-https://vikdiesel.github.io/admin-one-vue-bulma-dashboard/
+https://vikdiesel.github.io/admin-one-vue-bulma-dashboard/?v=2
 
 #### Premium Dashboard Demo
 
