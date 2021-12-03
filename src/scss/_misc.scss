@@ -27,3 +27,7 @@
     border-radius: $radius-rounded;
   }
 }
+
+.buttons.no-wrap {
+  flex-wrap: nowrap;
+}
