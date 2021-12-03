@@ -23,20 +23,25 @@
 </template>
 
 <script>
+import { ref } from '@vue/composition-api'
+
 export default {
   name: 'Notification',
-  data () {
-    return {
-      isDismissed: false
-    }
-  },
-  methods: {
-    dismiss () {
-      this.isDismissed = true
-      this.$buefy.snackbar.open({
+  setup (props, { root: { $buefy } }) {
+    const isDismissed = ref(false)
+
+    const dismiss = () => {
+      isDismissed.value = true
+
+      $buefy.snackbar.open({
         message: 'Dismissed',
         queue: false
       })
+    }
+
+    return {
+      isDismissed,
+      dismiss
     }
   }
 }

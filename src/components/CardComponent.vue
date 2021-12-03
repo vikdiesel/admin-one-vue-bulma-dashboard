@@ -48,9 +48,14 @@ export default {
       default: null
     }
   },
-  methods: {
-    headerIconClick () {
-      this.$emit('header-icon-click')
+  emits: ['header-icon-click'],
+  setup (props, { emit }) {
+    const headerIconClick = () => {
+      emit('header-icon-click')
+    }
+
+    return {
+      headerIconClick
     }
   }
 }

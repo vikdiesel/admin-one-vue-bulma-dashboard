@@ -83,7 +83,7 @@
                 v-model="form.created_date"
                 placeholder="Click to select..."
                 icon="calendar-today"
-                @input="input"
+                @input="dateInput"
               />
             </b-field>
             <hr>
@@ -161,8 +161,9 @@
 </template>
 
 <script>
-import axios from 'axios'
-import dayjs from 'dayjs'
+import { useRouter } from '@/router'
+import { useStore } from '@/store'
+import { reactive, computed, ref, watch } from '@vue/composition-api'
 import find from 'lodash/find'
 import TitleBar from '@/components/TitleBar'
 import HeroBar from '@/components/HeroBar'
@@ -189,125 +190,109 @@ export default {
       default: null
     }
   },
-  data () {
-    return {
-      isLoading: false,
-      form: this.getClearFormObject(),
-      createdReadable: null,
-      isProfileExists: false
-    }
-  },
-  computed: {
-    titleStack () {
-      let lastCrumb
+  setup (props, { root: { $buefy } }) {
+    const isProfileExists = ref(false)
 
-      if (this.isProfileExists) {
-        lastCrumb = this.form.name
-      } else {
-        lastCrumb = 'New client'
-      }
+    const titleStack = computed(() => ['Admin', 'Clients', isProfileExists.value ? form.name : 'New Client'])
 
-      return ['Admin', 'Clients', lastCrumb]
-    },
-    heroTitle () {
-      if (this.isProfileExists) {
-        return this.form.name
-      } else {
-        return 'Create Client'
-      }
-    },
-    heroRouterLinkTo () {
-      if (this.isProfileExists) {
-        return { name: 'client.new' }
-      } else {
-        return '/'
-      }
-    },
-    heroRouterLinkLabel () {
-      if (this.isProfileExists) {
-        return 'New client'
-      } else {
-        return 'Dashboard'
-      }
-    },
-    formCardTitle () {
-      if (this.isProfileExists) {
-        return 'Edit Client'
-      } else {
-        return 'New Client'
+    const heroTitle = computed(() => isProfileExists.value ? form.name : 'Create Client')
+
+    const heroRouterLinkTo = computed(() => isProfileExists.value ? { name: 'client.new' } : { name: 'home' })
+
+    const heroRouterLinkLabel = computed(() => isProfileExists.value ? 'New client' : 'Dashboard')
+
+    const formCardTitle = computed(() => isProfileExists.value ? 'Edit client' : 'Create client')
+
+    const form = reactive({
+      id: null,
+      name: null,
+      company: null,
+      city: null,
+      created_date: new Date(),
+      progress: 0
+    })
+
+    const createdReadable = ref(null)
+
+    const store = useStore()
+
+    const clients = computed(() => store.state.clients)
+
+    const router = useRouter()
+
+    const clientId = computed(() => props.id)
+
+    const getData = () => {
+      if (clientId.value) {
+        const item = find(
+          clients.value,
+          (item) => item.id === parseInt(clientId.value)
+        )
+
+        if (item) {
+          isProfileExists.value = true
+
+          form.id = item.id
+          form.name = item.name
+          form.company = item.company
+          form.city = item.city
+          form.created_date = new Date(item.created_mm_dd_yyyy)
+
+          createdReadable.value = new Date(item.created_mm_dd_yyyy).toLocaleDateString()
+        } else {
+          router.push({ name: 'client.new' })
+        }
       }
     }
-  },
-  watch: {
-    id (newValue) {
-      this.isProfileExists = false
+
+    getData()
+
+    watch(clientId, newValue => {
+      isProfileExists.value = false
 
       if (!newValue) {
-        this.form = this.getClearFormObject()
+        form.id = null
+        form.name = null
+        form.company = null
+        form.city = null
+        form.created_date = new Date()
+        createdReadable.value = new Date().toLocaleDateString()
       } else {
-        this.getData()
+        getData()
       }
-    }
-  },
-  created () {
-    this.getData()
-  },
-  methods: {
-    getClearFormObject () {
-      return {
-        id: null,
-        name: null,
-        company: null,
-        city: null,
-        created_date: new Date(),
-        created_mm_dd_yyyy: null,
-        progress: 0
-      }
-    },
-    getData () {
-      if (this.$route.params.id) {
-        axios
-          .get(`${this.$router.options.base}data-sources/clients.json`)
-          .then((r) => {
-            const item = find(
-              r.data.data,
-              (item) => item.id === parseInt(this.$route.params.id)
-            )
+    })
 
-            if (item) {
-              this.isProfileExists = true
-              this.form = item
-              this.form.created_date = new Date(item.created_mm_dd_yyyy)
-              this.createdReadable = dayjs(
-                new Date(item.created_mm_dd_yyyy)
-              ).format('MMM D, YYYY')
-            } else {
-              this.$router.push({ name: 'client.new' })
-            }
-          })
-          .catch((e) => {
-            this.$buefy.toast.open({
-              message: `Error: ${e.message}`,
-              type: 'is-danger',
-              queue: false
-            })
-          })
-      }
-    },
-    input (v) {
-      this.createdReadable = dayjs(v).format('MMM D, YYYY')
-    },
-    submit () {
-      this.isLoading = true
+    const dateInput = v => {
+      createdReadable.value = new Date(v).toLocaleDateString()
+    }
+
+    const isLoading = ref(false)
+
+    const submit = () => {
+      isLoading.value = true
 
       setTimeout(() => {
-        this.isLoading = false
+        isLoading.value = false
 
-        this.$buefy.snackbar.open({
+        $buefy.snackbar.open({
           message: 'Demo only',
           queue: false
         })
-      }, 500)
+      }, 750)
+    }
+
+    return {
+      isProfileExists,
+      titleStack,
+      heroTitle,
+      heroRouterLinkTo,
+      heroRouterLinkLabel,
+      formCardTitle,
+      form,
+      createdReadable,
+      dateInput,
+      isLoading,
+      submit
     }
   }
 }

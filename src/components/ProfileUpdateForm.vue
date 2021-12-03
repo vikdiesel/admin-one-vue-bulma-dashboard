@@ -17,7 +17,7 @@
         message="Required. Your name"
       >
         <b-input
-          v-model="form.name"
+          v-model="userName"
           name="name"
           required
         />
@@ -28,7 +28,7 @@
         message="Required. Your e-mail"
       >
         <b-input
-          v-model="form.email"
+          v-model="userEmail"
           name="email"
           type="email"
           required
@@ -51,7 +51,8 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { computed, ref } from '@vue/composition-api'
+import { useStore } from '@/store'
 import FilePicker from '@/components/FilePicker'
 import CardComponent from '@/components/CardComponent'
 
@@ -61,42 +62,43 @@ export default {
     CardComponent,
     FilePicker
   },
-  data () {
-    return {
-      isFileUploaded: false,
-      isLoading: false,
-      form: {
-        name: null,
-        email: null
+  setup (props, { root: { $buefy } }) {
+    const store = useStore()
+
+    const userName = computed({
+      get: () => store.state.userName,
+      set: name => {
+        store.commit('user', { name })
       }
-    }
-  },
-  computed: {
-    ...mapState(['userName', 'userEmail'])
-  },
-  watch: {
-    userName (newValue) {
-      this.form.name = newValue
-    },
-    userEmail (newValue) {
-      this.form.email = newValue
-    }
-  },
-  mounted () {
-    this.form.name = this.userName
-    this.form.email = this.userEmail
-  },
-  methods: {
-    submit () {
-      this.isLoading = true
+    })
+
+    const userEmail = computed({
+      get: () => store.state.userEmail,
+      set: email => {
+        store.commit('user', { email })
+      }
+    })
+
+    const isLoading = ref(false)
+
+    const submit = () => {
+      isLoading.value = true
+
       setTimeout(() => {
-        this.isLoading = false
-        this.$store.commit('user', this.form)
-        this.$buefy.snackbar.open({
-          message: 'Updated',
+        isLoading.value = false
+
+        $buefy.snackbar.open({
+          message: 'Demo only',
           queue: false
         })
-      }, 500)
+      }, 750)
+    }
+
+    return {
+      userName,
+      userEmail,
+      isLoading,
+      submit
     }
   }
 }

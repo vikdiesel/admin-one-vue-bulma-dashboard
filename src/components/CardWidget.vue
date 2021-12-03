@@ -34,6 +34,7 @@
 <script>
 import CardComponent from '@/components/CardComponent'
 import GrowingNumber from '@/components/GrowingNumber'
+
 export default {
   name: 'CardWidget',
   components: { GrowingNumber, CardComponent },

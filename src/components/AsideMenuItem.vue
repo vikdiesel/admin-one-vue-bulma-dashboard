@@ -2,9 +2,9 @@
   <li :class="{ 'is-active': isDropdownActive }">
     <component
       :is="componentIs"
-      :to="itemTo"
-      :href="itemHref"
-      :target="itemTarget"
+      :to="item.to"
+      :href="item.href"
+      :target="item.target"
       exact-active-class="is-active"
       :class="{ 'has-icon': !!item.icon, 'has-dropdown-icon': hasDropdown }"
       @click="menuClick"
@@ -40,6 +40,8 @@
 </template>
 
 <script>
+import { computed, ref } from '@vue/composition-api'
+
 export default {
   name: 'AsideMenuItem',
   components: {
@@ -48,41 +50,33 @@ export default {
   props: {
     item: {
       type: Object,
-      default: null
+      required: true
     }
   },
-  data () {
-    return {
-      isDropdownActive: false
-    }
-  },
-  computed: {
-    componentIs () {
-      return this.item.to ? 'router-link' : 'a'
-    },
-    hasDropdown () {
-      return !!this.item.menu
-    },
-    dropdownIcon () {
-      return this.isDropdownActive ? 'minus' : 'plus'
-    },
-    itemTo () {
-      return this.item.to ?? null
-    },
-    itemHref () {
-      return this.item.href ?? null
-    },
-    itemTarget () {
-      return this.item.target ?? null
-    }
-  },
-  methods: {
-    menuClick () {
-      this.$emit('menu-click', this.item)
+  emits: ['menu-click'],
+  setup (props, { emit }) {
+    const componentIs = computed(() => props.item.to ? 'router-link' : 'a')
 
-      if (this.hasDropdown) {
-        this.isDropdownActive = !this.isDropdownActive
+    const isDropdownActive = ref(false)
+
+    const hasDropdown = computed(() => !!props.item.menu)
+
+    const dropdownIcon = computed(() => isDropdownActive.value ? 'minus' : 'plus')
+
+    const menuClick = () => {
+      emit('menu-click', props.item)
+
+      if (hasDropdown.value) {
+        isDropdownActive.value = !isDropdownActive.value
       }
+    }
+
+    return {
+      componentIs,
+      isDropdownActive,
+      hasDropdown,
+      dropdownIcon,
+      menuClick
     }
   }
 }

@@ -61,35 +61,42 @@
 </template>
 
 <script>
+import { reactive, ref } from '@vue/composition-api'
 import CardComponent from '@/components/CardComponent'
+
 export default {
   name: 'PasswordUpdateForm',
   components: {
     CardComponent
   },
-  data () {
-    return {
-      isLoading: false,
-      form: {
-        password_current: null,
-        password: null,
-        password_confirmation: null
-      }
-    }
-  },
-  methods: {
-    submit () {
-      this.isLoading = true
+  setup (props, { root: { $buefy } }) {
+    const isLoading = ref(false)
+
+    const form = reactive({
+      password_current: null,
+      password: null,
+      password_confirmation: null
+    })
+
+    const submit = () => {
+      isLoading.value = true
+
       setTimeout(() => {
-        this.isLoading = false
-        this.$buefy.snackbar.open(
+        isLoading.value = false
+
+        $buefy.snackbar.open(
           {
-            message: 'Updated',
+            message: 'Demo only',
             queue: false
-          },
-          500
+          }
         )
-      })
+      }, 750)
+    }
+
+    return {
+      isLoading,
+      form,
+      submit
     }
   }
 }

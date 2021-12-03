@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import axios from 'axios'
 
 Vue.use(Vuex)
 
-export default new Vuex.Store({
+const store = new Vuex.Store({
   state: {
     /* User */
     userName: null,
@@ -18,7 +19,10 @@ export default new Vuex.Store({
 
     /* Aside */
     isAsideVisible: true,
-    isAsideMobileExpanded: false
+    isAsideMobileExpanded: false,
+
+    /* Sample data (commonly used) */
+    clients: []
   },
   mutations: {
     /* A fit-them-all commit */
@@ -68,13 +72,46 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    asideDesktopOnlyToggle () {
-      document.documentElement.classList.toggle('has-aside-desktop-only-visible')
+    asideDesktopOnlyToggle (store, payload = null) {
+      let method
+
+      switch (payload) {
+        case true:
+          method = 'add'
+          break
+        case false:
+          method = 'remove'
+          break
+        default:
+          method = 'toggle'
+      }
+      document.documentElement.classList[method]('has-aside-desktop-only-visible')
     },
     toggleFullPage ({ commit }, payload) {
       commit('fullPage', payload)
 
       document.documentElement.classList[!payload ? 'add' : 'remove']('has-aside-left', 'has-navbar-fixed-top')
+    },
+    fetch ({ commit }, payload) {
+      axios
+        .get(`data-sources/${payload}.json`)
+        .then((r) => {
+          if (r.data && r.data.data) {
+            commit('basic', {
+              key: payload,
+              value: r.data.data
+            })
+          }
+        })
+        .catch(error => {
+          alert(error.message)
+        })
     }
   }
 })
+
+export default store
+
+export function useStore () {
+  return store
+}

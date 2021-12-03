@@ -35,7 +35,9 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { useRouter } from '@/router'
+import { useStore } from '@/store'
+import { computed, onMounted } from '@vue/composition-api'
 import AsideMenuList from '@/components/AsideMenuList'
 
 export default {
@@ -47,15 +49,31 @@ export default {
       default: () => []
     }
   },
-  computed: {
-    ...mapState(['isAsideVisible'])
-  },
-  methods: {
-    menuClick (item) {
+  setup () {
+    const store = useStore()
+
+    const isAsideVisible = computed(() => store.state.isAsideVisible)
+
+    const asideToggleDesktopOnly = () => {
+      store.dispatch('asideDesktopOnlyToggle')
+    }
+
+    const menuClick = item => {
       //
-    },
-    asideToggleDesktopOnly () {
-      this.$store.dispatch('asideDesktopOnlyToggle')
+    }
+
+    const router = useRouter()
+
+    onMounted(() => {
+      router.afterEach(() => {
+        store.dispatch('asideDesktopOnlyToggle', false)
+      })
+    })
+
+    return {
+      isAsideVisible,
+      asideToggleDesktopOnly,
+      menuClick
     }
   }
 }

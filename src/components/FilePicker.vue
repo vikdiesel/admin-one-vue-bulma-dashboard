@@ -21,6 +21,8 @@
 </template>
 
 <script>
+import { computed, ref } from '@vue/composition-api'
+
 export default {
   name: 'FilePicker',
   props: {
@@ -29,45 +31,50 @@ export default {
       default: null
     }
   },
-  data () {
-    return {
-      file: null,
-      uploadPercent: 0
-    }
-  },
-  computed: {
-    buttonLabel () {
-      return !this.file ? 'Pick a file' : 'Pick another file'
-    }
-  },
-  methods: {
-    upload (file) {
-      this.$emit('input', file)
+  emits: ['input'],
+  setup (props, { emit }) {
+    const buttonLabel = computed(() => file.value ? 'Pick another file' : 'Pick a file')
+
+    const file = ref(null)
+
+    const upload = value => {
+      file.value = value
+
+      emit('input', value)
+
       // Use this as an example for handling file uploads
       // let formData = new FormData()
-      // formData.append('file', file)
+      // formData.append('file', file.value)
+
+      // const mediaStoreRoute = `/your-route/`
 
       // axios
-      //   .post(window.routeMediaStore, formData, {
+      //   .post(mediaStoreRoute, formData, {
       //     headers: {
       //       'Content-Type': 'multipart/form-data'
       //     },
-      //     onUploadProgress: this.progressEvent
+      //     onUploadProgress: progressEvent
       //   })
       //   .then(r => {
       //
       //   })
       //   .catch(err => {
-      //     this.$buefy.toast.open({
-      //       message: `Error: ${err.message}`,
-      //       type: 'is-danger'
-      //     })
+      //
       //   })
-    },
-    progressEvent (progressEvent) {
-      this.uploadPercent = Math.round(
-        (progressEvent.loaded * 100) / progressEvent.total
-      )
+    }
+
+    // const uploadPercent = ref(0)
+    //
+    // const progressEvent = progressEvent => {
+    //   uploadPercent.value = Math.round(
+    //     (progressEvent.loaded * 100) / progressEvent.total
+    //   )
+    // }
+
+    return {
+      buttonLabel,
+      file,
+      upload
     }
   }
 }

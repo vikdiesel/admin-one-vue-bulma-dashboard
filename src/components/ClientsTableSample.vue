@@ -2,20 +2,19 @@
   <div>
     <modal-box
       :is-active="isModalActive"
-      :trash-object-name="trashObjectName"
+      :trash-object-name="trashObject ? trashObject.name : null "
       @confirm="trashConfirm"
       @cancel="trashCancel"
     />
     <b-table
       :checked-rows.sync="checkedRows"
       :checkable="checkable"
-      :loading="isLoading"
       :paginated="paginated"
       :per-page="perPage"
-      :striped="true"
-      :hoverable="true"
-      default-sort="name"
       :data="clients"
+      default-sort="name"
+      striped
+      hoverable
     >
       <b-table-column
         v-slot="props"
@@ -81,7 +80,7 @@
         custom-key="actions"
         cell-class="is-actions-cell"
       >
-        <div class="buttons is-right">
+        <div class="buttons is-right no-wrap">
           <router-link
             :to="{name:'client.edit', params: {id: props.row.id}}"
             class="button is-small is-primary"
@@ -94,7 +93,7 @@
           <button
             class="button is-small is-danger"
             type="button"
-            @click.prevent="trashModal(props.row)"
+            @click.prevent="trashModalOpen(props.row)"
           >
             <b-icon
               icon="trash-can"
@@ -109,24 +108,13 @@
         class="section"
       >
         <div class="content has-text-grey has-text-centered">
-          <template v-if="isLoading">
-            <p>
-              <b-icon
-                icon="dots-horizontal"
-                size="is-large"
-              />
-            </p>
-            <p>Fetching data...</p>
-          </template>
-          <template v-else>
-            <p>
-              <b-icon
-                icon="emoticon-sad"
-                size="is-large"
-              />
-            </p>
-            <p>Nothing's here&hellip;</p>
-          </template>
+          <p>
+            <b-icon
+              icon="emoticon-sad"
+              size="is-large"
+            />
+          </p>
+          <p>Nothing's here&hellip;</p>
         </div>
       </section>
     </b-table>
@@ -134,79 +122,60 @@
 </template>
 
 <script>
-import axios from 'axios'
+import { computed, ref } from '@vue/composition-api'
+import { useStore } from '@/store'
 import ModalBox from '@/components/ModalBox'
 
 export default {
   name: 'ClientsTableSample',
   components: { ModalBox },
   props: {
-    dataUrl: {
-      type: String,
-      default: null
-    },
-    checkable: {
-      type: Boolean,
-      default: false
-    }
+    checkable: Boolean,
+    isEmpty: Boolean
   },
-  data () {
-    return {
-      isModalActive: false,
-      trashObject: null,
-      clients: [],
-      isLoading: false,
-      paginated: false,
-      perPage: 10,
-      checkedRows: []
-    }
-  },
-  computed: {
-    trashObjectName () {
-      if (this.trashObject) {
-        return this.trashObject.name
-      }
+  setup (props, { root: { $buefy } }) {
+    const store = useStore()
 
-      return null
+    const clients = computed(() => props.isEmpty ? [] : store.state.clients)
+
+    const perPage = ref(10)
+
+    const paginated = computed(() => clients.value.length > perPage.value)
+
+    const checkedRows = ref([])
+
+    const isModalActive = ref(false)
+
+    const trashObject = ref(null)
+
+    const trashModalOpen = obj => {
+      trashObject.value = obj
+      isModalActive.value = true
     }
-  },
-  mounted () {
-    if (this.dataUrl) {
-      this.isLoading = true
-      axios
-        .get(this.dataUrl)
-        .then((r) => {
-          this.isLoading = false
-          if (r.data && r.data.data) {
-            if (r.data.data.length > this.perPage) {
-              this.paginated = true
-            }
-            this.clients = r.data.data
-          }
-        })
-        .catch((e) => {
-          this.isLoading = false
-          this.$buefy.toast.open({
-            message: `Error: ${e.message}`,
-            type: 'is-danger'
-          })
-        })
-    }
-  },
-  methods: {
-    trashModal (trashObject) {
-      this.trashObject = trashObject
-      this.isModalActive = true
-    },
-    trashConfirm () {
-      this.isModalActive = false
-      this.$buefy.snackbar.open({
+
+    const trashConfirm = () => {
+      isModalActive.value = false
+
+      $buefy.snackbar.open({
         message: 'Confirmed',
         queue: false
       })
-    },
-    trashCancel () {
-      this.isModalActive = false
+    }
+
+    const trashCancel = () => {
+      isModalActive.value = false
+    }
+
+    return {
+      clients,
+      perPage,
+      paginated,
+      checkedRows,
+      isModalActive,
+      trashObject,
+      trashModalOpen,
+      trashConfirm,
+      trashCancel
     }
   }
 }

@@ -8,13 +8,14 @@
       :key="k"
       class="control"
     >
-      <b-radio
+      <component
+        :is="componentIs"
         v-model="newValue"
         :native-value="k"
         :type="type"
       >
         {{ v }}
-      </b-radio>
+      </component>
     </div>
   </b-field>
 </template>
@@ -23,7 +24,7 @@
 import { computed } from '@vue/composition-api'
 
 export default {
-  name: 'RadioPicker',
+  name: 'CheckboxRadioPicker',
   props: {
     options: {
       type: Object,
@@ -34,7 +35,7 @@ export default {
       default: null
     },
     value: {
-      type: [String, Number],
+      type: [String, Number, Array],
       default: null
     }
   },
@@ -47,8 +48,11 @@ export default {
       }
     })
 
+    const componentIs = computed(() => typeof props.value === 'object' ? 'b-checkbox' : 'b-radio')
+
     return {
-      newValue
+      newValue,
+      componentIs
     }
   }
 }

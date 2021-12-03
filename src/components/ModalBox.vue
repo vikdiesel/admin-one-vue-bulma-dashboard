@@ -35,39 +35,40 @@
 </template>
 
 <script>
+import { computed } from '@vue/composition-api'
+
 export default {
   name: 'ModalBox',
   props: {
-    isActive: {
-      type: Boolean,
-      default: false
-    },
+    isActive: Boolean,
     trashObjectName: {
       type: String,
       default: null
     }
   },
-  data () {
-    return {
-      isModalActive: false
-    }
-  },
-  watch: {
-    isActive (newValue) {
-      this.isModalActive = newValue
-    },
-    isModalActive (newValue) {
-      if (!newValue) {
-        this.cancel()
+  emits: ['cancel', 'confirm'],
+  setup (props, { emit }) {
+    const isModalActive = computed({
+      get: () => props.isActive,
+      set: value => {
+        if (!value) {
+          cancel()
+        }
       }
+    })
+
+    const confirm = () => {
+      emit('confirm')
     }
-  },
-  methods: {
-    cancel () {
-      this.$emit('cancel')
-    },
-    confirm () {
-      this.$emit('confirm')
+
+    const cancel = () => {
+      emit('cancel')
+    }
+
+    return {
+      isModalActive,
+      confirm,
+      cancel
     }
   }
 }

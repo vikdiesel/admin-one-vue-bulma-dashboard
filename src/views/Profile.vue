@@ -44,7 +44,8 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { useStore } from '@/store'
+import { computed } from '@vue/composition-api'
 import CardComponent from '@/components/CardComponent'
 import TitleBar from '@/components/TitleBar'
 import HeroBar from '@/components/HeroBar'
@@ -63,11 +64,20 @@ export default {
     TitleBar,
     CardComponent
   },
-  computed: {
-    titleStack () {
-      return ['Admin', 'Profile']
-    },
-    ...mapState(['userName', 'userEmail'])
+  setup () {
+    const titleStack = ['Admin', 'Profile']
+
+    const store = useStore()
+
+    const userName = computed(() => store.state.userName)
+
+    const userEmail = computed(() => store.state.userEmail)
+
+    return {
+      titleStack,
+      userName,
+      userEmail
+    }
   }
 }
 </script>

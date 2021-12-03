@@ -9,11 +9,11 @@
         class="navbar-item is-hidden-desktop"
         @click.prevent="asideToggleMobile"
       >
-        <b-icon :icon="menuToggleMobileIcon" />
+        <b-icon :icon="asideMobileIcon" />
       </a>
       <a
         class="navbar-item is-hidden-touch is-hidden-widescreen is-desktop-icon-only"
-        @click.prevent="asideToggleDesktopOnly"
+        @click.prevent="asideDesktopOnlyToggle"
       >
         <b-icon icon="menu" />
       </a>
@@ -29,17 +29,17 @@
     <div class="navbar-brand is-right">
       <a
         class="navbar-item navbar-item-menu-toggle is-hidden-desktop"
-        @click.prevent="menuNavBarToggle"
+        @click.prevent="menuToggle"
       >
         <b-icon
-          :icon="menuNavBarToggleIcon"
+          :icon="menuToggleIcon"
           custom-size="default"
         />
       </a>
     </div>
     <div
       class="navbar-menu fadeIn animated faster"
-      :class="{ 'is-active': isMenuNavBarActive }"
+      :class="{ 'is-active': isMenuActive }"
     >
       <div class="navbar-end">
         <nav-bar-menu class="has-divider">
@@ -160,7 +160,9 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { useStore } from '@/store'
+import { useRouter } from '@/router'
+import { computed, ref, onMounted } from '@vue/composition-api'
 import NavBarMenu from '@/components/NavBarMenu'
 import UserAvatar from '@/components/UserAvatar'
 
@@ -170,40 +172,63 @@ export default {
     UserAvatar,
     NavBarMenu
   },
-  data () {
-    return {
-      isMenuNavBarActive: false
+  setup (props, { root: { $buefy } }) {
+    const store = useStore()
+
+    const asideToggleMobile = () => {
+      store.commit('asideMobileStateToggle')
     }
-  },
-  computed: {
-    menuNavBarToggleIcon () {
-      return this.isMenuNavBarActive ? 'close' : 'dots-vertical'
-    },
-    menuToggleMobileIcon () {
-      return this.isAsideMobileExpanded ? 'backburger' : 'forwardburger'
-    },
-    ...mapState(['isNavBarVisible', 'isAsideMobileExpanded', 'userName'])
-  },
-  mounted () {
-    this.$router.afterEach(() => {
-      this.isMenuNavBarActive = false
+
+    const asideDesktopOnlyToggle = () => {
+      store.dispatch('asideDesktopOnlyToggle')
+    }
+
+    const isAsideMobileExpanded = computed(() => store.state.isAsideMobileExpanded)
+
+    const asideMobileIcon = computed(
+      () => isAsideMobileExpanded.value ? 'backburger' : 'forwardburger'
+    )
+
+    const isNavBarVisible = computed(() => store.state.isNavBarVisible)
+
+    const userName = computed(() => store.state.userName)
+
+    const isMenuActive = ref(false)
+
+    const menuToggle = () => {
+      isMenuActive.value = !isMenuActive.value
+    }
+
+    const menuToggleIcon = computed(
+      () => isMenuActive.value ? 'close' : 'dots-vertical'
+    )
+
+    const router = useRouter()
+
+    onMounted(() => {
+      router.afterEach(() => {
+        isMenuActive.value = false
+      })
     })
-  },
-  methods: {
-    asideToggleMobile () {
-      this.$store.commit('asideMobileStateToggle')
-    },
-    asideToggleDesktopOnly () {
-      this.$store.dispatch('asideDesktopOnlyToggle')
-    },
-    menuNavBarToggle () {
-      this.isMenuNavBarActive = !this.isMenuNavBarActive
-    },
-    logout () {
-      this.$buefy.snackbar.open({
+
+    const logout = () => {
+      $buefy.snackbar.open({
         message: 'Log out clicked',
         queue: false
       })
+    }
+
+    return {
+      asideToggleMobile,
+      asideDesktopOnlyToggle,
+      isAsideMobileExpanded,
+      asideMobileIcon,
+      isNavBarVisible,
+      userName,
+      isMenuActive,
+      menuToggle,
+      menuToggleIcon,
+      logout
     }
   }
 }

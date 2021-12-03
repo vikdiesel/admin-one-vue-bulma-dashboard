@@ -16,7 +16,7 @@
         title="Forms"
         icon="ballot"
       >
-        <form @submit.prevent="submit">
+        <form @submit.prevent="formAction">
           <b-field
             label="From"
             horizontal
@@ -116,7 +116,7 @@
               <div class="control">
                 <b-button
                   type="is-primary is-outlined"
-                  @click="reset"
+                  @click.prevent="formAction"
                 >
                   Reset
                 </b-button>
@@ -134,7 +134,7 @@
           class="has-check"
           horizontal
         >
-          <checkbox-picker
+          <checkbox-radio-picker
             v-model="customElementsForm.checkbox"
             :options="{ lorem: 'Lorem', ipsum: 'Ipsum', dolore: 'Dolore' }"
             type="is-primary"
@@ -146,7 +146,7 @@
           class="has-check"
           horizontal
         >
-          <radio-picker
+          <checkbox-radio-picker
             v-model="customElementsForm.radio"
             :options="{ one: 'One', two: 'Two' }"
           />
@@ -173,62 +173,56 @@
 </template>
 
 <script>
-import mapValues from 'lodash/mapValues'
+import { reactive } from '@vue/composition-api'
 import TitleBar from '@/components/TitleBar'
 import CardComponent from '@/components/CardComponent'
-import CheckboxPicker from '@/components/CheckboxPicker'
-import RadioPicker from '@/components/RadioPicker'
 import FilePicker from '@/components/FilePicker'
 import HeroBar from '@/components/HeroBar'
+import CheckboxRadioPicker from '@/components/CheckboxRadioPicker'
+
 export default {
   name: 'Forms',
   components: {
+    CheckboxRadioPicker,
     HeroBar,
     FilePicker,
-    RadioPicker,
-    CheckboxPicker,
     CardComponent,
     TitleBar
   },
-  data () {
-    return {
-      isLoading: false,
-      form: {
-        name: null,
-        email: null,
-        phone: null,
-        department: null,
-        subject: null,
-        question: null
-      },
-      customElementsForm: {
-        checkbox: [],
-        radio: null,
-        switch: true,
-        file: null
-      },
-      departments: ['Business Development', 'Marketing', 'Sales']
-    }
-  },
-  computed: {
-    titleStack () {
-      return ['Admin', 'Forms']
-    }
-  },
-  methods: {
-    submit () {},
-    reset () {
-      this.form = mapValues(this.form, (item) => {
-        if (item && typeof item === 'object') {
-          return []
-        }
-        return null
-      })
+  setup (props, { root: { $buefy } }) {
+    const titleStack = ['Admin', 'Forms']
 
-      this.$buefy.snackbar.open({
-        message: 'Reset successfully',
+    const departments = ['Business Development', 'Marketing', 'Sales']
+
+    const form = reactive({
+      name: null,
+      email: null,
+      phone: null,
+      department: null,
+      subject: null,
+      question: null
+    })
+
+    const customElementsForm = reactive({
+      checkbox: ['lorem'],
+      radio: 'one',
+      switch: true,
+      file: null
+    })
+
+    const formAction = () => {
+      $buefy.snackbar.open({
+        message: 'Demo only',
         queue: false
       })
+    }
+
+    return {
+      titleStack,
+      departments,
+      form,
+      customElementsForm,
+      formAction
     }
   }
 }

@@ -28,8 +28,7 @@
         icon="account-multiple"
       >
         <clients-table-sample
-          :data-url="`${$router.options.base}data-sources/clients.json`"
-          :checkable="true"
+          checkable
         />
       </card-component>
 
@@ -47,8 +46,7 @@
 
       <card-component class="has-table has-mobile-sort-spaced">
         <clients-table-sample
-          :data-url="`${$router.options.base}data-sources/clients.json`"
-          :checkable="true"
+          checkable
         />
       </card-component>
 
@@ -65,7 +63,7 @@
       </notification>
 
       <card-component class="has-table has-thead-hidden">
-        <clients-table-sample />
+        <clients-table-sample is-empty />
       </card-component>
     </section>
   </div>
@@ -77,6 +75,7 @@ import ClientsTableSample from '@/components/ClientsTableSample'
 import CardComponent from '@/components/CardComponent'
 import TitleBar from '@/components/TitleBar'
 import HeroBar from '@/components/HeroBar'
+
 export default {
   name: 'Tables',
   components: {
@@ -86,9 +85,11 @@ export default {
     ClientsTableSample,
     Notification
   },
-  computed: {
-    titleStack () {
-      return ['Admin', 'Tables']
+  setup () {
+    const titleStack = ['Admin', 'Tables']
+
+    return {
+      titleStack
     }
   }
 }
