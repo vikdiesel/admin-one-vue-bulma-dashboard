@@ -1,15 +1,19 @@
-# [Admin One  — Free Vue Bulma Buefy Dashboard](https://vikdiesel.github.io/admin-one-vue-bulma-dashboard/)
+# [Admin One  — Free Vue Bulma Buefy Dashboard](https://justboil.me/bulma-admin-template/free-vue-buefy-dashboard/)
 
-[![version](https://img.shields.io/badge/version-1.5.3-blue)](https://vikdiesel.github.io/admin-one-vue-bulma-dashboard/)  [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://vikdiesel.github.io/admin-one-vue-bulma-dashboard/)
+[![version](https://img.shields.io/github/v/release/vikdiesel/admin-one-vue-bulma-dashboard)](https://justboil.me/bulma-admin-template/free-vue-buefy-dashboard/)  [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://justboil.me/bulma-admin-template/free-vue-buefy-dashboard/)
 
 [![Free Vue.js 2.6 Bulma Buefy admin dashboard](https://justboil.me/images/one/repository-preview-hi-res.png)](https://vikdiesel.github.io/admin-one-vue-bulma-dashboard/)
 
-**Admin One** is simple, beautiful and free Vue.js 2.x Buefy Bulma admin dashboard (SPA/PWA).
+**Admin One** is simple, beautiful and free Vue.js 2.x Buefy Bulma admin dashboard
 
+* Built with **Vue.js 2.x** **Bulma** **Buefy** & **Vue CLI**
+* **Composition API**
+* **Options API** version is available under [1.5.4 release](https://github.com/vikdiesel/admin-one-vue-bulma-dashboard/releases/tag/v1.5.4)
+* SPA with **Vuex** & **Router**
+* **SCSS sources** with variables
+* Reusable components
+* Responsive
 * Free under MIT License
-* PWA/SPA — Single page app
-* Built with Bulma, Vue.js 2.x, Buefy & Vue CLI
-* SCSS sources with variables
 * [Premium version](https://justboil.me/bulma-admin-template/one/) available
 
 ## Table of Contents
@@ -18,6 +22,8 @@
   * [Bulma versions](#bulma-versions)
   * [Vue.js 3 TailwindCSS](#vuejs-3-tailwindcss-dashboard)
 * [Description & Demo](#description--demo)
+* [Composition API](#composition-api)
+  * [Options API version](#options-api-version)
 * [Quick Start](#quick-start)
 * [Browser Support](#browser-support)
 * [Reporting Issues](#reporting-issues)
@@ -56,6 +62,14 @@ https://vikdiesel.github.io/admin-one-vue-bulma-dashboard/
 #### Premium Dashboard Demo
 
 https://admin-one.justboil.me
+
+## Composition API
+
+Built with **Composition API** for Vue.js 2.x
+
+### Options API version
+
+Classic **Options API** version is available under [1.5.4 release](https://github.com/vikdiesel/admin-one-vue-bulma-dashboard/releases/tag/v1.5.4)
 
 ## Quick Start
 
