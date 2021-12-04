@@ -16,8 +16,8 @@
 </template>
 
 <script>
-import { onBeforeUnmount } from '@vue/composition-api'
-import { useStore } from '@/store'
+import { onBeforeUnmount } from 'vue'
+import { useStore } from 'vuex'
 
 export default {
   name: 'FullPage',

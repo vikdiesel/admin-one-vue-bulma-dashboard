@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import { computed } from '@vue/composition-api'
-import { useStore } from '@/store'
+import { computed } from 'vue'
+import { useStore } from 'vuex'
 export default {
   name: 'UserAvatar',
   props: {

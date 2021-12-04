@@ -3,13 +3,14 @@
     <title-bar :title-stack="titleStack" />
     <hero-bar>
       Tables
-      <router-link
-        slot="right"
-        to="/"
-        class="button"
-      >
-        Dashboard
-      </router-link>
+      <template #right>
+        <router-link
+          to="/"
+          class="button"
+        >
+          Dashboard
+        </router-link>
+      </template>
     </hero-bar>
     <section class="section is-main-section">
       <notification class="is-info">

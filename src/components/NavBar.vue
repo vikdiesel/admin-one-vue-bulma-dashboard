@@ -48,89 +48,90 @@
             custom-size="default"
           />
           <span>Sample Menu</span>
-          <div
-            slot="dropdown"
-            class="navbar-dropdown"
-          >
-            <router-link
-              to="/profile"
-              class="navbar-item"
-              exact-active-class="is-active"
+          <template #dropdown>
+            <div
+              class="navbar-dropdown"
             >
-              <b-icon
-                icon="account"
-                custom-size="default"
-              />
-              <span>My Profile</span>
-            </router-link>
-            <a class="navbar-item">
-              <b-icon
-                icon="settings"
-                custom-size="default"
-              />
-              <span>Settings</span>
-            </a>
-            <a class="navbar-item">
-              <b-icon
-                icon="email"
-                custom-size="default"
-              />
-              <span>Messages</span>
-            </a>
-            <hr class="navbar-divider">
-            <a class="navbar-item">
-              <b-icon
-                icon="logout"
-                custom-size="default"
-              />
-              <span>Log Out</span>
-            </a>
-          </div>
+              <router-link
+                to="/profile"
+                class="navbar-item"
+                exact-active-class="is-active"
+              >
+                <b-icon
+                  icon="account"
+                  custom-size="default"
+                />
+                <span>My Profile</span>
+              </router-link>
+              <a class="navbar-item">
+                <b-icon
+                  icon="settings"
+                  custom-size="default"
+                />
+                <span>Settings</span>
+              </a>
+              <a class="navbar-item">
+                <b-icon
+                  icon="email"
+                  custom-size="default"
+                />
+                <span>Messages</span>
+              </a>
+              <hr class="navbar-divider">
+              <a class="navbar-item">
+                <b-icon
+                  icon="logout"
+                  custom-size="default"
+                />
+                <span>Log Out</span>
+              </a>
+            </div>
+          </template>
         </nav-bar-menu>
         <nav-bar-menu class="has-divider has-user-avatar">
           <user-avatar />
           <div class="is-user-name">
             <span>{{ userName }}</span>
           </div>
-
-          <div
-            slot="dropdown"
-            class="navbar-dropdown"
-          >
-            <router-link
-              to="/profile"
-              class="navbar-item"
-              exact-active-class="is-active"
+          <template #dropdown>
+            <div
+              class="navbar-dropdown"
             >
-              <b-icon
-                icon="account"
-                custom-size="default"
-              />
-              <span>My Profile</span>
-            </router-link>
-            <a class="navbar-item">
-              <b-icon
-                icon="settings"
-                custom-size="default"
-              />
-              <span>Settings</span>
-            </a>
-            <a class="navbar-item">
-              <b-icon
-                icon="email"
-                custom-size="default"
-              />
-              <span>Messages</span>
-            </a>
-            <hr class="navbar-divider">
-            <a class="navbar-item">
-              <b-icon
-                icon="logout"
-                custom-size="default"
-              />
-              <span>Log Out</span>
-            </a>
-          </div>
+              <router-link
+                to="/profile"
+                class="navbar-item"
+                exact-active-class="is-active"
+              >
+                <b-icon
+                  icon="account"
+                  custom-size="default"
+                />
+                <span>My Profile</span>
+              </router-link>
+              <a class="navbar-item">
+                <b-icon
+                  icon="settings"
+                  custom-size="default"
+                />
+                <span>Settings</span>
+              </a>
+              <a class="navbar-item">
+                <b-icon
+                  icon="email"
+                  custom-size="default"
+                />
+                <span>Messages</span>
+              </a>
+              <hr class="navbar-divider">
+              <a class="navbar-item">
+                <b-icon
+                  icon="logout"
+                  custom-size="default"
+                />
+                <span>Log Out</span>
+              </a>
+            </div>
+          </template>
         </nav-bar-menu>
         <a
           href="https://github.com/vikdiesel/admin-one-vue-bulma-dashboard"
@@ -160,9 +161,9 @@
 </template>
 
 <script>
-import { useStore } from '@/store'
-import { useRouter } from '@/router'
-import { computed, ref, onMounted } from '@vue/composition-api'
+import { useStore } from 'vuex'
+import { useRouter } from 'vue-router'
+import { computed, ref, onMounted } from 'vue'
 import NavBarMenu from '@/components/NavBarMenu'
 import UserAvatar from '@/components/UserAvatar'
 
@@ -172,7 +173,7 @@ export default {
     UserAvatar,
     NavBarMenu
   },
-  setup (props, { root: { $buefy } }) {
+  setup (props, ctx) {
     const store = useStore()
 
     const asideToggleMobile = () => {
@@ -212,10 +213,10 @@ export default {
     })
 
     const logout = () => {
-      $buefy.snackbar.open({
-        message: 'Log out clicked',
-        queue: false
-      })
+      // $buefy.snackbar.open({
+      //   message: 'Log out clicked',
+      //   queue: false
+      // })
     }
 
     return {

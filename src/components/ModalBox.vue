@@ -1,6 +1,6 @@
 <template>
   <b-modal
-    :active.sync="isModalActive"
+    v-model:active="isModalActive"
     has-modal-card
   >
     <div class="modal-card">
@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import { computed } from '@vue/composition-api'
+import { computed } from 'vue'
 
 export default {
   name: 'ModalBox',

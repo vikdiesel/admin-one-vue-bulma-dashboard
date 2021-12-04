@@ -3,13 +3,14 @@
     <title-bar :title-stack="titleStack" />
     <hero-bar>
       Profile
-      <router-link
-        slot="right"
-        to="/"
-        class="button"
-      >
-        Dashboard
-      </router-link>
+      <template #right>
+        <router-link
+          to="/"
+          class="button"
+        >
+          Dashboard
+        </router-link>
+      </template>
     </hero-bar>
     <section class="section is-main-section">
       <tiles>
@@ -44,8 +45,8 @@
 </template>
 
 <script>
-import { useStore } from '@/store'
-import { computed } from '@vue/composition-api'
+import { useStore } from 'vuex'
+import { computed } from 'vue'
 import CardComponent from '@/components/CardComponent'
 import TitleBar from '@/components/TitleBar'
 import HeroBar from '@/components/HeroBar'

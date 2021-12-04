@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import { computed, ref } from '@vue/composition-api'
+import { computed, ref } from 'vue'
 
 export default {
   name: 'FilePicker',

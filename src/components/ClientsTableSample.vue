@@ -7,7 +7,7 @@
       @cancel="trashCancel"
     />
     <b-table
-      :checked-rows.sync="checkedRows"
+      v-model:checked-rows="checkedRows"
       :checkable="checkable"
       :paginated="paginated"
       :per-page="perPage"
@@ -103,27 +103,28 @@
         </div>
       </b-table-column>
 
-      <section
-        slot="empty"
-        class="section"
-      >
-        <div class="content has-text-grey has-text-centered">
-          <p>
-            <b-icon
-              icon="emoticon-sad"
-              size="is-large"
-            />
-          </p>
-          <p>Nothing's here&hellip;</p>
-        </div>
-      </section>
+      <template #empty>
+        <section
+          class="section"
+        >
+          <div class="content has-text-grey has-text-centered">
+            <p>
+              <b-icon
+                icon="emoticon-sad"
+                size="is-large"
+              />
+            </p>
+            <p>Nothing's here&hellip;</p>
+          </div>
+        </section>
+      </template>
     </b-table>
   </div>
 </template>
 
 <script>
-import { computed, ref } from '@vue/composition-api'
-import { useStore } from '@/store'
+import { computed, ref } from 'vue'
+import { useStore } from 'vuex'
 import ModalBox from '@/components/ModalBox'
 
 export default {
@@ -133,7 +134,7 @@ export default {
     checkable: Boolean,
     isEmpty: Boolean
   },
-  setup (props, { root: { $buefy } }) {
+  setup (props, ctx) {
     const store = useStore()
 
     const clients = computed(() => props.isEmpty ? [] : store.state.clients)
@@ -156,10 +157,10 @@ export default {
     const trashConfirm = () => {
       isModalActive.value = false
 
-      $buefy.snackbar.open({
-        message: 'Confirmed',
-        queue: false
-      })
+      // $buefy.snackbar.open({
+      //   message: 'Confirmed',
+      //   queue: false
+      // })
     }
 
     const trashCancel = () => {

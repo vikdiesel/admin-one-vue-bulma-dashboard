@@ -3,13 +3,14 @@
     <title-bar :title-stack="titleStack" />
     <hero-bar>
       {{ heroTitle }}
-      <router-link
-        slot="right"
-        :to="heroRouterLinkTo"
-        class="button"
-      >
-        {{ heroRouterLinkLabel }}
-      </router-link>
+      <template #right>
+        <router-link
+          :to="heroRouterLinkTo"
+          class="button"
+        >
+          {{ heroRouterLinkLabel }}
+        </router-link>
+      </template>
     </hero-bar>
     <section class="section is-main-section">
       <notification class="is-info">
@@ -161,9 +162,9 @@
 </template>
 
 <script>
-import { useRouter } from '@/router'
-import { useStore } from '@/store'
-import { reactive, computed, ref, watch } from '@vue/composition-api'
+import { useRouter } from 'vue-router'
+import { useStore } from 'vuex'
+import { reactive, computed, ref, watch } from 'vue'
 import find from 'lodash/find'
 import TitleBar from '@/components/TitleBar'
 import HeroBar from '@/components/HeroBar'

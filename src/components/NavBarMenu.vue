@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import { computed, ref, onMounted, onBeforeUnmount } from '@vue/composition-api'
+import { computed, ref, onMounted, onBeforeUnmount } from 'vue'
 
 export default {
   name: 'NavBarMenu',

@@ -1,10 +1,7 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import { createStore } from 'vuex'
 import axios from 'axios'
 
-Vue.use(Vuex)
-
-const store = new Vuex.Store({
+export default createStore({
   state: {
     /* User */
     userName: null,
@@ -109,9 +106,3 @@ const store = new Vuex.Store({
     }
   }
 })
-
-export default store
-
-export function useStore () {
-  return store
-}

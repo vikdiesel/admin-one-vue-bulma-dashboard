@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { useStore } from '@/store'
+import { useStore } from 'vuex'
 import menu from '@/menu.js'
 import NavBar from '@/components/NavBar'
 import AsideMenu from '@/components/AsideMenu'

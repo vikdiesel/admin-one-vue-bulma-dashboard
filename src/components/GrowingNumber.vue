@@ -4,7 +4,7 @@
 
 <script>
 import numeral from 'numeral'
-import { computed, onMounted, ref, watch } from '@vue/composition-api'
+import { computed, onMounted, ref, watch } from 'vue'
 
 export default {
   name: 'GrowingNumber',

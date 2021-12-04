@@ -61,7 +61,7 @@
 </template>
 
 <script>
-import { reactive, ref } from '@vue/composition-api'
+import { reactive, ref } from 'vue'
 import CardComponent from '@/components/CardComponent'
 
 export default {

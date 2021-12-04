@@ -3,13 +3,14 @@
     <title-bar :title-stack="titleStack" />
     <hero-bar>
       Forms
-      <router-link
-        slot="right"
-        to="/"
-        class="button"
-      >
-        Dashboard
-      </router-link>
+      <template #right>
+        <router-link
+          to="/"
+          class="button"
+        >
+          Dashboard
+        </router-link>
+      </template>
     </hero-bar>
     <section class="section is-main-section">
       <card-component
@@ -173,7 +174,7 @@
 </template>
 
 <script>
-import { reactive } from '@vue/composition-api'
+import { reactive } from 'vue'
 import TitleBar from '@/components/TitleBar'
 import CardComponent from '@/components/CardComponent'
 import FilePicker from '@/components/FilePicker'

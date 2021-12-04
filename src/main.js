@@ -2,9 +2,11 @@
 import '@/scss/main.scss'
 
 /* Core */
-import Vue from 'vue'
-import Buefy from 'buefy'
-import VueCompositionAPI from '@vue/composition-api'
+import { createApp } from 'vue'
+import Oruga from '@oruga-ui/oruga-next'
+import { bulmaConfig } from '@oruga-ui/theme-bulma'
+// import Buefy from 'buefy'
+// import VueCompositionAPI from '@vue/composition-api'
 
 /* Router & Store */
 import router from './router'
@@ -17,7 +19,7 @@ import store from './store'
 import App from './App.vue'
 
 /* Composition API */
-Vue.use(VueCompositionAPI)
+// Vue.use(VueCompositionAPI)
 
 /* Fetch sample data */
 store.dispatch('fetch', 'clients')
@@ -36,12 +38,12 @@ router.afterEach(to => {
   }
 })
 
-Vue.config.productionTip = false
+// Vue.config.productionTip = false
 
-Vue.use(Buefy)
+// Vue.use(Buefy)
 
-new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount('#app')
+createApp(App)
+  .use(store)
+  .use(router)
+  .use(Oruga, bulmaConfig)
+  .mount('#app')

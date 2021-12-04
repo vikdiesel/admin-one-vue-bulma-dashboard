@@ -18,14 +18,14 @@
       <template v-for="(menuGroup, index) in menu">
         <p
           v-if="typeof menuGroup === 'string'"
-          :key="index"
+          :key="`label-${index}`"
           class="menu-label"
         >
           {{ menuGroup }}
         </p>
         <aside-menu-list
           v-else
-          :key="index"
+          :key="`menu-${index}`"
           :menu="menuGroup"
           @menu-click="menuClick"
         />
@@ -35,9 +35,9 @@
 </template>
 
 <script>
-import { useRouter } from '@/router'
-import { useStore } from '@/store'
-import { computed, onMounted } from '@vue/composition-api'
+import { useRouter } from 'vue-router'
+import { useStore } from 'vuex'
+import { computed, onMounted } from 'vue'
 import AsideMenuList from '@/components/AsideMenuList'
 
 export default {

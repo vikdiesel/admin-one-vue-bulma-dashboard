@@ -55,14 +55,14 @@
         title="Clients"
         class="has-table has-mobile-sort-spaced"
       >
-        <clients-table-sample />
+<!--        <clients-table-sample />-->
       </card-component>
     </section>
   </div>
 </template>
 
 <script>
-import { ref, onMounted } from '@vue/composition-api'
+import { ref, onMounted } from 'vue'
 import * as chartConfig from '@/components/Charts/chart.config'
 import TitleBar from '@/components/TitleBar'
 import HeroBar from '@/components/HeroBar'
@@ -70,12 +70,12 @@ import Tiles from '@/components/Tiles'
 import CardWidget from '@/components/CardWidget'
 import CardComponent from '@/components/CardComponent'
 import LineChart from '@/components/Charts/LineChart'
-import ClientsTableSample from '@/components/ClientsTableSample'
+// import ClientsTableSample from '@/components/ClientsTableSample'
 
 export default {
   name: 'Home',
   components: {
-    ClientsTableSample,
+    // ClientsTableSample,
     LineChart,
     CardComponent,
     CardWidget,
@@ -83,8 +83,10 @@ export default {
     HeroBar,
     TitleBar
   },
-  setup (props, { root: { $buefy } }) {
+  setup (props, ctx) {
     const titleStack = ['Admin', 'Dashboard']
+
+    // ctx.$oruga.notification.open('Something happened')
 
     const chartOptions = chartConfig.chartOptionsMain
 
@@ -97,10 +99,11 @@ export default {
     onMounted(() => {
       fillChartData()
 
-      $buefy.snackbar.open({
-        message: 'Welcome back',
-        queue: false
-      })
+      ctx.$oruga.notification.open('Something happened')
+      // $buefy.snackbar.open({
+      //   message: 'Welcome back',
+      //   queue: false
+      // })
     })
 
     return {

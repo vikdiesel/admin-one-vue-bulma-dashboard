@@ -3,14 +3,6 @@
     title="Login"
     icon="lock"
   >
-    <router-link
-      slot="button"
-      to="/"
-      class="button is-small"
-    >
-      Dashboard
-    </router-link>
-
     <form
       method="POST"
       @submit.prevent="submit"
@@ -70,8 +62,8 @@
 </template>
 
 <script>
-import { reactive, ref } from '@vue/composition-api'
-import { useRouter } from '@/router'
+import { reactive, ref } from 'vue'
+import { useRouter } from 'vue-router'
 import CardComponent from '@/components/CardComponent'
 
 export default {

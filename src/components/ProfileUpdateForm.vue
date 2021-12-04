@@ -51,8 +51,8 @@
 </template>
 
 <script>
-import { computed, ref } from '@vue/composition-api'
-import { useStore } from '@/store'
+import { computed, ref } from 'vue'
+import { useStore } from 'vuex'
 import FilePicker from '@/components/FilePicker'
 import CardComponent from '@/components/CardComponent'
 

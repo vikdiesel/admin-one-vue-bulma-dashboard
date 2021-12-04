@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import { ref } from '@vue/composition-api'
+import { ref } from 'vue'
 
 export default {
   name: 'Notification',
