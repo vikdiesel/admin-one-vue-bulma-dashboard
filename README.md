@@ -6,7 +6,8 @@
 
 **Admin One** is simple, beautiful and free Vue.js 2.x Buefy Bulma admin dashboard
 
-* Built with **Vue.js 2.x** **Bulma** **Buefy** & **Vue CLI**
+* Built with **Vue.js 2.x** **Bulma** and **Buefy**
+* **Vue CLI** & **Vite** build tools support
 * **Composition API**
 * **Options API** version is available under [1.5.4 release](https://github.com/vikdiesel/admin-one-vue-bulma-dashboard/releases/tag/v1.5.4)
 * SPA with **Vuex** & **Router**
@@ -25,6 +26,10 @@
 * [Composition API](#composition-api)
   * [Options API version](#options-api-version)
 * [Quick Start](#quick-start)
+  * [Get code & install](#get-code--install)
+  * [Vue CLI builds](#vue-cli-builds)
+  * [Vite builds](#vite-builds)
+  * [Linting](#linting)
 * [Browser Support](#browser-support)
 * [Reporting Issues](#reporting-issues)
 * [Licensing](#licensing)
@@ -73,6 +78,14 @@ Classic **Options API** version is available under [1.5.4 release](https://githu
 
 ## Quick Start
 
+Get code & install. Then use either [Vue CLI](#vue-cli-builds) or [Vite](#vite-builds) builds.
+
+* [Get code & install](#get-code--install)
+* [Vue CLI builds](#vue-cli-builds)
+* [Vite builds](#vite-builds)
+
+### Get code & install
+
 #### Get the repo
 
 * [Create new repo](https://github.com/vikdiesel/admin-one-vue-bulma-dashboard/generate) from this template
@@ -81,15 +94,45 @@ Classic **Options API** version is available under [1.5.4 release](https://githu
 
 #### Install
 
-`cd` to project's dir and run `npm install` 
+`cd` to project's dir and run `npm install`
 
-#### Serve
+### Vue CLI builds
 
-To pre-compile & hot-reload for development run `npm run serve`
+#### Compiles and hot-reloads for development
+```
+npm run serve
+```
 
-#### Build
+#### Compiles and minifies for production
+```
+npm run build
+```
 
-Production-ready with minified bundle `npm run build`
+### Vite builds
+
+[Vite](https://vitejs.dev) is next Generation Frontend Tooling featuring unbundled web-development
+
+#### Compiles and hot-reloads for development
+```
+npm run build
+```
+
+#### Compiles and minifies for production
+```
+npm run build:vite
+```
+
+### Linting
+
+#### Lint
+```
+npm run lint
+```
+
+#### Lints and fixes files
+```
+npm run lint:fix
+```
 
 ## Browser Support
 
