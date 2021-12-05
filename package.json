@@ -1,6 +1,6 @@
 {
   "name": "admin-one-vue-bulma-dashboard",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -8,7 +8,6 @@
     "lint:fix": "vue-cli-service lint --fix"
   },
   "dependencies": {
-    "@mdi/js": "^6.5.95",
     "@vue/composition-api": "^1.4.1",
     "axios": "^0.24.0",
     "buefy": "^0.9.13",
