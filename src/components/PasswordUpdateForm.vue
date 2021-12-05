@@ -49,7 +49,7 @@
         <div class="control">
           <button
             type="submit"
-            class="button is-primary"
+            class="button is-info"
             :class="{ 'is-loading': isLoading }"
           >
             Submit

@@ -1,11 +1,16 @@
 <template>
-  <b-field class="file">
+  <b-field
+    class="file"
+  >
     <b-upload
       v-model="file"
       :accept="accept"
       @input="upload"
     >
-      <a class="button is-primary">
+      <a
+        class="button"
+        :class="type"
+      >
         <b-icon
           icon="upload"
           custom-size="default"
@@ -29,6 +34,10 @@ export default {
     accept: {
       type: String,
       default: null
+    },
+    type: {
+      type: String,
+      default: 'is-primary'
     }
   },
   emits: ['input'],

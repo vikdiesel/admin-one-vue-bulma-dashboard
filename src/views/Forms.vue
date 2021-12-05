@@ -108,14 +108,14 @@
               <div class="control">
                 <b-button
                   native-type="submit"
-                  type="is-primary"
+                  type="is-info"
                 >
                   Submit
                 </b-button>
               </div>
               <div class="control">
                 <b-button
-                  type="is-primary is-outlined"
+                  type="is-info is-outlined"
                   @click.prevent="formAction"
                 >
                   Reset
@@ -137,7 +137,7 @@
           <checkbox-radio-picker
             v-model="customElementsForm.checkbox"
             :options="{ lorem: 'Lorem', ipsum: 'Ipsum', dolore: 'Dolore' }"
-            type="is-primary"
+            type="is-info"
           />
         </b-field>
         <hr>
@@ -149,6 +149,7 @@
           <checkbox-radio-picker
             v-model="customElementsForm.radio"
             :options="{ one: 'One', two: 'Two' }"
+            type="is-info"
           />
         </b-field>
         <hr>
@@ -156,7 +157,10 @@
           label="Switch"
           horizontal
         >
-          <b-switch v-model="customElementsForm.switch">
+          <b-switch
+            v-model="customElementsForm.switch"
+            type="is-info"
+          >
             Default
           </b-switch>
         </b-field>
@@ -165,7 +169,10 @@
           label="File"
           horizontal
         >
-          <file-picker v-model="customElementsForm.file" />
+          <file-picker
+            v-model="customElementsForm.file"
+            type="is-info"
+          />
         </b-field>
       </card-component>
     </section>

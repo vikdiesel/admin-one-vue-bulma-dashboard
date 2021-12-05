@@ -8,7 +8,7 @@
         horizontal
         label="Avatar"
       >
-        <file-picker />
+        <file-picker type="is-info" />
       </b-field>
       <hr>
       <b-field
@@ -36,15 +36,25 @@
       </b-field>
       <hr>
       <b-field horizontal>
-        <div class="control">
-          <button
-            type="submit"
-            class="button is-primary"
-            :class="{ 'is-loading': isLoading }"
-          >
-            Submit
-          </button>
-        </div>
+        <b-field grouped>
+          <div class="control">
+            <b-button
+              native-type="submit"
+              type="is-info"
+              :loading="isLoading"
+            >
+              Submit
+            </b-button>
+          </div>
+          <div class="control">
+            <b-button
+              type="is-info is-outlined"
+              native-type="button"
+            >
+              Reset
+            </b-button>
+          </div>
+        </b-field>
       </b-field>
     </form>
   </card-component>
