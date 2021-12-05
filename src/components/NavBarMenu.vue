@@ -22,10 +22,7 @@ import { computed, ref, onMounted, onBeforeUnmount } from '@vue/composition-api'
 export default {
   name: 'NavBarMenu',
   props: {
-    isHoverable: {
-      type: Boolean,
-      default: false
-    }
+    isHoverable: Boolean
   },
   setup (props) {
     const root = ref(null)
