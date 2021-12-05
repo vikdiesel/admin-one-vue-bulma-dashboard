@@ -38,7 +38,7 @@
 import { useRouter } from '@/router'
 import { useStore } from '@/store'
 import { computed, onMounted } from '@vue/composition-api'
-import AsideMenuList from '@/components/AsideMenuList'
+import AsideMenuList from '@/components/AsideMenuList.vue'
 
 export default {
   name: 'AsideMenu',

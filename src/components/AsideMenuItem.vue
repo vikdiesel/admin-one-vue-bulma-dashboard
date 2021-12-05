@@ -45,7 +45,7 @@ import { computed, ref } from '@vue/composition-api'
 export default {
   name: 'AsideMenuItem',
   components: {
-    AsideMenuList: () => import('@/components/AsideMenuList')
+    AsideMenuList: () => import('@/components/AsideMenuList.vue')
   },
   props: {
     item: {

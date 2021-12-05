@@ -10,9 +10,9 @@
 <script>
 import { useStore } from '@/store'
 import menu from '@/menu.js'
-import NavBar from '@/components/NavBar'
-import AsideMenu from '@/components/AsideMenu'
-import FooterBar from '@/components/FooterBar'
+import NavBar from '@/components/NavBar.vue'
+import AsideMenu from '@/components/AsideMenu.vue'
+import FooterBar from '@/components/FooterBar.vue'
 
 export default {
   name: 'Home',

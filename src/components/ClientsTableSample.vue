@@ -124,7 +124,7 @@
 <script>
 import { computed, ref } from '@vue/composition-api'
 import { useStore } from '@/store'
-import ModalBox from '@/components/ModalBox'
+import ModalBox from '@/components/ModalBox.vue'
 
 export default {
   name: 'ClientsTableSample',

@@ -174,11 +174,11 @@
 
 <script>
 import { reactive } from '@vue/composition-api'
-import TitleBar from '@/components/TitleBar'
-import CardComponent from '@/components/CardComponent'
-import FilePicker from '@/components/FilePicker'
-import HeroBar from '@/components/HeroBar'
-import CheckboxRadioPicker from '@/components/CheckboxRadioPicker'
+import TitleBar from '@/components/TitleBar.vue'
+import CardComponent from '@/components/CardComponent.vue'
+import FilePicker from '@/components/FilePicker.vue'
+import HeroBar from '@/components/HeroBar.vue'
+import CheckboxRadioPicker from '@/components/CheckboxRadioPicker.vue'
 
 export default {
   name: 'Forms',

@@ -72,7 +72,7 @@
 <script>
 import { reactive, ref } from '@vue/composition-api'
 import { useRouter } from '@/router'
-import CardComponent from '@/components/CardComponent'
+import CardComponent from '@/components/CardComponent.vue'
 
 export default {
   name: 'Login',

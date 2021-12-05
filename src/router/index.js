@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Home from '@/views/Home.vue'
 
 Vue.use(VueRouter)
 
@@ -24,7 +24,7 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "tables" */ '../views/Tables.vue')
+    component: () => import(/* webpackChunkName: "tables" */ '@/views/Tables.vue')
   },
   {
     meta: {
@@ -32,7 +32,7 @@ const routes = [
     },
     path: '/forms',
     name: 'forms',
-    component: () => import(/* webpackChunkName: "forms" */ '../views/Forms.vue')
+    component: () => import(/* webpackChunkName: "forms" */ '@/views/Forms.vue')
   },
   {
     meta: {
@@ -40,7 +40,7 @@ const routes = [
     },
     path: '/profile',
     name: 'profile',
-    component: () => import(/* webpackChunkName: "profile" */ '../views/Profile.vue')
+    component: () => import(/* webpackChunkName: "profile" */ '@/views/Profile.vue')
   },
   {
     meta: {
@@ -48,7 +48,7 @@ const routes = [
     },
     path: '/client/new',
     name: 'client.new',
-    component: () => import(/* webpackChunkName: "client-form" */ '../views/ClientForm.vue')
+    component: () => import(/* webpackChunkName: "client-form" */ '@/views/ClientForm.vue')
   },
   {
     meta: {
@@ -56,12 +56,12 @@ const routes = [
     },
     path: '/client/:id',
     name: 'client.edit',
-    component: () => import(/* webpackChunkName: "client-form" */ '../views/ClientForm.vue'),
+    component: () => import(/* webpackChunkName: "client-form" */ '@/views/ClientForm.vue'),
     props: true
   },
   {
     path: '/full-page',
-    component: () => import(/* webpackChunkName: "full-page" */ '../views/FullPage.vue'),
+    component: () => import(/* webpackChunkName: "full-page" */ '@/views/FullPage.vue'),
     children: [
       {
         meta: {
@@ -69,7 +69,7 @@ const routes = [
         },
         path: '/login',
         name: 'login',
-        component: () => import(/* webpackChunkName: "full-page" */ '../views/full-page/Login.vue')
+        component: () => import(/* webpackChunkName: "full-page" */ '@/views/full-page/Login.vue')
       }
     ]
   }
@@ -77,7 +77,6 @@ const routes = [
 ]
 
 const router = new VueRouter({
-  base: process.env.BASE_URL,
   routes,
   scrollBehavior (to, from, savedPosition) {
     if (savedPosition) {

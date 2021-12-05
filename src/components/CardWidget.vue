@@ -32,8 +32,8 @@
 </template>
 
 <script>
-import CardComponent from '@/components/CardComponent'
-import GrowingNumber from '@/components/GrowingNumber'
+import CardComponent from '@/components/CardComponent.vue'
+import GrowingNumber from '@/components/GrowingNumber.vue'
 
 export default {
   name: 'CardWidget',

@@ -163,8 +163,8 @@
 import { useStore } from '@/store'
 import { useRouter } from '@/router'
 import { computed, ref, onMounted } from '@vue/composition-api'
-import NavBarMenu from '@/components/NavBarMenu'
-import UserAvatar from '@/components/UserAvatar'
+import NavBarMenu from '@/components/NavBarMenu.vue'
+import UserAvatar from '@/components/UserAvatar.vue'
 
 export default {
   name: 'NavBar',

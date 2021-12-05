@@ -53,8 +53,8 @@
 <script>
 import { computed, ref } from '@vue/composition-api'
 import { useStore } from '@/store'
-import FilePicker from '@/components/FilePicker'
-import CardComponent from '@/components/CardComponent'
+import FilePicker from '@/components/FilePicker.vue'
+import CardComponent from '@/components/CardComponent.vue'
 
 export default {
   name: 'ProfileUpdateForm',

@@ -63,14 +63,14 @@
 
 <script>
 import { ref, onMounted } from '@vue/composition-api'
-import * as chartConfig from '@/components/Charts/chart.config'
-import TitleBar from '@/components/TitleBar'
-import HeroBar from '@/components/HeroBar'
-import Tiles from '@/components/Tiles'
-import CardWidget from '@/components/CardWidget'
-import CardComponent from '@/components/CardComponent'
-import LineChart from '@/components/Charts/LineChart'
-import ClientsTableSample from '@/components/ClientsTableSample'
+import * as chartConfig from '@/components/Charts/chart.config.js'
+import TitleBar from '@/components/TitleBar.vue'
+import HeroBar from '@/components/HeroBar.vue'
+import Tiles from '@/components/Tiles.vue'
+import CardWidget from '@/components/CardWidget.vue'
+import CardComponent from '@/components/CardComponent.vue'
+import LineChart from '@/components/Charts/LineChart.vue'
+import ClientsTableSample from '@/components/ClientsTableSample.vue'
 
 export default {
   name: 'Home',

@@ -1,9 +1,12 @@
 {
   "name": "admin-one-vue-bulma-dashboard",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "scripts": {
+    "dev": "vite",
     "serve": "vue-cli-service serve",
+    "serve:vite": "vite serve",
     "build": "vue-cli-service build",
+    "build:vite": "vite build",
     "lint": "vue-cli-service lint",
     "lint:fix": "vue-cli-service lint --fix"
   },
@@ -38,6 +41,8 @@
     "glob-parent": "^6.0.2",
     "sass": "^1.32.7",
     "sass-loader": "^10.1.1",
+    "vite": "^2.6.14",
+    "vite-plugin-vue2": "^1.9.0",
     "vue-template-compiler": "^2.6.12"
   },
   "browserslist": [

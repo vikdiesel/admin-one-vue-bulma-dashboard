@@ -9,6 +9,7 @@
 <script>
 import { computed } from '@vue/composition-api'
 import { useStore } from '@/store'
+
 export default {
   name: 'UserAvatar',
   props: {
