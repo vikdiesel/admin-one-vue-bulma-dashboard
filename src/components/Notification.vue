@@ -10,7 +10,12 @@
         </div>
       </div>
       <div class="level-right">
+        <slot
+          v-if="hasRightSlot"
+          name="right"
+        />
         <button
+          v-else
           type="button"
           class="button is-small is-white"
           @click="dismiss"
@@ -23,11 +28,11 @@
 </template>
 
 <script>
-import { ref } from '@vue/composition-api'
+import { computed, ref } from '@vue/composition-api'
 
 export default {
   name: 'Notification',
-  setup (props, { root: { $buefy } }) {
+  setup (props, { root: { $buefy }, slots }) {
     const isDismissed = ref(false)
 
     const dismiss = () => {
@@ -39,9 +44,12 @@ export default {
       })
     }
 
+    const hasRightSlot = computed(() => slots.right)
+
     return {
       isDismissed,
-      dismiss
+      dismiss,
+      hasRightSlot
     }
   }
 }
