@@ -17,15 +17,15 @@
         <div class="level-item">
           <div class="buttons is-right">
             <a
-              href="https://admin-one.justboil.me/"
+              href="https://github.com/vikdiesel/admin-one-vue-bulma-dashboard"
               target="_blank"
-              class="button is-primary"
+              class="button is-info"
             >
               <b-icon
-                icon="credit-card"
+                icon="github-circle"
                 custom-size="default"
               />
-              <span>Premium Demo</span>
+              <span>Star on GitHub</span>
             </a>
           </div>
         </div>

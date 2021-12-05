@@ -49,15 +49,15 @@ export default [
   'About',
   [
     {
-      href: 'https://admin-one.justboil.me',
-      label: 'Premium Demo',
-      icon: 'credit-card',
+      href: 'https://justboil.me/bulma-admin-template/one/',
+      label: 'Premium',
+      icon: 'monitor',
       target: '_blank'
     },
     {
       href: 'https://github.com/vikdiesel/admin-one-vue-bulma-dashboard',
-      label: 'About',
-      icon: 'help-circle',
+      label: 'GitHub',
+      icon: 'github-circle',
       target: '_blank'
     }
   ]

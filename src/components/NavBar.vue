@@ -135,13 +135,13 @@
         <a
           href="https://github.com/vikdiesel/admin-one-vue-bulma-dashboard"
           class="navbar-item has-divider is-desktop-icon-only"
-          title="About"
+          title="GitHub"
         >
           <b-icon
-            icon="help-circle-outline"
+            icon="github-circle"
             custom-size="default"
           />
-          <span>About</span>
+          <span>GitHub</span>
         </a>
         <a
           class="navbar-item is-desktop-icon-only"

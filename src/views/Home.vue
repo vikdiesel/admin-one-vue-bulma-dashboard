@@ -5,6 +5,23 @@
       Dashboard
     </hero-bar>
     <section class="section is-main-section">
+      <notification class="is-info">
+        Please star this project on GitHub
+
+        <a
+          slot="right"
+          href="https://github.com/vikdiesel/admin-one-vue-bulma-dashboard"
+          target="_blank"
+          class="button is-white is-small"
+        >
+          <b-icon
+            icon="github-circle"
+            custom-size="default"
+          />
+          <span>GitHub</span>
+        </a>
+      </notification>
+
       <tiles>
         <card-widget
           class="tile is-child"
@@ -71,6 +88,7 @@ import CardWidget from '@/components/CardWidget.vue'
 import CardComponent from '@/components/CardComponent.vue'
 import LineChart from '@/components/Charts/LineChart.vue'
 import ClientsTableSample from '@/components/ClientsTableSample.vue'
+import Notification from '@/components/Notification.vue'
 
 export default {
   name: 'Home',
@@ -81,7 +99,8 @@ export default {
     CardWidget,
     Tiles,
     HeroBar,
-    TitleBar
+    TitleBar,
+    Notification
   },
   setup (props, { root: { $buefy } }) {
     const titleStack = ['Admin', 'Dashboard']

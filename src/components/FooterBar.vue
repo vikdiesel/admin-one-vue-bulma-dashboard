@@ -8,14 +8,20 @@
         <div class="level-left">
           <div class="level-item">
             <div class="footer-copyright">
-              <b>&copy; {{ year }}, JustBoil.me</b> &mdash; Admin One Demo
+              <b>&copy; {{ year }}, JustBoil.me</b>. <a
+                href="https://github.com/vikdiesel/admin-one-vue-bulma-dashboard"
+                target="_blank"
+              >GitHub</a>
             </div>
           </div>
         </div>
         <div class="level-right">
           <div class="level-item">
             <div class="logo">
-              <a href="https://justboil.me">
+              <a
+                href="https://justboil.me"
+                target="_blank"
+              >
                 <img
                   src="../assets/justboil-logo.svg"
                   alt="JustBoil.me"
