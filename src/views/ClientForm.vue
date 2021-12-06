@@ -238,6 +238,7 @@ export default {
           form.name = item.name
           form.company = item.company
           form.city = item.city
+          form.progress = item.progress
           form.created_date = new Date(item.created_mm_dd_yyyy)
 
           createdReadable.value = new Date(item.created_mm_dd_yyyy).toLocaleDateString()
