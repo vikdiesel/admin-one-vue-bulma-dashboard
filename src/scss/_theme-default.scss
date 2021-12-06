@@ -86,7 +86,8 @@ $modal-card-width-mobile: 90vw;
 $modal-card-foot-background-color: $white-ter;
 
 /* Notification: Bulma override */
-$notification-padding: $default-padding * .75 $default-padding;
+$notification-padding: $default-padding * .75;
+$notification-padding-ltr: $notification-padding;
 
 /* Footer: Bulma override */
 $footer-background-color: $white;
