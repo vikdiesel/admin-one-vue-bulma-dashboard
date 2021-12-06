@@ -39,7 +39,7 @@
               label="Avatar"
               horizontal
             >
-              <file-picker />
+              <file-picker type="is-info" />
             </b-field>
             <hr>
             <b-field
@@ -91,12 +91,15 @@
               label="Progress"
               horizontal
             >
-              <b-slider v-model="form.progress" />
+              <b-slider
+                v-model="form.progress"
+                type="is-info"
+              />
             </b-field>
             <hr>
             <b-field horizontal>
               <b-button
-                type="is-primary"
+                type="is-info"
                 :loading="isLoading"
                 native-type="submit"
               >
@@ -146,13 +149,12 @@
           </b-field>
           <hr>
           <b-field label="Progress">
-            <progress
-              class="progress is-small is-primary"
+            <b-progress
               :value="form.progress"
-              max="100"
-            >
-              {{ form.progress }}
-            </progress>
+              type="is-info"
+              show-value
+              format="percent"
+            />
           </b-field>
         </card-component>
       </tiles>
