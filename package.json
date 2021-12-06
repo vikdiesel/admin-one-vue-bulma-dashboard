@@ -5,7 +5,7 @@
     "dev": "vite",
     "serve": "vue-cli-service serve",
     "serve:vite": "vite serve",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build --modern",
     "build:vite": "vite build",
     "lint": "vue-cli-service lint",
     "lint:fix": "vue-cli-service lint --fix"
