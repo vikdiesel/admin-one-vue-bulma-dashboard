@@ -10,6 +10,7 @@
 * **Vue CLI** & **Vite** build tools support
 * **Composition API**
 * **Options API** version is available under [1.5.4 release](https://github.com/vikdiesel/admin-one-vue-bulma-dashboard/releases/tag/v1.5.4)
+* **Styled** scrollbars
 * SPA with **Vuex** & **Router**
 * **SCSS sources** with variables
 * Reusable components
