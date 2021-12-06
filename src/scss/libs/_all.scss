@@ -1,9 +1,9 @@
 /* Buefy & Bulma */
 
-/* Actually we need buefy-build, but it has relative paths */
+// We need buefy-build, but it has relative paths
 //@import "node_modules/buefy/src/scss/buefy-build";
 
-/* This is fixed version of buefy-build */
+// This is fixed version of buefy-build
 @import "node_modules/bulma/sass/utilities/functions";
 @import "node_modules/bulma/sass/utilities/initial-variables";
 @import "node_modules/buefy/src/scss/utils/_all";
