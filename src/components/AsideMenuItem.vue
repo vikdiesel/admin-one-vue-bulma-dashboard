@@ -34,7 +34,7 @@
     <aside-menu-list
       v-if="hasDropdown"
       :menu="item.menu"
-      :is-submenu-list="true"
+      is-submenu-list
     />
   </li>
 </template>

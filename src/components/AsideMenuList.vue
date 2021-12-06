@@ -18,10 +18,7 @@ export default {
     AsideMenuItem
   },
   props: {
-    isSubmenuList: {
-      type: Boolean,
-      default: false
-    },
+    isSubmenuList: Boolean,
     menu: {
       type: Array,
       default: () => []
