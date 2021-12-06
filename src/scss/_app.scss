@@ -1,0 +1,3 @@
+html {
+  @include scrollbars($app-scrollbar-track, $app-scrollbar-thumb, $app-scrollbar-hover);
+}

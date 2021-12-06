@@ -11,3 +11,29 @@
     }
   }
 }
+
+@mixin scrollbars($track, $thumb, $hover: false) {
+  scrollbar-color: $thumb $track;
+  scrollbar-width: thin;
+  //overflow: overlay;
+
+  &::-webkit-scrollbar-track {
+    background-color: $track;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $thumb;
+    border-radius: .25rem;
+
+    @if ($hover != false) {
+      &:hover {
+        background-color: $hover;
+      }
+    }
+  }
+
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+}

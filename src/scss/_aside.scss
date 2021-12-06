@@ -2,6 +2,8 @@
 
 aside.aside {
   @include transition(left);
+  @include scrollbars($aside-scrollbar-track, $aside-scrollbar-thumb);
+  overflow-y: auto;
   width: $aside-mobile-width;
   position: fixed;
   top: 0;

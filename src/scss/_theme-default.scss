@@ -12,6 +12,11 @@ $family-sans-serif: "Nunito", sans-serif;
 $base-color: #2e323a;
 $base-color-light: rgba(24, 28, 33, .06);
 
+/* App Scrollbars */
+$app-scrollbar-track: $grey-lighter;
+$app-scrollbar-thumb: $grey-light;
+$app-scrollbar-hover: $grey;
+
 /* General overrides */
 $primary: $turquoise;
 $body-background-color: #f8f8f8;
@@ -47,6 +52,9 @@ $aside-box-shadow: none;
 $aside-background-color: $base-color;
 $aside-tools-background-color: darken($aside-background-color, 10%);
 $aside-tools-color: $white;
+$aside-scrollbar-track: $black-ter;
+$aside-scrollbar-thumb: $grey;
+//$app-scrollbar-hover: $grey;
 
 /* Title Bar: specifics */
 $title-bar-color: $grey;
