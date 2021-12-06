@@ -48,8 +48,9 @@
           </div>
           <div class="control">
             <b-button
-              type="is-info is-outlined"
+              type="is-info"
               native-type="button"
+              outlined
             >
               Reset
             </b-button>

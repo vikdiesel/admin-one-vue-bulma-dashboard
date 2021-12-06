@@ -48,13 +48,13 @@
 
       <b-field grouped>
         <div class="control">
-          <button
-            type="submit"
-            class="button is-black"
-            :class="{'is-loading':isLoading}"
+          <b-button
+            native-type="submit"
+            type="is-black"
+            :loading="isLoading"
           >
             Login
-          </button>
+          </b-button>
         </div>
         <div class="control">
           <router-link

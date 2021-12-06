@@ -90,16 +90,16 @@
               size="is-small"
             />
           </router-link>
-          <button
-            class="button is-small is-danger"
-            type="button"
+          <b-button
+            type="is-danger"
+            size="is-small"
             @click.prevent="trashModalOpen(props.row)"
           >
             <b-icon
               icon="trash-can"
               size="is-small"
             />
-          </button>
+          </b-button>
         </div>
       </b-table-column>
 

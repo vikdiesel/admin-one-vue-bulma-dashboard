@@ -14,14 +14,15 @@
           v-if="hasRightSlot"
           name="right"
         />
-        <button
+        <b-button
           v-else
-          type="button"
-          class="button is-small is-white"
+          native-type="button"
+          type="is-white"
+          size="is-small"
           @click="dismiss"
         >
           Dismiss
-        </button>
+        </b-button>
       </div>
     </div>
   </div>

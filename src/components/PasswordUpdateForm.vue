@@ -47,13 +47,13 @@
       <hr>
       <b-field horizontal>
         <div class="control">
-          <button
-            type="submit"
-            class="button is-info"
-            :class="{ 'is-loading': isLoading }"
+          <b-button
+            native-type="submit"
+            type="is-info"
+            :loading="isLoading"
           >
             Submit
-          </button>
+          </b-button>
         </div>
       </b-field>
     </form>

@@ -8,6 +8,11 @@
         <p class="modal-card-title">
           Confirm action
         </p>
+        <button
+          type="button"
+          class="delete"
+          @click="cancel"
+        />
       </header>
       <section class="modal-card-body">
         <p>
@@ -16,19 +21,20 @@
         <p>Action can not be undone.</p>
       </section>
       <footer class="modal-card-foot">
-        <button
-          class="button"
-          type="button"
+        <b-button
+          native-type="button"
+          type="is-danger"
+          outlined
           @click="cancel"
         >
           Cancel
-        </button>
-        <button
-          class="button is-danger"
+        </b-button>
+        <b-button
+          type="is-danger"
           @click="confirm"
         >
           Delete
-        </button>
+        </b-button>
       </footer>
     </div>
   </b-modal>
