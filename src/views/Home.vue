@@ -79,7 +79,6 @@
 </template>
 
 <script>
-import { ref, onMounted } from '@vue/composition-api'
 import * as chartConfig from '@/components/Charts/chart.config.js'
 import TitleBar from '@/components/TitleBar.vue'
 import HeroBar from '@/components/HeroBar.vue'
@@ -102,31 +101,24 @@ export default {
     TitleBar,
     Notification
   },
-  setup (props, { root: { $buefy } }) {
-    const titleStack = ['Admin', 'Dashboard']
-
-    const chartOptions = chartConfig.chartOptionsMain
-
-    const chartData = ref(null)
-
-    const fillChartData = () => {
-      chartData.value = chartConfig.sampleChartData()
-    }
-
-    onMounted(() => {
-      fillChartData()
-
-      $buefy.snackbar.open({
-        message: 'Welcome back',
-        queue: false
-      })
-    })
-
+  data () {
     return {
-      titleStack,
-      chartOptions,
-      chartData,
-      fillChartData
+      titleStack: ['Admin', 'Dashboard'],
+      chartOptions: chartConfig.chartOptionsMain,
+      chartData: null
+    }
+  },
+  mounted () {
+    this.fillChartData()
+
+    this.$buefy.snackbar.open({
+      message: 'Welcome back',
+      queue: false
+    })
+  },
+  methods: {
+    fillChartData () {
+      this.chartData = chartConfig.sampleChartData()
     }
   }
 }

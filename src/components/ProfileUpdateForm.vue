@@ -62,8 +62,6 @@
 </template>
 
 <script>
-import { computed, ref } from '@vue/composition-api'
-import { useStore } from '@/store'
 import FilePicker from '@/components/FilePicker.vue'
 import CardComponent from '@/components/CardComponent.vue'
 
@@ -73,43 +71,41 @@ export default {
     CardComponent,
     FilePicker
   },
-  setup (props, { root: { $buefy } }) {
-    const store = useStore()
-
-    const userName = computed({
-      get: () => store.state.userName,
-      set: name => {
-        store.commit('user', { name })
+  data () {
+    return {
+      isLoading: false
+    }
+  },
+  computed: {
+    userName: {
+      get: function () {
+        return this.$store.state.userName
+      },
+      set: function (name) {
+        this.$store.commit('user', { name })
       }
-    })
-
-    const userEmail = computed({
-      get: () => store.state.userEmail,
-      set: email => {
-        store.commit('user', { email })
+    },
+    userEmail: {
+      get: function () {
+        return this.$store.state.userEmail
+      },
+      set: function (email) {
+        this.$store.commit('user', { email })
       }
-    })
-
-    const isLoading = ref(false)
-
-    const submit = () => {
-      isLoading.value = true
+    }
+  },
+  methods: {
+    submit () {
+      this.isLoading = true
 
       setTimeout(() => {
-        isLoading.value = false
+        this.isLoading = false
 
-        $buefy.snackbar.open({
+        this.$buefy.snackbar.open({
           message: 'Demo only',
           queue: false
         })
       }, 750)
-    }
-
-    return {
-      userName,
-      userEmail,
-      isLoading,
-      submit
     }
   }
 }

@@ -61,7 +61,6 @@
 </template>
 
 <script>
-import { reactive, ref } from '@vue/composition-api'
 import CardComponent from '@/components/CardComponent.vue'
 
 export default {
@@ -69,34 +68,30 @@ export default {
   components: {
     CardComponent
   },
-  setup (props, { root: { $buefy } }) {
-    const isLoading = ref(false)
-
-    const form = reactive({
-      password_current: null,
-      password: null,
-      password_confirmation: null
-    })
-
-    const submit = () => {
-      isLoading.value = true
+  data () {
+    return {
+      isLoading: false,
+      form: {
+        password_current: null,
+        password: null,
+        password_confirmation: null
+      }
+    }
+  },
+  methods: {
+    submit () {
+      this.isLoading = true
 
       setTimeout(() => {
-        isLoading.value = false
+        this.isLoading = false
 
-        $buefy.snackbar.open(
+        this.$buefy.snackbar.open(
           {
             message: 'Demo only',
             queue: false
           }
         )
       }, 750)
-    }
-
-    return {
-      isLoading,
-      form,
-      submit
     }
   }
 }

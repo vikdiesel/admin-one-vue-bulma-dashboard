@@ -180,7 +180,6 @@
 </template>
 
 <script>
-import { reactive } from '@vue/composition-api'
 import TitleBar from '@/components/TitleBar.vue'
 import CardComponent from '@/components/CardComponent.vue'
 import FilePicker from '@/components/FilePicker.vue'
@@ -196,40 +195,32 @@ export default {
     CardComponent,
     TitleBar
   },
-  setup (props, { root: { $buefy } }) {
-    const titleStack = ['Admin', 'Forms']
-
-    const departments = ['Business Development', 'Marketing', 'Sales']
-
-    const form = reactive({
-      name: null,
-      email: null,
-      phone: null,
-      department: null,
-      subject: null,
-      question: null
-    })
-
-    const customElementsForm = reactive({
-      checkbox: ['lorem'],
-      radio: 'one',
-      switch: true,
-      file: null
-    })
-
-    const formAction = () => {
-      $buefy.snackbar.open({
+  data () {
+    return {
+      titleStack: ['Admin', 'Forms'],
+      departments: ['Business Development', 'Marketing', 'Sales'],
+      form: {
+        name: null,
+        email: null,
+        phone: null,
+        department: null,
+        subject: null,
+        question: null
+      },
+      customElementsForm: {
+        checkbox: ['lorem'],
+        radio: 'one',
+        switch: true,
+        file: null
+      }
+    }
+  },
+  methods: {
+    formAction () {
+      this.$buefy.snackbar.open({
         message: 'Demo only',
         queue: false
       })
-    }
-
-    return {
-      titleStack,
-      departments,
-      form,
-      customElementsForm,
-      formAction
     }
   }
 }

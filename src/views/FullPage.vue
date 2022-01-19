@@ -16,19 +16,13 @@
 </template>
 
 <script>
-import { onBeforeUnmount } from '@vue/composition-api'
-import { useStore } from '@/store'
-
 export default {
   name: 'FullPage',
-  setup () {
-    const store = useStore()
-
-    store.dispatch('toggleFullPage', true)
-
-    onBeforeUnmount(() => {
-      store.dispatch('toggleFullPage', false)
-    })
+  created () {
+    this.$store.dispatch('toggleFullPage', true)
+  },
+  beforeDestroy () {
+    this.$store.dispatch('toggleFullPage', false)
   }
 }
 </script>

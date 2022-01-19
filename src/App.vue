@@ -8,7 +8,6 @@
 </template>
 
 <script>
-import { useStore } from '@/store'
 import menu from '@/menu.js'
 import NavBar from '@/components/NavBar.vue'
 import AsideMenu from '@/components/AsideMenu.vue'
@@ -21,18 +20,17 @@ export default {
     AsideMenu,
     NavBar
   },
-  setup () {
-    const store = useStore()
-
-    store.commit('user', {
+  data () {
+    return {
+      menu
+    }
+  },
+  created () {
+    this.$store.commit('user', {
       name: 'John Doe',
       email: 'john@example.com',
       avatar: 'https://avatars.dicebear.com/v2/gridy/John-Doe.svg'
     })
-
-    return {
-      menu
-    }
   }
 }
 </script>

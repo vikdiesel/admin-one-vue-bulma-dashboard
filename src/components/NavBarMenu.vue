@@ -17,48 +17,39 @@
 </template>
 
 <script>
-import { computed, ref, onMounted, onBeforeUnmount } from '@vue/composition-api'
-
 export default {
   name: 'NavBarMenu',
   props: {
     isHoverable: Boolean
   },
-  setup (props) {
-    const root = ref(null)
-
-    const isDropdownActive = ref(false)
-
-    const dropdownIcon = computed(
-      () => isDropdownActive.value ? 'chevron-up' : 'chevron-down'
-    )
-
-    const toggle = () => {
-      if (!props.isHoverable) {
-        isDropdownActive.value = !isDropdownActive.value
-      }
-    }
-
-    const forceClose = e => {
-      if (!root.value.contains(e.target)) {
-        isDropdownActive.value = false
-      }
-    }
-
-    onMounted(() => {
-      window.addEventListener('click', forceClose)
-    })
-
-    onBeforeUnmount(() => {
-      window.removeEventListener('click', forceClose)
-    })
-
+  data () {
     return {
-      root,
-      isDropdownActive,
-      dropdownIcon,
-      toggle
+      isDropdownActive: false
     }
+  },
+  computed: {
+    dropdownIcon () {
+      return this.isDropdownActive ? 'chevron-up' : 'chevron-down'
+    }
+  },
+  mounted () {
+    window.addEventListener('click', this.forceClose)
+  },
+  beforeDestroy () {
+    window.removeEventListener('click', this.forceClose)
+  },
+  methods: {
+    toggle () {
+      if (this.isHoverable) {
+        this.isDropdownActive = !this.isDropdownActive
+      }
+    },
+    forceClose (e) {
+      if (!this.$refs.root.value.contains(e.target)) {
+        this.isDropdownActive = false
+      }
+    }
+
   }
 }
 </script>
