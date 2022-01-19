@@ -2,7 +2,7 @@
   "name": "admin-one-vue-bulma-dashboard",
   "version": "2.1.0",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "serve": "vue-cli-service serve",
     "serve:vite": "vite serve",
     "build": "vue-cli-service build --modern",
