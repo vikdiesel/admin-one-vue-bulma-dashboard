@@ -4,7 +4,6 @@ import '@/scss/main.scss'
 /* Core */
 import Vue from 'vue'
 import Buefy from 'buefy'
-import VueCompositionAPI from '@vue/composition-api'
 
 /* Router & Store */
 import router from './router'
@@ -12,9 +11,6 @@ import store from './store'
 
 /* Vue. Main component */
 import App from './App.vue'
-
-/* Composition API */
-Vue.use(VueCompositionAPI)
 
 /* Fetch sample data */
 store.dispatch('fetch', 'clients')
