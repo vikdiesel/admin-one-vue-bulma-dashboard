@@ -59,7 +59,7 @@
         sortable
       >
         <progress
-          class="progress is-small is-primary"
+          class="progress is-small is-info"
           :value="props.row.progress"
           max="100"
         >
@@ -83,7 +83,7 @@
         <div class="buttons is-right no-wrap">
           <router-link
             :to="{name:'client.edit', params: {id: props.row.id}}"
-            class="button is-small is-primary"
+            class="button is-small is-info"
           >
             <b-icon
               icon="account-edit"
