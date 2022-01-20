@@ -8,8 +8,8 @@
 
 * Built with **Vue.js 2.x** **Bulma** and **Buefy**
 * **Vue CLI** & **Vite** build tools support
-* **Composition API**
-* **Options API** version is available under [1.5.4 release](https://github.com/vikdiesel/admin-one-vue-bulma-dashboard/releases/tag/v1.5.4)
+* Classic **Options API** using `data`, `computed`, `methods`, etc.
+* **Composition API** version is available under [vue-2x-composition-api branch](https://github.com/vikdiesel/admin-one-vue-bulma-dashboard/tree/vue-2x-composition-api)
 * **Styled** scrollbars
 * SPA with **Vuex** & **Router**
 * **SCSS sources** with variables
@@ -24,8 +24,8 @@
   * [Bulma versions](#bulma-versions)
   * [Vue.js 3 TailwindCSS](#vuejs-3-tailwindcss-dashboard)
 * [Description & Demo](#description--demo)
-* [Composition API](#composition-api)
-  * [Options API version](#options-api-version)
+* [Options API](#options-api)
+  * [Composition API version](#composition-api-version)
 * [Quick Start](#quick-start)
   * [Get code & install](#get-code--install)
   * [Vue CLI builds](#vue-cli-builds)
@@ -69,11 +69,13 @@ https://vikdiesel.github.io/admin-one-vue-bulma-dashboard/?v=2
 
 https://admin-one.justboil.me
 
-## Composition API
+## Options API
 
-Built with **Composition API** for Vue.js 2.x
+Built with classic **Options API** for Vue.js 2.x using `data`, `computed`, `methods`, etc.
 
-### Options API version
+### Composition API version
+
+**Composition API** for Vue.js 2.x is available under [vue-2x-composition-api branch](https://github.com/vikdiesel/admin-one-vue-bulma-dashboard/tree/vue-2x-composition-api)
 
 Classic **Options API** version is available under [1.5.4 release](https://github.com/vikdiesel/admin-one-vue-bulma-dashboard/releases/tag/v1.5.4)
 
