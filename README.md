@@ -9,7 +9,7 @@
 * Built with **Vue.js 2.x** **Bulma** and **Buefy**
 * **Vue CLI** & **Vite** build tools support
 * **Composition API**
-* **Options API** version is available under [1.5.4 release](https://github.com/vikdiesel/admin-one-vue-bulma-dashboard/releases/tag/v1.5.4)
+* **Options API** version is available under [master branch](https://github.com/vikdiesel/admin-one-vue-bulma-dashboard)
 * **Styled** scrollbars
 * SPA with **Vuex** & **Router**
 * **SCSS sources** with variables
