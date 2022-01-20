@@ -21,8 +21,6 @@
 </template>
 
 <script>
-import { computed } from '@vue/composition-api'
-
 export default {
   name: 'CheckboxRadioPicker',
   props: {
@@ -40,19 +38,17 @@ export default {
     }
   },
   emits: ['input'],
-  setup (props, { emit }) {
-    const newValue = computed({
-      get: () => props.value,
-      set: value => {
-        emit('input', value)
+  computed: {
+    componentIs () {
+      return typeof this.value === 'object' ? 'b-checkbox' : 'b-radio'
+    },
+    newValue: {
+      get: function () {
+        return this.value
+      },
+      set: function (value) {
+        this.$emit('input', value)
       }
-    })
-
-    const componentIs = computed(() => typeof props.value === 'object' ? 'b-checkbox' : 'b-radio')
-
-    return {
-      newValue,
-      componentIs
     }
   }
 }

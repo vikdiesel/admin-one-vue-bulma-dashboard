@@ -163,9 +163,7 @@
 </template>
 
 <script>
-import { useRouter } from '@/router'
-import { useStore } from '@/store'
-import { reactive, computed, ref, watch } from '@vue/composition-api'
+import { mapState } from 'vuex'
 import find from 'lodash/find'
 import TitleBar from '@/components/TitleBar.vue'
 import HeroBar from '@/components/HeroBar.vue'
@@ -192,110 +190,102 @@ export default {
       default: null
     }
   },
-  setup (props, { root: { $buefy } }) {
-    const isProfileExists = ref(false)
+  data () {
+    return {
+      isProfileExists: false,
+      isLoading: false,
+      form: {
+        id: null,
+        name: null,
+        company: null,
+        city: null,
+        created_date: new Date(),
+        progress: 0
+      },
+      createdReadable: null
+    }
+  },
+  computed: {
+    titleStack () {
+      return [
+        'Admin',
+        'Clients',
+        this.isProfileExists ? this.form.name : 'New Client'
+      ]
+    },
+    heroTitle () {
+      return this.isProfileExists ? this.form.name : 'Create Client'
+    },
+    heroRouterLinkTo () {
+      return this.isProfileExists ? { name: 'client.new' } : { name: 'home' }
+    },
+    heroRouterLinkLabel () {
+      return this.isProfileExists ? 'New client' : 'Dashboard'
+    },
+    formCardTitle () {
+      return this.isProfileExists ? 'Edit client' : 'Create client'
+    },
+    ...mapState([
+      'clients'
+    ])
+  },
+  watch: {
+    id (newValue) {
+      this.isProfileExists = false
 
-    const titleStack = computed(() => ['Admin', 'Clients', isProfileExists.value ? form.name : 'New Client'])
-
-    const heroTitle = computed(() => isProfileExists.value ? form.name : 'Create Client')
-
-    const heroRouterLinkTo = computed(() => isProfileExists.value ? { name: 'client.new' } : { name: 'home' })
-
-    const heroRouterLinkLabel = computed(() => isProfileExists.value ? 'New client' : 'Dashboard')
-
-    const formCardTitle = computed(() => isProfileExists.value ? 'Edit client' : 'Create client')
-
-    const form = reactive({
-      id: null,
-      name: null,
-      company: null,
-      city: null,
-      created_date: new Date(),
-      progress: 0
-    })
-
-    const createdReadable = ref(null)
-
-    const store = useStore()
-
-    const clients = computed(() => store.state.clients)
-
-    const router = useRouter()
-
-    const clientId = computed(() => props.id)
-
-    const getData = () => {
-      if (clientId.value) {
+      if (!newValue) {
+        this.form.id = null
+        this.form.name = null
+        this.form.company = null
+        this.form.city = null
+        this.form.created_date = new Date()
+        this.createdReadable = new Date().toLocaleDateString()
+      } else {
+        this.getData()
+      }
+    }
+  },
+  created () {
+    this.getData()
+  },
+  methods: {
+    getData () {
+      if (this.id) {
         const item = find(
-          clients.value,
-          (item) => item.id === parseInt(clientId.value)
+          this.clients,
+          (item) => item.id === parseInt(this.id)
         )
 
         if (item) {
-          isProfileExists.value = true
+          this.isProfileExists = true
 
-          form.id = item.id
-          form.name = item.name
-          form.company = item.company
-          form.city = item.city
-          form.progress = item.progress
-          form.created_date = new Date(item.created_mm_dd_yyyy)
+          this.form.id = item.id
+          this.form.name = item.name
+          this.form.company = item.company
+          this.form.city = item.city
+          this.form.progress = item.progress
+          this.form.created_date = new Date(item.created_mm_dd_yyyy)
 
-          createdReadable.value = new Date(item.created_mm_dd_yyyy).toLocaleDateString()
+          this.createdReadable = new Date(item.created_mm_dd_yyyy).toLocaleDateString()
         } else {
-          router.push({ name: 'client.new' })
+          this.$router.push({ name: 'client.new' })
         }
       }
-    }
-
-    getData()
-
-    watch(clientId, newValue => {
-      isProfileExists.value = false
-
-      if (!newValue) {
-        form.id = null
-        form.name = null
-        form.company = null
-        form.city = null
-        form.created_date = new Date()
-        createdReadable.value = new Date().toLocaleDateString()
-      } else {
-        getData()
-      }
-    })
-
-    const dateInput = v => {
-      createdReadable.value = new Date(v).toLocaleDateString()
-    }
-
-    const isLoading = ref(false)
-
-    const submit = () => {
-      isLoading.value = true
+    },
+    dateInput (v) {
+      this.createdReadable = new Date(v).toLocaleDateString()
+    },
+    submit () {
+      this.isLoading = true
 
       setTimeout(() => {
-        isLoading.value = false
+        this.isLoading = false
 
-        $buefy.snackbar.open({
+        this.$buefy.snackbar.open({
           message: 'Demo only',
           queue: false
         })
       }, 750)
-    }
-
-    return {
-      isProfileExists,
-      titleStack,
-      heroTitle,
-      heroRouterLinkTo,
-      heroRouterLinkLabel,
-      formCardTitle,
-      form,
-      createdReadable,
-      dateInput,
-      isLoading,
-      submit
     }
   }
 }

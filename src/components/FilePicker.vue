@@ -26,8 +26,6 @@
 </template>
 
 <script>
-import { computed, ref } from '@vue/composition-api'
-
 export default {
   name: 'FilePicker',
   props: {
@@ -41,15 +39,22 @@ export default {
     }
   },
   emits: ['input'],
-  setup (props, { emit }) {
-    const buttonLabel = computed(() => file.value ? 'Pick another file' : 'Pick a file')
+  data () {
+    return {
+      file: null
+      // uploadPercent: 0
+    }
+  },
+  computed: {
+    buttonLabel () {
+      return this.file ? 'Pick another file' : 'Pick a file'
+    }
+  },
+  methods: {
+    upload (value) {
+      this.file = value
 
-    const file = ref(null)
-
-    const upload = value => {
-      file.value = value
-
-      emit('input', value)
+      this.$emit('input', value)
 
       // Use this as an example for handling file uploads
       // let formData = new FormData()
@@ -71,20 +76,11 @@ export default {
       //
       //   })
     }
-
-    // const uploadPercent = ref(0)
-    //
-    // const progressEvent = progressEvent => {
-    //   uploadPercent.value = Math.round(
+    // progressEvent (progressEvent) {
+    //   this.uploadPercent = Math.round(
     //     (progressEvent.loaded * 100) / progressEvent.total
     //   )
     // }
-
-    return {
-      buttonLabel,
-      file,
-      upload
-    }
   }
 }
 </script>

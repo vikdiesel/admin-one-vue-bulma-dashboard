@@ -29,28 +29,26 @@
 </template>
 
 <script>
-import { computed, ref } from '@vue/composition-api'
-
 export default {
   name: 'Notification',
-  setup (props, { root: { $buefy }, slots }) {
-    const isDismissed = ref(false)
+  data () {
+    return {
+      isDismissed: false
+    }
+  },
+  computed: {
+    hasRightSlot () {
+      return this.$slots.right
+    }
+  },
+  methods: {
+    dismiss () {
+      this.isDismissed = true
 
-    const dismiss = () => {
-      isDismissed.value = true
-
-      $buefy.snackbar.open({
+      this.$buefy.snackbar.open({
         message: 'Dismissed',
         queue: false
       })
-    }
-
-    const hasRightSlot = computed(() => slots.right)
-
-    return {
-      isDismissed,
-      dismiss,
-      hasRightSlot
     }
   }
 }

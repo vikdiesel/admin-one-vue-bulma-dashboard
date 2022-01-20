@@ -85,11 +85,9 @@ export default {
     ClientsTableSample,
     Notification
   },
-  setup () {
-    const titleStack = ['Admin', 'Tables']
-
+  data () {
     return {
-      titleStack
+      titleStack: ['Admin', 'Tables']
     }
   }
 }

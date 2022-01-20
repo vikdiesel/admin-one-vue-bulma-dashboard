@@ -36,22 +36,19 @@
 </template>
 
 <script>
-import { useStore } from '@/store'
-import { computed } from '@vue/composition-api'
+import { mapState } from 'vuex'
 
 export default {
   name: 'FooterBar',
-  setup () {
-    const year = new Date().getFullYear()
-
-    const store = useStore()
-
-    const isFooterBarVisible = computed(() => store.state.isFooterBarVisible)
-
+  data () {
     return {
-      year,
-      isFooterBarVisible
+      year: new Date().getFullYear()
     }
+  },
+  computed: {
+    ...mapState([
+      'isFooterBarVisible'
+    ])
   }
 }
 </script>

@@ -18,9 +18,9 @@
       <span
         v-if="item.label"
         :class="{ 'menu-item-label': !!item.icon }"
-      >{{
-        item.label
-      }}</span>
+      >
+        {{ item.label }}
+      </span>
       <div
         v-if="hasDropdown"
         class="dropdown-icon"
@@ -40,8 +40,6 @@
 </template>
 
 <script>
-import { computed, ref } from '@vue/composition-api'
-
 export default {
   name: 'AsideMenuItem',
   components: {
@@ -54,29 +52,29 @@ export default {
     }
   },
   emits: ['menu-click'],
-  setup (props, { emit }) {
-    const componentIs = computed(() => props.item.to ? 'router-link' : 'a')
-
-    const isDropdownActive = ref(false)
-
-    const hasDropdown = computed(() => !!props.item.menu)
-
-    const dropdownIcon = computed(() => isDropdownActive.value ? 'minus' : 'plus')
-
-    const menuClick = () => {
-      emit('menu-click', props.item)
-
-      if (hasDropdown.value) {
-        isDropdownActive.value = !isDropdownActive.value
-      }
-    }
-
+  data () {
     return {
-      componentIs,
-      isDropdownActive,
-      hasDropdown,
-      dropdownIcon,
-      menuClick
+      isDropdownActive: false
+    }
+  },
+  computed: {
+    componentIs () {
+      return this.item.to ? 'router-link' : 'a'
+    },
+    hasDropdown () {
+      return !!this.item.menu
+    },
+    dropdownIcon () {
+      return this.isDropdownActive ? 'minus' : 'plus'
+    }
+  },
+  methods: {
+    menuClick () {
+      this.$emit('menu-click', this.item)
+
+      if (this.hasDropdown) {
+        this.isDropdownActive = !this.isDropdownActive
+      }
     }
   }
 }

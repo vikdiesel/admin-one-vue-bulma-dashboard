@@ -41,8 +41,6 @@
 </template>
 
 <script>
-import { computed } from '@vue/composition-api'
-
 export default {
   name: 'ModalBox',
   props: {
@@ -53,28 +51,24 @@ export default {
     }
   },
   emits: ['cancel', 'confirm'],
-  setup (props, { emit }) {
-    const isModalActive = computed({
-      get: () => props.isActive,
-      set: value => {
+  computed: {
+    isModalActive: {
+      get: function () {
+        return this.isActive
+      },
+      set: function (value) {
         if (!value) {
-          cancel()
+          this.cancel()
         }
       }
-    })
-
-    const confirm = () => {
-      emit('confirm')
     }
-
-    const cancel = () => {
-      emit('cancel')
-    }
-
-    return {
-      isModalActive,
-      confirm,
-      cancel
+  },
+  methods: {
+    confirm () {
+      this.$emit('confirm')
+    },
+    cancel () {
+      this.$emit('cancel')
     }
   }
 }

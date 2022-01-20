@@ -7,9 +7,6 @@
 </template>
 
 <script>
-import { computed } from '@vue/composition-api'
-import { useStore } from '@/store'
-
 export default {
   name: 'UserAvatar',
   props: {
@@ -18,13 +15,9 @@ export default {
       default: null
     }
   },
-  setup (props) {
-    const store = useStore()
-
-    const newAvatar = computed(() => props.avatar ? props.avatar : store.state.userAvatar)
-
-    return {
-      newAvatar
+  computed: {
+    newAvatar () {
+      return this.avatar ? this.avatar : this.$store.state.userAvatar
     }
   }
 }

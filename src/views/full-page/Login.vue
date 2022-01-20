@@ -70,38 +70,30 @@
 </template>
 
 <script>
-import { reactive, ref } from '@vue/composition-api'
-import { useRouter } from '@/router'
 import CardComponent from '@/components/CardComponent.vue'
 
 export default {
   name: 'Login',
   components: { CardComponent },
-  setup () {
-    const isLoading = ref(false)
-
-    const form = reactive({
-      email: 'john.doe@example.com',
-      password: 'my-secret-password-9e9w',
-      remember: false
-    })
-
-    const router = useRouter()
-
-    const submit = () => {
-      isLoading.value = true
+  data () {
+    return {
+      isLoading: false,
+      form: {
+        email: 'john.doe@example.com',
+        password: 'my-secret-password-9e9w',
+        remember: false
+      }
+    }
+  },
+  methods: {
+    submit () {
+      this.isLoading = true
 
       setTimeout(() => {
-        isLoading.value = false
+        this.isLoading = false
 
-        router.push('/')
+        this.$router.push('/')
       }, 750)
-    }
-
-    return {
-      isLoading,
-      form,
-      submit
     }
   }
 }

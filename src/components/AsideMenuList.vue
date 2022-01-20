@@ -25,13 +25,9 @@ export default {
     }
   },
   emits: ['menu-click'],
-  setup (props, { emit }) {
-    const menuClick = item => {
-      emit('menu-click', item)
-    }
-
-    return {
-      menuClick
+  methods: {
+    menuClick (item) {
+      this.$emit('menu-click', item)
     }
   }
 }
