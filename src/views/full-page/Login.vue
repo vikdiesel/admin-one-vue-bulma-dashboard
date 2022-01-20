@@ -21,7 +21,6 @@
           name="email"
           type="email"
           required
-          autofocus
         />
       </b-field>
 
