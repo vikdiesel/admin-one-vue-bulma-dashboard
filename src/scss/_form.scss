@@ -28,8 +28,8 @@
   box-shadow: none;
 }
 
-.switch, .b-checkbox.checkbox {
-  input[type=checkbox] {
+.switch, .b-checkbox.checkbox, .b-radio.radio {
+  input[type=checkbox], input[type=radio] {
     &:focus + .check, &:focus:checked + .check {
       box-shadow: none!important;
     }
