@@ -40,7 +40,7 @@ export default {
   },
   methods: {
     toggle () {
-      if (this.isHoverable) {
+      if (!this.isHoverable) {
         this.isDropdownActive = !this.isDropdownActive
       }
     },
