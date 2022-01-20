@@ -45,7 +45,7 @@ export default {
       }
     },
     forceClose (e) {
-      if (!this.$refs.root.value.contains(e.target)) {
+      if (!this.$refs.root.contains(e.target)) {
         this.isDropdownActive = false
       }
     }
