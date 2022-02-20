@@ -1,6 +1,6 @@
 {
   "name": "admin-one-vue-bulma-dashboard",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "scripts": {
     "dev": "vite --host",
     "serve": "vue-cli-service serve",
@@ -11,7 +11,7 @@
     "lint:fix": "vue-cli-service lint --fix"
   },
   "dependencies": {
-    "axios": "^0.24.0",
+    "axios": "^0.26.0",
     "buefy": "^0.9.13",
     "bulma": "^0.9.3",
     "chart.js": "^2.9.4",
