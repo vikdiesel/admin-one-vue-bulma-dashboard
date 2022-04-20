@@ -1,31 +1,53 @@
+<template>
+  <line-chart-element
+    :chart-id="chartId"
+    :chart-options="chartOptions"
+    :chart-data="chartData"
+    :width="width"
+    :height="height"
+  />
+</template>
+
 <script>
-import { Line, mixins } from 'vue-chartjs'
+import { Line as LineChartElement } from 'vue-chartjs/legacy'
+import {
+  Chart,
+  LineElement,
+  PointElement,
+  LineController,
+  LinearScale,
+  CategoryScale,
+  Tooltip
+} from 'chart.js'
+
+Chart.register(LineElement, PointElement, LineController, LinearScale, CategoryScale, Tooltip)
 
 export default {
   name: 'LineChart',
-  extends: Line,
-  mixins: [mixins.reactiveProp],
+  components: {
+    LineChartElement
+  },
   props: {
-    extraOptions: {
+    chartId: {
+      type: String,
+      default: 'line-chart'
+    },
+    chartData: {
       type: Object,
-      default: undefined
+      default: null
+    },
+    chartOptions: {
+      type: Object,
+      default: null
+    },
+    width: {
+      type: Number,
+      default: 400
+    },
+    height: {
+      type: Number,
+      default: 150
     }
-  },
-  data () {
-    return {
-      ctx: null
-    }
-  },
-  mounted () {
-    this.$watch(
-      'chartData',
-      (newVal, oldVal) => {
-        if (!oldVal) {
-          this.renderChart(this.chartData, this.extraOptions)
-        }
-      },
-      { immediate: true }
-    )
   }
 }
 </script>

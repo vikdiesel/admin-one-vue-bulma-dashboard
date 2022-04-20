@@ -59,11 +59,9 @@
           class="chart-area"
         >
           <line-chart
-            ref="bigChart"
-            style="height: 100%;"
-            chart-id="big-line-chart"
             :chart-data="chartData"
-            :extra-options="chartOptions"
+            :chart-options="{responsive: true}"
+            :style="{height: '100%'}"
           />
         </div>
       </card-component>
@@ -104,7 +102,6 @@ export default {
   data () {
     return {
       titleStack: ['Admin', 'Dashboard'],
-      chartOptions: chartConfig.chartOptionsMain,
       chartData: null
     }
   },
