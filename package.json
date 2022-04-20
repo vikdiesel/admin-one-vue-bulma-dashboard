@@ -1,6 +1,6 @@
 {
   "name": "admin-one-vue-bulma-dashboard",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "scripts": {
     "dev": "vite --host",
     "serve": "vue-cli-service serve",
@@ -14,12 +14,12 @@
     "axios": "^0.26.0",
     "buefy": "^0.9.13",
     "bulma": "^0.9.3",
-    "chart.js": "^2.9.4",
+    "chart.js": "^3.7.1",
     "core-js": "^3.19.1",
     "lodash": "^4.17.20",
     "numeral": "^2.0.6",
     "vue": "^2.6.12",
-    "vue-chartjs": "^3.5.1",
+    "vue-chartjs": "^4.0.5",
     "vue-router": "^3.5.3",
     "vuex": "^3.6.2"
   },
