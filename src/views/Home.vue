@@ -60,7 +60,7 @@
         >
           <line-chart
             :chart-data="chartData"
-            :chart-options="{responsive: true}"
+            :chart-options="chartOptions"
             :style="{height: '100%'}"
           />
         </div>
@@ -102,7 +102,24 @@ export default {
   data () {
     return {
       titleStack: ['Admin', 'Dashboard'],
-      chartData: null
+      chartData: null,
+      chartOptions: {
+        responsive: true,
+        maintainAspectRatio: true,
+        scales: {
+          y: {
+            display: false
+          },
+          x: {
+            display: true
+          }
+        },
+        plugins: {
+          legend: {
+            display: false
+          }
+        }
+      }
     }
   },
   mounted () {
