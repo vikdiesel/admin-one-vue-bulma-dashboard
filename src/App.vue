@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue'
+import { defineComponent } from '@vue/composition-api'
 import menu from '@/menu.js'
 import NavBar from '@/components/NavBar.vue'
 import AsideMenu from '@/components/AsideMenu.vue'

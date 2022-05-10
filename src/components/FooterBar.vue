@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue'
+import { defineComponent } from '@vue/composition-api'
 import { mapState } from 'vuex'
 
 export default defineComponent({

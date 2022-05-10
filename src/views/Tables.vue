@@ -70,7 +70,7 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue'
+import { defineComponent } from '@vue/composition-api'
 import Notification from '@/components/Notification.vue'
 import ClientsTableSample from '@/components/ClientsTableSample.vue'
 import CardComponent from '@/components/CardComponent.vue'

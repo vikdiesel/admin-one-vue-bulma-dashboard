@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue'
+import { defineComponent } from '@vue/composition-api'
 import { mapState } from 'vuex'
 import AsideMenuList from '@/components/AsideMenuList.vue'
 
