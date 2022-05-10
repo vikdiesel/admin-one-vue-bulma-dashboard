@@ -9,6 +9,7 @@
 </template>
 
 <script>
+import { defineComponent } from 'vue'
 import { Line as LineChartElement } from 'vue-chartjs/legacy'
 import {
   Chart,
@@ -22,7 +23,7 @@ import {
 
 Chart.register(LineElement, PointElement, LineController, LinearScale, CategoryScale, Tooltip)
 
-export default {
+export default defineComponent({
   name: 'LineChart',
   components: {
     LineChartElement
@@ -49,5 +50,5 @@ export default {
       default: 150
     }
   }
-}
+})
 </script>

@@ -26,7 +26,9 @@
 </template>
 
 <script>
-export default {
+import { defineComponent } from 'vue'
+
+export default defineComponent({
   name: 'FilePicker',
   props: {
     accept: {
@@ -82,5 +84,5 @@ export default {
     //   )
     // }
   }
-}
+})
 </script>

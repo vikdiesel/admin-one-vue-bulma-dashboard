@@ -7,7 +7,9 @@
 </template>
 
 <script>
-export default {
+import { defineComponent } from 'vue'
+
+export default defineComponent({
   name: 'UserAvatar',
   props: {
     avatar: {
@@ -20,5 +22,5 @@ export default {
       return this.avatar ? this.avatar : this.$store.state.userAvatar
     }
   }
-}
+})
 </script>

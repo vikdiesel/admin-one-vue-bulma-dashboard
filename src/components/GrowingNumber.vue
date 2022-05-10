@@ -3,9 +3,10 @@
 </template>
 
 <script>
+import { defineComponent } from 'vue'
 import numeral from 'numeral'
 
-export default {
+export default defineComponent({
   name: 'GrowingNumber',
   props: {
     prefix: {
@@ -62,5 +63,5 @@ export default {
       this.grow(this.value / (this.duration / 25))
     }
   }
-}
+})
 </script>

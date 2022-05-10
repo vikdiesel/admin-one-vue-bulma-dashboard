@@ -180,13 +180,14 @@
 </template>
 
 <script>
+import { defineComponent } from 'vue'
 import TitleBar from '@/components/TitleBar.vue'
 import CardComponent from '@/components/CardComponent.vue'
 import FilePicker from '@/components/FilePicker.vue'
 import HeroBar from '@/components/HeroBar.vue'
 import CheckboxRadioPicker from '@/components/CheckboxRadioPicker.vue'
 
-export default {
+export default defineComponent({
   name: 'Forms',
   components: {
     CheckboxRadioPicker,
@@ -223,5 +224,5 @@ export default {
       })
     }
   }
-}
+})
 </script>

@@ -8,12 +8,13 @@
 </template>
 
 <script>
+import { defineComponent } from 'vue'
 import menu from '@/menu.js'
 import NavBar from '@/components/NavBar.vue'
 import AsideMenu from '@/components/AsideMenu.vue'
 import FooterBar from '@/components/FooterBar.vue'
 
-export default {
+export default defineComponent({
   name: 'Home',
   components: {
     FooterBar,
@@ -32,5 +33,5 @@ export default {
       avatar: 'https://avatars.dicebear.com/v2/gridy/John-Doe.svg'
     })
   }
-}
+})
 </script>

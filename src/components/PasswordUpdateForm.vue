@@ -61,9 +61,10 @@
 </template>
 
 <script>
+import { defineComponent } from 'vue'
 import CardComponent from '@/components/CardComponent.vue'
 
-export default {
+export default defineComponent({
   name: 'PasswordUpdateForm',
   components: {
     CardComponent
@@ -94,5 +95,5 @@ export default {
       }, 750)
     }
   }
-}
+})
 </script>

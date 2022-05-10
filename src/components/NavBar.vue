@@ -160,11 +160,12 @@
 </template>
 
 <script>
+import { defineComponent } from 'vue'
 import { mapState } from 'vuex'
 import NavBarMenu from '@/components/NavBarMenu.vue'
 import UserAvatar from '@/components/UserAvatar.vue'
 
-export default {
+export default defineComponent({
   name: 'NavBar',
   components: {
     UserAvatar,
@@ -210,5 +211,5 @@ export default {
       })
     }
   }
-}
+})
 </script>

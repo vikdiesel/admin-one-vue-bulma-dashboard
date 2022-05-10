@@ -32,10 +32,11 @@
 </template>
 
 <script>
+import { defineComponent } from 'vue'
 import CardComponent from '@/components/CardComponent.vue'
 import GrowingNumber from '@/components/GrowingNumber.vue'
 
-export default {
+export default defineComponent({
   name: 'CardWidget',
   components: { GrowingNumber, CardComponent },
   props: {
@@ -64,5 +65,5 @@ export default {
       default: null
     }
   }
-}
+})
 </script>

@@ -36,9 +36,10 @@
 </template>
 
 <script>
+import { defineComponent } from 'vue'
 import { mapState } from 'vuex'
 
-export default {
+export default defineComponent({
   name: 'FooterBar',
   data () {
     return {
@@ -50,5 +51,5 @@ export default {
       'isFooterBarVisible'
     ])
   }
-}
+})
 </script>

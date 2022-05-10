@@ -35,10 +35,11 @@
 </template>
 
 <script>
+import { defineComponent } from 'vue'
 import { mapState } from 'vuex'
 import AsideMenuList from '@/components/AsideMenuList.vue'
 
-export default {
+export default defineComponent({
   name: 'AsideMenu',
   components: { AsideMenuList },
   props: {
@@ -65,5 +66,5 @@ export default {
       //
     }
   }
-}
+})
 </script>

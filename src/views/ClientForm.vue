@@ -163,6 +163,7 @@
 </template>
 
 <script>
+import { defineComponent } from 'vue'
 import { mapState } from 'vuex'
 import find from 'lodash/find'
 import TitleBar from '@/components/TitleBar.vue'
@@ -173,7 +174,7 @@ import FilePicker from '@/components/FilePicker.vue'
 import UserAvatar from '@/components/UserAvatar.vue'
 import Notification from '@/components/Notification.vue'
 
-export default {
+export default defineComponent({
   name: 'ClientForm',
   components: {
     UserAvatar,
@@ -288,5 +289,5 @@ export default {
       }, 750)
     }
   }
-}
+})
 </script>

@@ -77,6 +77,7 @@
 </template>
 
 <script>
+import { defineComponent } from 'vue'
 import * as chartConfig from '@/components/Charts/chart.config.js'
 import TitleBar from '@/components/TitleBar.vue'
 import HeroBar from '@/components/HeroBar.vue'
@@ -87,7 +88,7 @@ import LineChart from '@/components/Charts/LineChart.vue'
 import ClientsTableSample from '@/components/ClientsTableSample.vue'
 import Notification from '@/components/Notification.vue'
 
-export default {
+export default defineComponent({
   name: 'Home',
   components: {
     ClientsTableSample,
@@ -135,5 +136,5 @@ export default {
       this.chartData = chartConfig.sampleChartData()
     }
   }
-}
+})
 </script>

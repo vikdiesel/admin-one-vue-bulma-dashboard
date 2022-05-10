@@ -122,10 +122,11 @@
 </template>
 
 <script>
+import { defineComponent } from 'vue'
 import { mapState } from 'vuex'
 import ModalBox from '@/components/ModalBox.vue'
 
-export default {
+export default defineComponent({
   name: 'ClientsTableSample',
   components: { ModalBox },
   props: {
@@ -168,5 +169,5 @@ export default {
       this.isModalActive = false
     }
   }
-}
+})
 </script>

@@ -16,7 +16,9 @@
 </template>
 
 <script>
-export default {
+import { defineComponent } from 'vue'
+
+export default defineComponent({
   name: 'FullPage',
   created () {
     this.$store.dispatch('toggleFullPage', true)
@@ -24,5 +26,5 @@ export default {
   beforeDestroy () {
     this.$store.dispatch('toggleFullPage', false)
   }
-}
+})
 </script>

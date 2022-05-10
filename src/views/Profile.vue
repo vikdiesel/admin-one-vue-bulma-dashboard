@@ -44,6 +44,7 @@
 </template>
 
 <script>
+import { defineComponent } from 'vue'
 import { mapState } from 'vuex'
 import CardComponent from '@/components/CardComponent.vue'
 import TitleBar from '@/components/TitleBar.vue'
@@ -53,7 +54,7 @@ import PasswordUpdateForm from '@/components/PasswordUpdateForm.vue'
 import Tiles from '@/components/Tiles.vue'
 import UserAvatar from '@/components/UserAvatar.vue'
 
-export default {
+export default defineComponent({
   name: 'Profile',
   components: {
     UserAvatar,
@@ -75,5 +76,5 @@ export default {
       'userEmail'
     ])
   }
-}
+})
 </script>

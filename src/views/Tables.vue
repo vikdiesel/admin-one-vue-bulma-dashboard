@@ -70,13 +70,14 @@
 </template>
 
 <script>
+import { defineComponent } from 'vue'
 import Notification from '@/components/Notification.vue'
 import ClientsTableSample from '@/components/ClientsTableSample.vue'
 import CardComponent from '@/components/CardComponent.vue'
 import TitleBar from '@/components/TitleBar.vue'
 import HeroBar from '@/components/HeroBar.vue'
 
-export default {
+export default defineComponent({
   name: 'Tables',
   components: {
     HeroBar,
@@ -90,5 +91,5 @@ export default {
       titleStack: ['Admin', 'Tables']
     }
   }
-}
+})
 </script>
