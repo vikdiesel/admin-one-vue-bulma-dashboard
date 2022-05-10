@@ -18,14 +18,14 @@
       <template v-for="(menuGroup, index) in menu">
         <p
           v-if="typeof menuGroup === 'string'"
-          :key="index"
+          :key="`label-${index}`"
           class="menu-label"
         >
           {{ menuGroup }}
         </p>
         <aside-menu-list
           v-else
-          :key="index"
+          :key="`menu-${index}`"
           :menu="menuGroup"
           @menu-click="menuClick"
         />
