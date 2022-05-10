@@ -11,6 +11,7 @@
     "lint:fix": "vue-cli-service lint --fix"
   },
   "dependencies": {
+    "@vue/composition-api": "^1.6.1",
     "axios": "^0.26.0",
     "buefy": "^0.9.13",
     "bulma": "^0.9.3",
