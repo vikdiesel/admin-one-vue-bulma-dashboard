@@ -53,11 +53,6 @@ export default defineComponent({
       'isAsideVisible'
     ])
   },
-  mounted () {
-    this.$router.afterEach(() => {
-      this.$store.dispatch('asideDesktopOnlyToggle', false)
-    })
-  },
   methods: {
     asideToggleDesktopOnly () {
       this.$store.dispatch('asideDesktopOnlyToggle')
