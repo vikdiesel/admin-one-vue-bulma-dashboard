@@ -152,7 +152,7 @@ The issue list is reserved exclusively for bug reports and feature requests. Tha
 
 ## Licensing
 
-- Copyright &copy; 2019-2021 JustBoil.me (https://justboil.me)
+- Copyright &copy; 2019-2022 JustBoil.me (https://justboil.me)
 - Licensed under MIT
 
 ## Useful Links
