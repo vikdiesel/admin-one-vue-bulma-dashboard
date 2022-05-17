@@ -8,7 +8,7 @@
 
 * Built with **Vue.js 2.x** **Bulma** and **Buefy**
 * **Vue CLI** & **Vite** build tools support
-* [Laravel Jetstream Inertia Vue](https://github.com/vikdiesel/admin-one-laravel-dashboard) integration available
+* **Laravel Jetstream Inertia Vue** integration available &mdash; [Info](#laravel-9x-integration)
 * Classic **Options API** using `data`, `computed`, `methods`, etc.
 * **Composition API** version is available under [vue-2x-composition-api branch](https://github.com/vikdiesel/admin-one-vue-bulma-dashboard/tree/vue-2x-composition-api)
 * **Styled** scrollbars
@@ -22,7 +22,6 @@
 ## Table of Contents
 
 * [Other versions](#other-versions)
-  * [Laravel Bulma dashboard version](#laravel-bulma-dashboard-version)
   * [Bulma dashboard versions](#bulma-dashboard-versions)
   * [TailwindCSS dashboard versions](#tailwindcss-dashboard-versions)
 * [Description & Demo](#description--demo)
@@ -33,16 +32,13 @@
   * [Vue CLI builds](#vue-cli-builds)
   * [Vite builds](#vite-builds)
   * [Linting](#linting)
+  * [Laravel 9.x integration](#laravel-9x-integration)
 * [Browser Support](#browser-support)
 * [Reporting Issues](#reporting-issues)
 * [Licensing](#licensing)
 * [Useful Links](#useful-links)
 
 ## Other versions
-
-### Laravel Bulma dashboard version
-
-Info on [Laravel Jetstream Inertia Vue](https://github.com/vikdiesel/admin-one-laravel-dashboard) integration.
 
 ### Bulma dashboard versions
 
@@ -131,6 +127,10 @@ npm run lint
 ```
 npm run lint:fix
 ```
+
+### Laravel 9.x integration
+
+This dashboard can be integrated with **Laravel 9.x Jetstream Inertia + Vue.js** stack. [Check guide](https://github.com/vikdiesel/admin-one-laravel-dashboard) for more information
 
 ## Browser Support
 
