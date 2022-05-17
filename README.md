@@ -8,6 +8,7 @@
 
 * Built with **Vue.js 2.x** **Bulma** and **Buefy**
 * **Vue CLI** & **Vite** build tools support
+* [Laravel Jetstream Inertia Vue](https://github.com/vikdiesel/admin-one-laravel-dashboard) integration
 * Classic **Options API** using `data`, `computed`, `methods`, etc.
 * **Composition API** version is available under [vue-2x-composition-api branch](https://github.com/vikdiesel/admin-one-vue-bulma-dashboard/tree/vue-2x-composition-api)
 * **Styled** scrollbars
@@ -21,8 +22,9 @@
 ## Table of Contents
 
 * [Other versions](#other-versions)
-  * [Bulma versions](#bulma-versions)
-  * [Vue.js 3 TailwindCSS](#vuejs-3-tailwindcss-dashboard)
+  * [Laravel Bulma dashboard version](#laravel-bulma-dashboard-version)
+  * [Bulma dashboard versions](#bulma-dashboard-versions)
+  * [TailwindCSS dashboard versions](#tailwindcss-dashboard-versions)
 * [Description & Demo](#description--demo)
 * [Options API](#options-api)
   * [Composition API version](#composition-api-version)
@@ -38,22 +40,17 @@
 
 ## Other versions
 
-### Bulma versions
+### Laravel Bulma dashboard version
 
-Other Bulma dashboard versions: https://justboil.me/bulma-admin-template/
+Info on [Laravel Jetstream Inertia Vue](https://github.com/vikdiesel/admin-one-laravel-dashboard) integration.
 
-### Vue.js 3 TailwindCSS dashboard
+### Bulma dashboard versions
 
-* Built with **Vue.js 3**, **TailwindCSS** framework & **Composition API**
-* **Vite** and **Vue CLI** build tools
-* **Dark mode**
-* **Styled** scrollbars
-* SPA with **Vuex** & **Router**
-* **Production CSS** is only **33kb**
+Free and premium [Bulma dashboard templates](https://justboil.me/bulma-admin-template/).
 
-More info: https://github.com/justboil/admin-one-vue-tailwind
+### TailwindCSS dashboard versions
 
-[![Free Vue.js 3 Tailwind CSS admin dashboard](https://justboil.me/images/one-v3/repository-tailwind-vue3-vite.png)](https://github.com/justboil/admin-one-vue-tailwind)
+Free and premium [Tailwindcss dashboard templates](https://justboil.me/tailwind-admin-templates/) (Vue 3.x available).
 
 ## Description & Demo
 
@@ -76,8 +73,6 @@ Built with classic **Options API** for Vue.js 2.x using `data`, `computed`, `met
 ### Composition API version
 
 **Composition API** for Vue.js 2.x is available under [vue-2x-composition-api branch](https://github.com/vikdiesel/admin-one-vue-bulma-dashboard/tree/vue-2x-composition-api)
-
-Classic **Options API** version is available under [1.5.4 release](https://github.com/vikdiesel/admin-one-vue-bulma-dashboard/releases/tag/v1.5.4)
 
 ## Quick Start
 
