@@ -130,11 +130,11 @@ npm run lint:fix
 
 ### Laravel 9.x integration
 
-This dashboard can be integrated with **Laravel 9.x Jetstream Inertia + Vue.js** stack. [Check guide](https://github.com/vikdiesel/admin-one-laravel-dashboard) for more information
+This dashboard can be integrated with **Laravel 9.x Jetstream Inertia + Vue.js** stack. [Check guide](https://github.com/vikdiesel/admin-one-laravel-dashboard) for more information.
 
 ## Browser Support
 
-We try to make sure dashboard works well in the latest versions of all major browsers
+We try to make sure dashboard works well in the latest versions of all major browsers:
 
 <img src="https://justboil.me/images/browsers-svg/chrome.svg" width="64" height="64" alt="Chrome"> <img src="https://justboil.me/images/browsers-svg/firefox.svg" width="64" height="64" alt="Firefox"> <img src="https://justboil.me/images/browsers-svg/edge.svg" width="64" height="64" alt="Edge"> <img src="https://justboil.me/images/browsers-svg/safari.svg" width="64" height="64" alt="Safari"> <img src="https://justboil.me/images/browsers-svg/opera.svg" width="64" height="64" alt="Opera">
 
