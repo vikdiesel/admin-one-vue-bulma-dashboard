@@ -8,7 +8,7 @@
 
 * Built with **Vue.js 2.x** **Bulma** and **Buefy**
 * **Vue CLI** & **Vite** build tools support
-* [Laravel Jetstream Inertia Vue](https://github.com/vikdiesel/admin-one-laravel-dashboard) integration
+* [Laravel Jetstream Inertia Vue](https://github.com/vikdiesel/admin-one-laravel-dashboard) integration available
 * Classic **Options API** using `data`, `computed`, `methods`, etc.
 * **Composition API** version is available under [vue-2x-composition-api branch](https://github.com/vikdiesel/admin-one-vue-bulma-dashboard/tree/vue-2x-composition-api)
 * **Styled** scrollbars
