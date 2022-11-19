@@ -19,7 +19,7 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'FullPage',
+  name: 'FullPageView',
   created () {
     this.$store.dispatch('toggleFullPage', true)
   },

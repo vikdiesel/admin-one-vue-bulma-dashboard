@@ -5,7 +5,7 @@
       Dashboard
     </hero-bar>
     <section class="section is-main-section">
-      <notification class="is-info">
+      <notification-bar class="is-info">
         Please star this project on GitHub
 
         <a
@@ -20,9 +20,9 @@
           />
           <span>GitHub</span>
         </a>
-      </notification>
+      </notification-bar>
 
-      <tiles>
+      <tiles-block>
         <card-widget
           class="tile is-child"
           type="is-primary"
@@ -46,7 +46,7 @@
           suffix="%"
           label="Performance"
         />
-      </tiles>
+      </tiles-block>
 
       <card-component
         title="Performance"
@@ -81,24 +81,24 @@ import { defineComponent } from 'vue'
 import * as chartConfig from '@/components/Charts/chart.config.js'
 import TitleBar from '@/components/TitleBar.vue'
 import HeroBar from '@/components/HeroBar.vue'
-import Tiles from '@/components/Tiles.vue'
+import TilesBlock from '@/components/TilesBlock.vue'
 import CardWidget from '@/components/CardWidget.vue'
 import CardComponent from '@/components/CardComponent.vue'
 import LineChart from '@/components/Charts/LineChart.vue'
 import ClientsTableSample from '@/components/ClientsTableSample.vue'
-import Notification from '@/components/Notification.vue'
+import NotificationBar from '@/components/NotificationBar.vue'
 
 export default defineComponent({
-  name: 'Home',
+  name: 'HomeView',
   components: {
     ClientsTableSample,
     LineChart,
     CardComponent,
     CardWidget,
-    Tiles,
+    TilesBlock,
     HeroBar,
     TitleBar,
-    Notification
+    NotificationBar
   },
   data () {
     return {

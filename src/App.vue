@@ -15,7 +15,7 @@ import AsideMenu from '@/components/AsideMenu.vue'
 import FooterBar from '@/components/FooterBar.vue'
 
 export default defineComponent({
-  name: 'Home',
+  name: 'AppComponent',
   components: {
     FooterBar,
     AsideMenu,

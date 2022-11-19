@@ -188,7 +188,7 @@ import HeroBar from '@/components/HeroBar.vue'
 import CheckboxRadioPicker from '@/components/CheckboxRadioPicker.vue'
 
 export default defineComponent({
-  name: 'Forms',
+  name: 'FormsView',
   components: {
     CheckboxRadioPicker,
     HeroBar,

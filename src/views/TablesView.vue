@@ -12,7 +12,7 @@
       </router-link>
     </hero-bar>
     <section class="section is-main-section">
-      <notification class="is-info">
+      <notification-bar class="is-info">
         <div>
           <b-icon
             icon="buffer"
@@ -20,7 +20,7 @@
           />
           <b>Sorted and paginated table.</b>&nbsp;Based on Buefy's table.
         </div>
-      </notification>
+      </notification-bar>
 
       <card-component
         class="has-table has-mobile-sort-spaced"
@@ -34,7 +34,7 @@
 
       <hr>
 
-      <notification class="is-info">
+      <notification-bar class="is-info">
         <div>
           <b-icon
             icon="buffer"
@@ -42,7 +42,7 @@
           />
           <b>Tightly wrapped</b> &mdash; table header becomes card header
         </div>
-      </notification>
+      </notification-bar>
 
       <card-component class="has-table has-mobile-sort-spaced">
         <clients-table-sample
@@ -52,7 +52,7 @@
 
       <hr>
 
-      <notification class="is-info">
+      <notification-bar class="is-info">
         <div>
           <b-icon
             icon="buffer"
@@ -60,7 +60,7 @@
           />
           <b>Empty table.</b> When there's nothing to show
         </div>
-      </notification>
+      </notification-bar>
 
       <card-component class="has-table has-thead-hidden">
         <clients-table-sample is-empty />
@@ -71,20 +71,20 @@
 
 <script>
 import { defineComponent } from 'vue'
-import Notification from '@/components/Notification.vue'
+import NotificationBar from '@/components/NotificationBar.vue'
 import ClientsTableSample from '@/components/ClientsTableSample.vue'
 import CardComponent from '@/components/CardComponent.vue'
 import TitleBar from '@/components/TitleBar.vue'
 import HeroBar from '@/components/HeroBar.vue'
 
 export default defineComponent({
-  name: 'Tables',
+  name: 'TablesView',
   components: {
     HeroBar,
     TitleBar,
     CardComponent,
     ClientsTableSample,
-    Notification
+    NotificationBar
   },
   data () {
     return {

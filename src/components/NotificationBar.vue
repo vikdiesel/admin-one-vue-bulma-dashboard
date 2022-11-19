@@ -32,7 +32,7 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'Notification',
+  name: 'NotificationBar',
   data () {
     return {
       isDismissed: false

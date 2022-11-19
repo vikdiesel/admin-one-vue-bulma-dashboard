@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '@/views/Home.vue'
+import HomeView from '@/views/HomeView.vue'
 
 Vue.use(VueRouter)
 
@@ -13,7 +13,7 @@ const routes = [
     },
     path: '/',
     name: 'home',
-    component: Home
+    component: HomeView
   },
   {
     meta: {
@@ -24,7 +24,7 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "tables" */ '@/views/Tables.vue')
+    component: () => import(/* webpackChunkName: "tables" */ '@/views/TablesView.vue')
   },
   {
     meta: {
@@ -32,7 +32,7 @@ const routes = [
     },
     path: '/forms',
     name: 'forms',
-    component: () => import(/* webpackChunkName: "forms" */ '@/views/Forms.vue')
+    component: () => import(/* webpackChunkName: "forms" */ '@/views/FormsView.vue')
   },
   {
     meta: {
@@ -40,7 +40,7 @@ const routes = [
     },
     path: '/profile',
     name: 'profile',
-    component: () => import(/* webpackChunkName: "profile" */ '@/views/Profile.vue')
+    component: () => import(/* webpackChunkName: "profile" */ '@/views/ProfileView.vue')
   },
   {
     meta: {
@@ -48,7 +48,7 @@ const routes = [
     },
     path: '/client/new',
     name: 'client.new',
-    component: () => import(/* webpackChunkName: "client-form" */ '@/views/ClientForm.vue')
+    component: () => import(/* webpackChunkName: "client-form" */ '@/views/ClientFormView.vue')
   },
   {
     meta: {
@@ -56,12 +56,12 @@ const routes = [
     },
     path: '/client/:id',
     name: 'client.edit',
-    component: () => import(/* webpackChunkName: "client-form" */ '@/views/ClientForm.vue'),
+    component: () => import(/* webpackChunkName: "client-form" */ '@/views/ClientFormView.vue'),
     props: true
   },
   {
     path: '/full-page',
-    component: () => import(/* webpackChunkName: "full-page" */ '@/views/FullPage.vue'),
+    component: () => import(/* webpackChunkName: "full-page" */ '@/views/FullPageView.vue'),
     children: [
       {
         meta: {
@@ -69,7 +69,7 @@ const routes = [
         },
         path: '/login',
         name: 'login',
-        component: () => import(/* webpackChunkName: "full-page" */ '@/views/full-page/Login.vue')
+        component: () => import(/* webpackChunkName: "full-page" */ '@/views/full-page/LoginView.vue')
       }
     ]
   }

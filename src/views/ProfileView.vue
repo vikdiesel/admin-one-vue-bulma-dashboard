@@ -12,7 +12,7 @@
       </router-link>
     </hero-bar>
     <section class="section is-main-section">
-      <tiles>
+      <tiles-block>
         <profile-update-form class="tile is-child" />
         <card-component
           title="Profile"
@@ -37,7 +37,7 @@
             />
           </b-field>
         </card-component>
-      </tiles>
+      </tiles-block>
       <password-update-form />
     </section>
   </div>
@@ -51,14 +51,14 @@ import TitleBar from '@/components/TitleBar.vue'
 import HeroBar from '@/components/HeroBar.vue'
 import ProfileUpdateForm from '@/components/ProfileUpdateForm.vue'
 import PasswordUpdateForm from '@/components/PasswordUpdateForm.vue'
-import Tiles from '@/components/Tiles.vue'
+import TilesBlock from '@/components/TilesBlock.vue'
 import UserAvatar from '@/components/UserAvatar.vue'
 
 export default defineComponent({
-  name: 'Profile',
+  name: 'ProfileView',
   components: {
     UserAvatar,
-    Tiles,
+    TilesBlock,
     PasswordUpdateForm,
     ProfileUpdateForm,
     HeroBar,

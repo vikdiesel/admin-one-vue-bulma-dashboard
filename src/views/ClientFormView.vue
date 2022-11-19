@@ -12,12 +12,12 @@
       </router-link>
     </hero-bar>
     <section class="section is-main-section">
-      <notification class="is-info">
+      <notification-bar class="is-info">
         <div>
           <span><b>Demo only.</b> No data will be saved/updated</span>
         </div>
-      </notification>
-      <tiles>
+      </notification-bar>
+      <tiles-block>
         <card-component
           :title="formCardTitle"
           icon="account-edit"
@@ -157,7 +157,7 @@
             />
           </b-field>
         </card-component>
-      </tiles>
+      </tiles-block>
     </section>
   </div>
 </template>
@@ -168,22 +168,22 @@ import { mapState } from 'vuex'
 import find from 'lodash/find'
 import TitleBar from '@/components/TitleBar.vue'
 import HeroBar from '@/components/HeroBar.vue'
-import Tiles from '@/components/Tiles.vue'
+import TilesBlock from '@/components/TilesBlock.vue'
 import CardComponent from '@/components/CardComponent.vue'
 import FilePicker from '@/components/FilePicker.vue'
 import UserAvatar from '@/components/UserAvatar.vue'
-import Notification from '@/components/Notification.vue'
+import NotificationBar from '@/components/NotificationBar.vue'
 
 export default defineComponent({
-  name: 'ClientForm',
+  name: 'ClientFormView',
   components: {
     UserAvatar,
     FilePicker,
     CardComponent,
-    Tiles,
+    TilesBlock,
     HeroBar,
     TitleBar,
-    Notification
+    NotificationBar
   },
   props: {
     id: {

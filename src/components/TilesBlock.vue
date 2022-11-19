@@ -3,7 +3,7 @@ import { defineComponent } from 'vue'
 import chunk from 'lodash/chunk'
 
 export default defineComponent({
-  name: 'Tiles',
+  name: 'TilesBlock',
   props: {
     maxPerRow: {
       type: Number,
