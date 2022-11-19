@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { defineComponent } from '@vue/composition-api'
+import { defineComponent } from 'vue'
 import AsideMenuItem from '@/components/AsideMenuItem.vue'
 
 export default defineComponent({

@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { defineComponent } from '@vue/composition-api'
+import { defineComponent } from 'vue'
 import { Line as LineChartElement } from 'vue-chartjs/legacy'
 import {
   Chart,

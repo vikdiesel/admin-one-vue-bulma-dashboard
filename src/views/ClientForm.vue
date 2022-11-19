@@ -163,7 +163,7 @@
 </template>
 
 <script>
-import { defineComponent } from '@vue/composition-api'
+import { defineComponent } from 'vue'
 import { mapState } from 'vuex'
 import find from 'lodash/find'
 import TitleBar from '@/components/TitleBar.vue'

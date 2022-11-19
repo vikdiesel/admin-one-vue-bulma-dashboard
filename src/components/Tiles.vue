@@ -1,5 +1,5 @@
 <script>
-import { defineComponent } from '@vue/composition-api'
+import { defineComponent } from 'vue'
 import chunk from 'lodash/chunk'
 
 export default defineComponent({
