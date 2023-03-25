@@ -17,18 +17,18 @@ const routes = [
   },
   {
     meta: {
-      title: 'Tables'
+      title: 'Plantillas'
     },
     path: '/tables',
     name: 'tables',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "tables" */ '@/views/TablesView.vue')
+    component: () => import(/* webpackChunkName: "tables" */ '@/views/TemplatesView.vue')
   },
   {
     meta: {
-      title: 'Forms'
+      title: 'Formulario'
     },
     path: '/forms',
     name: 'forms',

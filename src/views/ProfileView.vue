@@ -2,7 +2,7 @@
   <div>
     <title-bar :title-stack="titleStack" />
     <hero-bar>
-      Profile
+      Perfil
       <router-link
         slot="right"
         to="/"
@@ -15,13 +15,13 @@
       <tiles-block>
         <profile-update-form class="tile is-child" />
         <card-component
-          title="Profile"
+          title="Perfil"
           icon="account"
           class="tile is-child"
         >
           <user-avatar class="image has-max-width is-aligned-center" />
           <hr>
-          <b-field label="Name">
+          <b-field label="Nombre">
             <b-input
               :value="userName"
               custom-class="is-static"
@@ -67,7 +67,7 @@ export default defineComponent({
   },
   data () {
     return {
-      titleStack: ['Admin', 'Profile']
+      titleStack: ['Admin', 'Perfil']
     }
   },
   computed: {

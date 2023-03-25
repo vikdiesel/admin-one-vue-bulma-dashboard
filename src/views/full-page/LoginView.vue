@@ -15,7 +15,7 @@
       method="POST"
       @submit.prevent="submit"
     >
-      <b-field label="E-mail Address">
+      <b-field label="Dirección E-mail">
         <b-input
           v-model="form.email"
           name="email"
@@ -24,7 +24,7 @@
         />
       </b-field>
 
-      <b-field label="Password">
+      <b-field label="Contraseña">
         <b-input
           v-model="form.password"
           type="password"
@@ -39,7 +39,7 @@
           type="is-black"
           class="is-thin"
         >
-          Remember me
+          Recuerdame
         </b-checkbox>
       </b-field>
 

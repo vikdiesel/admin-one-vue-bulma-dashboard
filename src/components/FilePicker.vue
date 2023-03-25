@@ -49,7 +49,7 @@ export default defineComponent({
   },
   computed: {
     buttonLabel () {
-      return this.file ? 'Pick another file' : 'Pick a file'
+      return this.file ? 'Escoge otro archivo' : 'Escoge un archivo'
     }
   },
   methods: {

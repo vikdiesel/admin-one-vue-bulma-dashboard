@@ -11,18 +11,18 @@ export default [
   [
     {
       to: '/tables',
-      label: 'Tables',
+      label: 'Plantillas',
       icon: 'table',
       updateMark: true
     },
     {
       to: '/forms',
-      label: 'Forms',
+      label: 'Formulario',
       icon: 'square-edit-outline'
     },
     {
       to: '/profile',
-      label: 'Profile',
+      label: 'Perfil',
       icon: 'account-circle'
     },
     {

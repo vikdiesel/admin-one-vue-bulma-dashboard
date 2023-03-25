@@ -5,23 +5,6 @@
       Dashboard
     </hero-bar>
     <section class="section is-main-section">
-      <notification-bar class="is-info">
-        Please star this project on GitHub
-
-        <a
-          slot="right"
-          href="https://github.com/vikdiesel/admin-one-vue-bulma-dashboard"
-          target="_blank"
-          class="button is-white is-small"
-        >
-          <b-icon
-            icon="github-circle"
-            custom-size="default"
-          />
-          <span>GitHub</span>
-        </a>
-      </notification-bar>
-
       <tiles-block>
         <card-widget
           class="tile is-child"
@@ -67,7 +50,7 @@
       </card-component>
 
       <card-component
-        title="Clients"
+        title="Clientes"
         class="has-table has-mobile-sort-spaced"
       >
         <clients-table-sample />
@@ -86,7 +69,6 @@ import CardWidget from '@/components/CardWidget.vue'
 import CardComponent from '@/components/CardComponent.vue'
 import LineChart from '@/components/Charts/LineChart.vue'
 import ClientsTableSample from '@/components/ClientsTableSample.vue'
-import NotificationBar from '@/components/NotificationBar.vue'
 
 export default defineComponent({
   name: 'HomeView',
@@ -97,8 +79,7 @@ export default defineComponent({
     CardWidget,
     TilesBlock,
     HeroBar,
-    TitleBar,
-    NotificationBar
+    TitleBar
   },
   data () {
     return {

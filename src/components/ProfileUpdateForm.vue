@@ -1,6 +1,6 @@
 <template>
   <card-component
-    title="Edit Profile"
+    title="Editar Perfil"
     icon="account-circle"
   >
     <form @submit.prevent="submit">
@@ -13,8 +13,8 @@
       <hr>
       <b-field
         horizontal
-        label="Name"
-        message="Required. Your name"
+        label="Nombre"
+        message="Obligatorio. Tu nombre"
       >
         <b-input
           v-model="userName"
@@ -25,7 +25,7 @@
       <b-field
         horizontal
         label="E-mail"
-        message="Required. Your e-mail"
+        message="Obligatorio. Tu e-mail"
       >
         <b-input
           v-model="userEmail"
@@ -43,7 +43,7 @@
               type="is-info"
               :loading="isLoading"
             >
-              Submit
+              Enviar
             </b-button>
           </div>
           <div class="control">
@@ -52,7 +52,7 @@
               native-type="button"
               outlined
             >
-              Reset
+              Reiniciar
             </b-button>
           </div>
         </b-field>

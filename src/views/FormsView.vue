@@ -2,7 +2,7 @@
   <div>
     <title-bar :title-stack="titleStack" />
     <hero-bar>
-      Forms
+      Formulario
       <router-link
         slot="right"
         to="/"
@@ -13,7 +13,7 @@
     </hero-bar>
     <section class="section is-main-section">
       <card-component
-        title="Forms"
+        title="Formulario"
         icon="ballot"
       >
         <form @submit.prevent="formAction">
@@ -110,7 +110,7 @@
                   native-type="submit"
                   type="is-info"
                 >
-                  Submit
+                  Enviar
                 </b-button>
               </div>
               <div class="control">
@@ -118,7 +118,7 @@
                   type="is-info is-outlined"
                   @click.prevent="formAction"
                 >
-                  Reset
+                  Reiniciar
                 </b-button>
               </div>
             </b-field>
@@ -198,7 +198,7 @@ export default defineComponent({
   },
   data () {
     return {
-      titleStack: ['Admin', 'Forms'],
+      titleStack: ['Admin', 'Formulario'],
       departments: ['Business Development', 'Marketing', 'Sales'],
       form: {
         name: null,

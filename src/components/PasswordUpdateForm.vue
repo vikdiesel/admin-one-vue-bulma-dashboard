@@ -1,13 +1,13 @@
 <template>
   <card-component
-    title="Change Password"
+    title="Cambiar Contraseña"
     icon="lock"
   >
     <form @submit.prevent="submit">
       <b-field
         horizontal
-        label="Current password"
-        message="Required. Your current password"
+        label="Contraseña Actual"
+        message="Obligatorio. Tu contraseña actual"
       >
         <b-input
           v-model="form.password_current"
@@ -20,8 +20,8 @@
       <hr>
       <b-field
         horizontal
-        label="New password"
-        message="Required. New password"
+        label="Contraseña nueva"
+        message="Obligatorio. Contraseña nueva"
       >
         <b-input
           v-model="form.password"
@@ -33,8 +33,8 @@
       </b-field>
       <b-field
         horizontal
-        label="Confirm password"
-        message="Required. New password one more time"
+        label="Confirma tu contraseña"
+        message="Obligatorio. Ingresa tu contraseña una vez mas"
       >
         <b-input
           v-model="form.password_confirmation"
@@ -52,7 +52,7 @@
             type="is-info"
             :loading="isLoading"
           >
-            Submit
+            Enviar
           </b-button>
         </div>
       </b-field>

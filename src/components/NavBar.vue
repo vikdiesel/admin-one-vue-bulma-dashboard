@@ -47,7 +47,7 @@
             icon="menu"
             custom-size="default"
           />
-          <span>Sample Menu</span>
+          <span>Menu</span>
           <div
             slot="dropdown"
             class="navbar-dropdown"
@@ -61,21 +61,21 @@
                 icon="account"
                 custom-size="default"
               />
-              <span>My Profile</span>
+              <span>Mi Perfil</span>
             </router-link>
             <a class="navbar-item">
               <b-icon
                 icon="settings"
                 custom-size="default"
               />
-              <span>Settings</span>
+              <span>Ajustes</span>
             </a>
             <a class="navbar-item">
               <b-icon
                 icon="email"
                 custom-size="default"
               />
-              <span>Messages</span>
+              <span>Mensajes</span>
             </a>
             <hr class="navbar-divider">
             <a class="navbar-item">
@@ -83,7 +83,7 @@
                 icon="logout"
                 custom-size="default"
               />
-              <span>Log Out</span>
+              <span>Cerrar Sesión</span>
             </a>
           </div>
         </nav-bar-menu>
@@ -132,17 +132,6 @@
             </a>
           </div>
         </nav-bar-menu>
-        <a
-          href="https://github.com/vikdiesel/admin-one-vue-bulma-dashboard"
-          class="navbar-item has-divider is-desktop-icon-only"
-          title="GitHub"
-        >
-          <b-icon
-            icon="github-circle"
-            custom-size="default"
-          />
-          <span>GitHub</span>
-        </a>
         <a
           class="navbar-item is-desktop-icon-only"
           title="Log out"
