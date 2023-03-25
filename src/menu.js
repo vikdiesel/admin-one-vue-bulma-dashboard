@@ -10,6 +10,11 @@ export default [
       to: '/render',
       label: 'Render',
       icon: 'square-edit-outline'
+    },
+    {
+      to: '/docs',
+      label: 'Documentos',
+      icon: 'file-document'
     }
   ]
 ]

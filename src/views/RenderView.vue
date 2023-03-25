@@ -6,7 +6,7 @@
       <card-component title="Render" icon="ballot">
         <form method="POST" @submit.prevent="generate">
           <b-field label="Plantilla">
-            <b-select v-model="selected" placeholder="Seleccionar plantilla" required>
+            <b-select v-model="selected" :loading="isLoading" placeholder="Seleccionar plantilla" required>
               <option
                 v-for="option in templates"
                 :value="option.id"

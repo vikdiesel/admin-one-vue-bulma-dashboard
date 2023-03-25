@@ -25,6 +25,15 @@ export default {
     },
     {
       meta: {
+        title: 'Documentos generados'
+      },
+      path: '/docs',
+      name: 'documents',
+      component: () =>
+        import(/* webpackChunkName: "forms" */ '@/views/DocumentsView.vue')
+    },
+    {
+      meta: {
         title: 'Profile'
       },
       path: '/profile',
