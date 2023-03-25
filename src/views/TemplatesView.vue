@@ -134,7 +134,6 @@ export default defineComponent({
   },
   methods: {
     trashModalOpen (obj) {
-      console.log('delete')
       this.trashObject = obj
       this.isModalActive = true
     },

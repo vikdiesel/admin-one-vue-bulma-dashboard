@@ -12,9 +12,6 @@ import store from './store'
 /* Vue. Main component */
 import App from './App.vue'
 
-/* Fetch sample data */
-store.dispatch('fetch', 'clients')
-
 /* Default title tag */
 const defaultDocumentTitle = 'Admin One Bulma Buefy'
 

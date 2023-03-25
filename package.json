@@ -11,11 +11,13 @@
     "lint:fix": "vue-cli-service lint --fix"
   },
   "dependencies": {
-    "axios": "^0.26.0",
+    "axios": "^0.26.1",
     "buefy": "^0.9.13",
     "bulma": "^0.9.3",
     "chart.js": "^3.7.1",
     "core-js": "^3.19.1",
+    "js-cookie": "^3.0.1",
+    "jwt-decode": "^3.1.2",
     "lodash": "^4.17.20",
     "numeral": "^2.0.6",
     "vue": "^2.7.14",

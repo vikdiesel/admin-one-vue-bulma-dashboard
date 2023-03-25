@@ -1,92 +1,15 @@
 import Vue from 'vue'
-import VueRouter from 'vue-router'
-import HomeView from '@/views/HomeView.vue'
+import Router from 'vue-router'
+import { getToken } from '@/utils/cookies'
+import store from '@/store'
+import mainRoutes from './routes'
 
-Vue.use(VueRouter)
+Vue.use(Router)
 
-const routes = [
-  {
-    // Document title tag
-    // We combine it with defaultDocumentTitle set in `src/main.js` on router.afterEach hook
-    meta: {
-      title: 'Dashboard'
-    },
-    path: '/',
-    name: 'home',
-    component: HomeView
-  },
-  {
-    meta: {
-      title: 'Plantillas'
-    },
-    path: '/tables',
-    name: 'tables',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "tables" */ '@/views/TemplatesView.vue')
-  },
-  {
-    meta: {
-      title: 'Formulario'
-    },
-    path: '/forms',
-    name: 'forms',
-    component: () =>
-      import(/* webpackChunkName: "forms" */ '@/views/RenderView.vue')
-  },
-  {
-    meta: {
-      title: 'Profile'
-    },
-    path: '/profile',
-    name: 'profile',
-    component: () =>
-      import(/* webpackChunkName: "profile" */ '@/views/ProfileView.vue')
-  },
-  {
-    meta: {
-      title: 'New Client'
-    },
-    path: '/client/new',
-    name: 'client.new',
-    component: () =>
-      import(/* webpackChunkName: "client-form" */ '@/views/ClientFormView.vue')
-  },
-  {
-    meta: {
-      title: 'Edit Client'
-    },
-    path: '/client/:id',
-    name: 'client.edit',
-    component: () =>
-      import(
-        /* webpackChunkName: "client-form" */ '@/views/ClientFormView.vue'
-      ),
-    props: true
-  },
-  {
-    path: '/full-page',
-    component: () =>
-      import(/* webpackChunkName: "full-page" */ '@/views/FullPageView.vue'),
-    children: [
-      {
-        meta: {
-          title: 'Login'
-        },
-        path: '/login',
-        name: 'login',
-        component: () =>
-          import(
-            /* webpackChunkName: "full-page" */ '@/views/full-page/LoginView.vue'
-          )
-      }
-    ]
-  }
-]
+const routes = [mainRoutes, { path: '*', redirect: '/404' }]
 
-const router = new VueRouter({
+const router = new Router({
+  base: process.env.BASE_URL,
   routes,
   scrollBehavior (to, from, savedPosition) {
     if (savedPosition) {
@@ -97,8 +20,38 @@ const router = new VueRouter({
   }
 })
 
-export default router
+router.beforeEach(async (to, from, next) => {
+  // determine whether the user has logged in
+  const token = getToken()
 
-export function useRouter () {
-  return router
-}
+  if (token) {
+    if (to.path === '/login' || to.path === '/register') {
+      // if is logged in, redirect to the home page
+      next({ path: '/' })
+    } else {
+      // determine whether the user has obtained his permission roles through getInfo
+      try {
+        // get user info
+        // await store.dispatch('users/verifyToken')
+        // await store.dispatch('users/getUser')
+        next()
+      } catch (error) {
+        console.log(error)
+        // remove token and go to login page to re-login
+        await store.dispatch('users/logout')
+        next(`/login?redirect=${to.path}`)
+      }
+    }
+  } else {
+    /* has no token */
+    if (to.meta.isPublic) {
+      // in the free login whitelist, go directly
+      next()
+    } else {
+      // other pages that do not have permission to access are redirected to the login page.
+      next(`/login?redirect=${to.path}`)
+    }
+  }
+})
+
+export default router
