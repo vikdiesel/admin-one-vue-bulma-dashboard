@@ -210,7 +210,7 @@ export default defineComponent({
     titleStack () {
       return [
         'Admin',
-        'Clients',
+        'Usuarios',
         this.isProfileExists ? this.form.name : 'New Client'
       ]
     },

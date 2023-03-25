@@ -11,7 +11,7 @@
           type="is-primary"
           icon="account-multiple"
           :number="512"
-          label="Clients"
+          label="Usuarios"
         />
         <card-widget
           class="tile is-child"
@@ -19,15 +19,7 @@
           icon="cart-outline"
           :number="7770"
           prefix="$"
-          label="Sales"
-        />
-        <card-widget
-          class="tile is-child"
-          type="is-success"
-          icon="chart-timeline-variant"
-          :number="256"
-          suffix="%"
-          label="Performance"
+          label="Ventas"
         />
       </tiles-block>
 

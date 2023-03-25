@@ -1,11 +1,11 @@
 <template>
   <div>
     <modal-box
-            :is-active="isModalActive"
-            :trash-object-name="trashObject ? trashObject.name_template : null"
-            @confirm="trashConfirm"
-            @cancel="trashCancel"
-          />
+      :is-active="isModalActive"
+      :trash-object-name="trashObject ? trashObject.name_template : null"
+      @confirm="trashConfirm"
+      @cancel="trashCancel"
+    />
     <title-bar :title-stack="titleStack" />
     <hero-bar>
       Plantillas<b-field slot="right" class="file is-primary has-addons-right">
@@ -29,19 +29,20 @@
             :paginated="paginated"
             :per-page="perPage"
             :data="data"
+            :selected.sync="selected"
             default-sort="name"
             striped
             hoverable
           >
-            <b-table-column v-slot="props" label="Nombre de la Plantilla" field="name_template" sortable>
-              {{ props.row.name_template }}
-            </b-table-column>
             <b-table-column
               v-slot="props"
-              label="Fecha"
-              field="date"
+              label="Nombre de la Plantilla"
+              field="name_template"
               sortable
             >
+              {{ props.row.name_template }}
+            </b-table-column>
+            <b-table-column v-slot="props" label="Fecha" field="date" sortable>
               {{ props.row.date }}
             </b-table-column>
             <b-table-column v-slot="props" label="Tamaño" field="size" sortable>
@@ -57,6 +58,13 @@
               </div>
             </section>
           </b-table>
+        </div>
+        <div>
+          <div>
+            <b-button size="is-medium" type="is-dark" style="margin: 15px 0px">
+              Renderizar
+            </b-button>
+          </div>
         </div>
       </card-component>
     </section>
@@ -106,7 +114,8 @@ export default defineComponent({
             date: '2016-04-26 06:26:28',
             size: '231 KB'
           }
-        ]
+        ],
+        selected: null
       }
     )
   },

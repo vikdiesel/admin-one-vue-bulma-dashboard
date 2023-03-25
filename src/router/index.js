@@ -32,7 +32,7 @@ const routes = [
     },
     path: '/forms',
     name: 'forms',
-    component: () => import(/* webpackChunkName: "forms" */ '@/views/FormsView.vue')
+    component: () => import(/* webpackChunkName: "forms" */ '@/views/RenderView.vue')
   },
   {
     meta: {

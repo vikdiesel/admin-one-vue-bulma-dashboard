@@ -87,62 +87,17 @@
             </a>
           </div>
         </nav-bar-menu>
-        <nav-bar-menu class="has-divider has-user-avatar">
-          <user-avatar />
-          <div class="is-user-name">
-            <span>{{ userName }}</span>
-          </div>
-
-          <div
-            slot="dropdown"
-            class="navbar-dropdown"
-          >
-            <router-link
-              to="/profile"
+        <router-link
+              to="/login"
               class="navbar-item"
               exact-active-class="is-active"
             >
               <b-icon
-                icon="account"
-                custom-size="default"
-              />
-              <span>My Profile</span>
-            </router-link>
-            <a class="navbar-item">
-              <b-icon
-                icon="settings"
-                custom-size="default"
-              />
-              <span>Settings</span>
-            </a>
-            <a class="navbar-item">
-              <b-icon
-                icon="email"
-                custom-size="default"
-              />
-              <span>Messages</span>
-            </a>
-            <hr class="navbar-divider">
-            <a class="navbar-item">
-              <b-icon
                 icon="logout"
                 custom-size="default"
               />
-              <span>Log Out</span>
-            </a>
-          </div>
-        </nav-bar-menu>
-        <a
-          class="navbar-item is-desktop-icon-only"
-          title="Log out"
-          @click="logout"
-        >
-          <b-icon
-            icon="logout"
-            custom-size="default"
-          />
-          <span>Log out</span>
-        </a>
+              <span>Cerrar Sesion</span>
+            </router-link>
       </div>
     </div>
   </nav>
@@ -152,12 +107,10 @@
 import { defineComponent } from 'vue'
 import { mapState } from 'vuex'
 import NavBarMenu from '@/components/NavBarMenu.vue'
-import UserAvatar from '@/components/UserAvatar.vue'
 
 export default defineComponent({
   name: 'NavBar',
   components: {
-    UserAvatar,
     NavBarMenu
   },
   data () {
