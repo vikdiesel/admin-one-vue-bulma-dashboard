@@ -26,11 +26,6 @@
             Login
           </b-button>
         </div>
-        <div class="control">
-          <router-link to="/" class="button is-outlined is-black">
-            Dashboard
-          </router-link>
-        </div>
       </b-field>
     </form>
   </card-component>

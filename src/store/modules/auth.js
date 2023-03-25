@@ -1,4 +1,4 @@
-import { setToken, setRefreshToken, decodeToken } from '@/utils/cookies'
+import { setToken, setRefreshToken, decodeToken, removeToken, removeRefreshToken } from '@/utils/cookies'
 import { login } from '@/api/auth'
 
 const state = {
@@ -29,6 +29,14 @@ const actions = {
       } catch (error) {
         reject(error)
       }
+    })
+  },
+  // user logout
+  logout () {
+    return new Promise((resolve, reject) => {
+      removeToken()
+      removeRefreshToken()
+      resolve()
     })
   }
 }

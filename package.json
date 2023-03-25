@@ -19,6 +19,7 @@
     "js-cookie": "^3.0.1",
     "jwt-decode": "^3.1.2",
     "lodash": "^4.17.20",
+    "moment": "^2.29.4",
     "numeral": "^2.0.6",
     "vue": "^2.7.14",
     "vue-chartjs": "^4.0.5",

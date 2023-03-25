@@ -3,22 +3,11 @@ export default {
   component: () => import('@/layouts/defaultLayout.vue'),
   children: [
     {
-      // Document title tag
-      // We combine it with defaultDocumentTitle set in `src/main.js` on router.afterEach hook
-      meta: {
-        title: 'Dashboard'
-      },
-      path: '/',
-      name: 'home',
-      component: () =>
-        import(/* webpackChunkName: "tables" */ '@/views/HomeView.vue')
-    },
-    {
       meta: {
         title: 'Plantillas'
       },
-      path: '/tables',
-      name: 'tables',
+      path: '/',
+      name: 'templates',
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
@@ -27,10 +16,10 @@ export default {
     },
     {
       meta: {
-        title: 'Formulario'
+        title: 'Render'
       },
-      path: '/forms',
-      name: 'forms',
+      path: '/render',
+      name: 'render',
       component: () =>
         import(/* webpackChunkName: "forms" */ '@/views/RenderView.vue')
     },
@@ -42,27 +31,6 @@ export default {
       name: 'profile',
       component: () =>
         import(/* webpackChunkName: "profile" */ '@/views/ProfileView.vue')
-    },
-    {
-      meta: {
-        title: 'New Client'
-      },
-      path: '/client/new',
-      name: 'client.new',
-      component: () =>
-        import(/* webpackChunkName: "client-form" */ '@/views/ClientFormView.vue')
-    },
-    {
-      meta: {
-        title: 'Edit Client'
-      },
-      path: '/client/:id',
-      name: 'client.edit',
-      component: () =>
-        import(
-          /* webpackChunkName: "client-form" */ '@/views/ClientFormView.vue'
-        ),
-      props: true
     },
     {
       path: '/full-page',

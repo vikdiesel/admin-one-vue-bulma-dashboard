@@ -9,13 +9,16 @@
     <title-bar :title-stack="titleStack" />
     <hero-bar>
       Plantillas<b-field slot="right" class="file is-primary has-addons-right">
-        <b-upload v-model="file" class="file-label" accept=".docx, .odt">
+        <b-upload
+          v-model="file"
+          class="file-label"
+          accept=".docx"
+          :loading="isLoading"
+          @input="uploadTemplate"
+        >
           <span class="file-cta has-text-right">
             <b-icon class="file-icon" icon="upload"></b-icon>
             <span class="file-label">Subir tu plantilla</span>
-          </span>
-          <span class="file-name" v-if="file">
-            {{ file.name }}
           </span>
         </b-upload>
       </b-field>
@@ -30,23 +33,36 @@
             :per-page="perPage"
             :data="data"
             :selected.sync="selected"
-            default-sort="name"
+            :loading="isLoading"
             striped
             hoverable
           >
             <b-table-column
               v-slot="props"
               label="Nombre de la Plantilla"
-              field="name_template"
-              sortable
+              field="title"
             >
-              {{ props.row.name_template }}
+              {{ props.row.title }}
             </b-table-column>
-            <b-table-column v-slot="props" label="Fecha" field="date" sortable>
-              {{ props.row.date }}
+            <b-table-column v-slot="props" label="Fecha" field="date">
+              {{ props.row.created_at | formatDate }}
             </b-table-column>
-            <b-table-column v-slot="props" label="Tamaño" field="size" sortable>
+            <b-table-column v-slot="props" label="Tamaño" field="size">
               {{ props.row.size }}
+            </b-table-column>
+            <b-table-column
+              v-slot="props"
+              label="Acciones"
+              field="size"
+              centered
+            >
+              <b-button
+                size="is-small"
+                type="is-danger"
+                @click="trash(props.row.id)"
+              >
+                <b-icon icon="trash-can" size="is-small"></b-icon>
+              </b-button>
             </b-table-column>
 
             <section slot="empty" class="section">
@@ -59,11 +75,11 @@
             </section>
           </b-table>
         </div>
-        <div>
+        <!-- <div>
           <div>
             <router-link
               :to="{
-                name: 'forms',
+                name: 'render',
                 params: {
                   data: { selected }
                 }
@@ -78,7 +94,7 @@
               </b-button>
             </router-link>
           </div>
-        </div>
+        </div> -->
       </card-component>
     </section>
     <section class="section is-main-section"></section>
@@ -101,52 +117,85 @@ export default defineComponent({
     ModalBox
   },
   data () {
-    return (
-      {
-        titleStack: ['Admin', 'Plantillas'],
-        isModalActive: false,
-        trashObject: null
-      },
-      {
-        data: [
-          {
-            id: 1,
-            name_template: 'CyberInsuranceCertificateTemplate',
-            date: '2016-10-15 13:43:27',
-            size: '131 KB'
-          },
-          {
-            id: 2,
-            name_template: 'CertificateTemplate',
-            date: '2016-12-15 06:00:53',
-            size: '141 KB'
-          },
-          {
-            id: 3,
-            name_template: 'ExampleTemplate',
-            date: '2016-04-26 06:26:28',
-            size: '231 KB'
-          }
-        ],
-        selected: null
-      }
-    )
+    return {
+      titleStack: ['Admin', 'Plantillas'],
+      isModalActive: false,
+      trashObject: null,
+      data: [],
+      isLoading: false
+    }
+  },
+  mounted () {
+    this.getData()
   },
   methods: {
-    trashModalOpen (obj) {
-      this.trashObject = obj
-      this.isModalActive = true
+    async getData () {
+      this.isLoading = true
+      try {
+        const res = await this.$store.dispatch('templates/getTemplates', {})
+        console.log(res)
+        this.data = res
+      } catch (error) {
+        console.log(error)
+      } finally {
+        this.isLoading = false
+      }
     },
-    trashConfirm () {
-      this.isModalActive = false
-
-      this.$buefy.snackbar.open({
-        message: 'Confirmed',
-        queue: false
+    async uploadTemplate (file) {
+      this.isLoading = true
+      const data = {
+        file: file,
+        title: file.name,
+        description: file.name
+      }
+      try {
+        const formData = new FormData()
+        formData.append('file', data.file)
+        formData.append('title', data.title)
+        formData.append('description', data.description)
+        await this.$store.dispatch('templates/uploadTemplate', formData)
+        this.$buefy.snackbar.open({
+          duration: 5000,
+          message: 'Plantilla subida correctamente',
+          type: 'is-success',
+          queue: false
+        })
+        this.getData()
+      } catch (error) {
+        console.log(error)
+        this.$buefy.snackbar.open({
+          duration: 5000,
+          message: 'Error al subir plantilla',
+          type: 'is-danger',
+          queue: false
+        })
+      } finally {
+        this.file = null
+        this.isLoading = false
+      }
+    },
+    trash (id) {
+      this.$buefy.dialog.confirm({
+        title: 'Eliminar plantilla',
+        message:
+          'Seguro que quieres eliminar esta plantilla? <b>Esta acción no se puede deshacer</b>',
+        confirmText: 'Eliminar',
+        cancelText: 'Cancelar',
+        type: 'is-danger',
+        hasIcon: true,
+        onConfirm: async () => {
+          this.isLoading = true
+          await this.$store.dispatch('templates/deleteTemplate', id)
+          this.$buefy.snackbar.open({
+            duration: 5000,
+            message: 'Plantilla eliminada correctamente',
+            type: 'is-success',
+            queue: false
+          })
+          this.getData()
+          this.isLoading = false
+        }
       })
-    },
-    trashCancel () {
-      this.isModalActive = false
     }
   }
 })

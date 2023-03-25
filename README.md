@@ -1,10 +1,10 @@
-# [Admin One  — Free Vue Bulma Buefy Dashboard](https://justboil.me/bulma-admin-template/free-vue-buefy-dashboard/)
+# [Syncrony  — Free Vue Bulma Buefy Dashboard](https://justboil.me/bulma-admin-template/free-vue-buefy-dashboard/)
 
 [![version](https://img.shields.io/github/v/release/vikdiesel/admin-one-vue-bulma-dashboard)](https://justboil.me/bulma-admin-template/free-vue-buefy-dashboard/)  [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://justboil.me/bulma-admin-template/free-vue-buefy-dashboard/)
 
 [![Free Vue.js 2.6 Bulma Buefy admin dashboard](https://static.justboil.me/templates/one/repo-bulma-vue.png)](https://vikdiesel.github.io/admin-one-vue-bulma-dashboard/?v=2)
 
-**Admin One** is simple, beautiful and free Vue.js 2.x Buefy Bulma admin dashboard
+**Syncrony** is simple, beautiful and free Vue.js 2.x Buefy Bulma admin dashboard
 
 * Built with **Vue.js 2.x** **Bulma** and **Buefy**
 * **Vue CLI** & **Vite** build tools support

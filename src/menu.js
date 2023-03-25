@@ -3,20 +3,11 @@ export default [
   [
     {
       to: '/',
-      icon: 'desktop-mac',
-      label: 'Dashboard'
-    }
-  ],
-  'OPCIONES',
-  [
-    {
-      to: '/tables',
       label: 'Plantillas',
-      icon: 'table',
-      updateMark: true
+      icon: 'table'
     },
     {
-      to: '/forms',
+      to: '/render',
       label: 'Render',
       icon: 'square-edit-outline'
     }

@@ -3,20 +3,34 @@
     <title-bar :title-stack="titleStack" />
     <hero-bar> Render </hero-bar>
     <section class="section is-main-section">
-      <card-component title="Render" icon="ballot"
-        ><div>
-          <h1>{{ name_template }} ({{ date }})</h1><br>
-        </div>
-        <div>
-          <b-field label="Ingrese Formato JSON">
-            <b-input type="textarea" v-model="text"></b-input>
+      <card-component title="Render" icon="ballot">
+        <form method="POST" @submit.prevent="generate">
+          <b-field label="Plantilla">
+            <b-select v-model="selected" placeholder="Seleccionar plantilla" required>
+              <option
+                v-for="option in templates"
+                :value="option.id"
+                :key="option.id"
+              >
+                {{ option.title }}
+              </option>
+            </b-select>
           </b-field>
-        </div>
-        <div>
-          <b-button size="is-medium" type="is-dark" style="margin: 15px 0px">
-            Generar
-          </b-button>
-        </div>
+          <b-field label="Ingrese Formato JSON">
+            <b-input type="textarea" v-model="text" required></b-input>
+          </b-field>
+          <div>
+            <b-button
+              size="is-medium"
+              type="is-dark"
+              style="margin: 15px 0px"
+              :loading="isLoading"
+              @click.prevent="generate"
+            >
+              Generar
+            </b-button>
+          </div>
+        </form>
         <div></div>
       </card-component>
     </section>
@@ -39,15 +53,57 @@ export default defineComponent({
   data () {
     return {
       titleStack: ['Admin', 'Render'],
-      obj: null,
       text: null,
-      name_template: null,
-      date: null
+      templates: [],
+      isLoading: false,
+      selected: null
     }
   },
-  created () {
-    this.name_template = this.$route.params.data.selected.name_template
-    this.date = this.$route.params.data.selected.date
+  mounted () {
+    this.getTemplates()
+  },
+  methods: {
+    async getTemplates () {
+      this.isLoading = true
+      try {
+        const res = await this.$store.dispatch('templates/getTemplates', {})
+        console.log(res)
+        this.templates = res
+      } catch (error) {
+        console.log(error)
+      } finally {
+        this.isLoading = false
+      }
+    },
+    async generate () {
+      if (this.selected === null) {
+        this.$buefy.toast.open({
+          message: 'Debe seleccionar una plantilla',
+          type: 'is-danger'
+        })
+        return
+      } else if (this.text === null) {
+        this.$buefy.toast.open({
+          message: 'Debe ingresar un formato JSON',
+          type: 'is-danger'
+        })
+        return
+      }
+      this.isLoading = true
+      try {
+        const data = {
+          template_id: this.selected,
+          json_data: JSON.parse(this.text)
+        }
+        const res = await this.$store.dispatch('documents/generateDocument', data)
+        console.log(res)
+        window.open(res.data.file, '_blank')
+      } catch (error) {
+        console.log(error)
+      } finally {
+        this.isLoading = false
+      }
+    }
   }
 })
 </script>
