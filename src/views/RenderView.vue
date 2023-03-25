@@ -1,22 +1,23 @@
 <template>
   <div>
     <title-bar :title-stack="titleStack" />
-    <hero-bar>
-      Render
-    </hero-bar>
+    <hero-bar> Render </hero-bar>
     <section class="section is-main-section">
       <card-component title="Render" icon="ballot"
         ><div>
+          <h1>{{ name_template }} ({{ date }})</h1><br>
+        </div>
+        <div>
           <b-field label="Ingrese Formato JSON">
             <b-input type="textarea" v-model="text"></b-input>
           </b-field>
         </div>
         <div>
-          <b-button size="is-medium"
-          type="is-dark" style="margin: 15px 0px;">
-                Generar
-            </b-button>
+          <b-button size="is-medium" type="is-dark" style="margin: 15px 0px">
+            Generar
+          </b-button>
         </div>
+        <div></div>
       </card-component>
     </section>
   </div>
@@ -38,24 +39,15 @@ export default defineComponent({
   data () {
     return {
       titleStack: ['Admin', 'Render'],
-      departments: ['Business Development', 'Marketing', 'Sales'],
-      form: {
-        name: null,
-        email: null,
-        phone: null,
-        department: null,
-        subject: null,
-        question: null
-      }
+      obj: null,
+      text: null,
+      name_template: null,
+      date: null
     }
   },
-  methods: {
-    formAction () {
-      this.$buefy.snackbar.open({
-        message: 'Demo only',
-        queue: false
-      })
-    }
+  created () {
+    this.name_template = this.$route.params.data.selected.name_template
+    this.date = this.$route.params.data.selected.date
   }
 })
 </script>

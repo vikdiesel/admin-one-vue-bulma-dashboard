@@ -61,9 +61,22 @@
         </div>
         <div>
           <div>
-            <b-button size="is-medium" type="is-dark" style="margin: 15px 0px">
-              Renderizar
-            </b-button>
+            <router-link
+              :to="{
+                name: 'forms',
+                params: {
+                  data: { selected }
+                }
+              }"
+            >
+              <b-button
+                size="is-medium"
+                type="is-dark"
+                style="margin: 15px 0px"
+              >
+                Renderizar
+              </b-button>
+            </router-link>
           </div>
         </div>
       </card-component>
